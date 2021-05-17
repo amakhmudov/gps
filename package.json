@@ -1,0 +1,18 @@
+{
+  "name": "gps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss build src/tailwind.css -o dist/css/main.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "alpine-magic-helpers": "^1.2.0",
+    "alpinejs": "^2.8.2",
+    "autoprefixer": "^10.2.5",
+    "tailwindcss": "^2.0.4"
+  }
+}

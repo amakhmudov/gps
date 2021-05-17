@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bd {
+  border: 1px solid #f00;
+}
+
+@layer components {
+  body {
+    @apply text-base text-body;
+  }
+
+  .form-control {
+    @apply rounded border border-gray-300 text-body-light placeholder-body-light;
+  }
+
+  /* Custom checkbox functionality */
+  .c-checkbox{
+    @apply flex items-center relative transition;
+  }
+
+  .c-checkbox.is_error .c-checkbox__icon{
+    @apply border-red-500;
+  }
+
+  .c-checkbox input[type="checkbox"]{
+    @apply w-0 h-0 opacity-0 absolute cursor-pointer;
+  }
+
+  .c-checkbox input[type="checkbox"]:checked + .c-checkbox__icon,
+  .c-checkbox input[type="checkbox"]:checked:disabled + .c-checkbox__icon{
+    @apply text-white border-0 bg-blue-400;
+  }
+
+  .c-checkbox input[type="checkbox"]:checked + .c-checkbox__icon svg{
+    @apply visible;
+  }
+
+  .c-checkbox input[type="checkbox"]:disabled + .c-checkbox__icon{
+    @apply text-gray-500 border-gray-300 bg-gray-100 cursor-not-allowed;
+  }
+
+  .c-checkbox input[type="checkbox"]:disabled:checked + .c-checkbox__icon svg{
+    @apply cursor-not-allowed;
+  }
+
+  .c-checkbox__icon{
+    width: 18px;
+    height: 18px;
+
+    @apply bg-white rounded border border-gray-300 relative transition;
+  }
+
+  .c-checkbox__icon:focus,
+  .c-checkbox__icon:hover{
+    @apply border-gray-100;
+  }
+
+  .c-checkbox__icon svg{
+    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer invisible transition;
+  }
+
+  .c-checkbox__title{
+    @apply ml-3 cursor-pointer;
+  }
+
+  /*Custom radio functionality*/
+  .c-radio{
+    @apply w-11 h-7 relative appearance-none cursor-pointer bg-white border border-gray-300 rounded-full transition focus:outline-none; 
+  }
+
+  .c-radio:checked,
+  .c-radio:active{
+    @apply bg-body border-body;
+  }
+
+  .c-radio:before{
+    content: "";
+
+    @apply absolute w-5 h-5 rounded-full bg-gray-300 top-1/2 left-1 -translate-y-1/2 transform transition-all duration-300;
+  }
+
+  .c-radio:checked:before,
+  .c-radio:active:before{
+    @apply ml-4 bg-white;
+  }
+
+  .sidebar{
+    backdrop-filter: blur(20px);
+
+    @apply bg-body;
+  }
+
+  .sidebar__content{
+    height: calc(100vh - 64px);
+
+    @apply shadow w-64 transition-all duration-700;
+  }
+
+  #sidebar.is_active .sidebar__content,
+  .sidebar__content.is_active{
+    @apply w-112;
+  }
+
+  .sidebar__media{
+    @apply w-16;
+  }
+
+  #sidebar.is_active .sidebar__media,
+  .sidebar__content.is_active .sidebar__media{
+    @apply w-32;
+  }
+
+  #sidebar.is_active .sidebar__more-info,
+  .sidebar__content.is_active .sidebar__more-info{
+    @apply block;
+  }
+
+  .sidebar__width-full{
+    @apply w-full;
+  }
+
+  #sidebar.is_active .sidebar__width-full,
+  .sidebar__content.is_active .sidebar__width-full{
+    @apply w-auto;
+  }
+
+  #sidebar.is_active ~ .main__content,
+  #sidebar.is_active ~ .main__content .main__content--fixed{
+    padding-left: 32.50000000rem;
+  }
+
+  .main__content{
+    height: calc(100vh - 65px);
+    padding-left: 18.50000000rem;
+
+    /*padding-left: 32.50000000rem;*/
+
+    @apply overflow-y-auto transition-all duration-700;
+  }
+
+  .main__content .main__content--fixed{
+    padding-left: 18.50000000rem;
+
+    @apply transition-all duration-700;
+  }
+}

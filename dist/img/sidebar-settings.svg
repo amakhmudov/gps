@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+  <g id="settings-icon" transform="translate(-321 -420)" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="1.846">
+    <circle id="Ellipse_1" data-name="Ellipse 1" cx="9.231" cy="9.231" r="9.231" transform="translate(323.769 422.769)"/>
+    <path id="Line_4" data-name="Line 4" transform="translate(333 422.769)" d="M0 0v4.615"/>
+    <path id="Line_5" data-name="Line 5" transform="translate(333 420)" d="M0 0v2.769"/>
+    <path id="Line_6" data-name="Line 6" transform="translate(333 441.231)" d="M0 0v2.769"/>
+    <path id="Line_7" data-name="Line 7" transform="translate(321 432)" d="M0 0h2.769"/>
+    <path id="Line_8" data-name="Line 8" transform="translate(342.231 432)" d="M0 0h2.769"/>
+    <path id="Line_9" data-name="Line 9" transform="translate(337.951 421.872)" d="M1.485 0L0 2.337"/>
+    <path id="Line_10" data-name="Line 10" transform="translate(326.565 439.791)" d="M1.485 0L0 2.337"/>
+    <path id="Line_11" data-name="Line 11" transform="translate(322.872 425.565)" d="M0 0l2.337 1.485"/>
+    <path id="Line_12" data-name="Line 12" transform="translate(336.953 434.512)" d="M0 0l6.175 3.924"/>
+    <path id="Line_13" data-name="Line 13" transform="translate(341.003 426.021)" d="M2.401 0L0 1.38"/>
+    <path id="Line_14" data-name="Line 14" transform="translate(322.596 434.284)" d="M6.43 0L0 3.696"/>
+    <path id="Line_15" data-name="Line 15" transform="translate(327.021 421.596)" d="M0 0l1.38 2.401"/>
+    <path id="Line_16" data-name="Line 16" transform="translate(337.6 440.003)" d="M0 0l1.38 2.401"/>
+    <circle id="Ellipse_2" data-name="Ellipse 2" cx="4.615" cy="4.615" r="4.615" transform="translate(328.385 427.385)"/>
+  </g>
+</svg>

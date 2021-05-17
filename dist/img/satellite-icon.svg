@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="23.529" height="23.529">
+  <g id="satellite-icon" transform="translate(-3.702 -3.701)" fill="none" stroke="#1b222b" stroke-miterlimit="10" stroke-width="1.6">
+    <path id="Path_7" data-name="Path 7" d="M15.466 20.47l-5-5 3.753-3.753a3.538 3.538 0 015 0h0a3.538 3.538 0 010 5z"/>
+    <path id="Path_8" data-name="Path 8" d="M16.673 18.442h8.846v5.307h-8.846z" transform="rotate(45 21.102 21.093)"/>
+    <path id="Path_9" data-name="Path 9" d="M5.414 7.183h8.846v5.307H5.414z" transform="rotate(45 9.84 9.836)"/>
+    <path id="Path_10" data-name="Path 10" d="M14.735 24.4a5.8 5.8 0 01-8.2-8.2"/>
+    <path id="Path_11" data-name="Path 11" d="M12.342 22.009a2.417 2.417 0 11-3.418-3.418"/>
+  </g>
+</svg>
