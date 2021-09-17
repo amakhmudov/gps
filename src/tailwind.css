@@ -95,7 +95,7 @@
   .sidebar__content{
     height: calc(100vh - 64px);
 
-    @apply shadow w-64 transition-all duration-700;
+    @apply w-64 transition-all duration-700;
   }
 
   #sidebar.is_active .sidebar__content,
@@ -110,6 +110,11 @@
   #sidebar.is_active .sidebar__media,
   .sidebar__content.is_active .sidebar__media{
     @apply w-32;
+  }
+
+  #sidebar.is_active .sidebar__media.is_half,
+  .sidebar__content.is_active .sidebar__media.is_half{
+    @apply w-6/12;
   }
 
   #sidebar.is_active .sidebar__more-info,
