@@ -663,7 +663,7 @@ body {
   border-color: rgba(239, 68, 68, var(--tw-border-opacity));
 }
 
-.c-checkbox input[type="checkbox"] {
+.c-checkbox input[type='checkbox'] {
   position: absolute;
   height: 0px;
   width: 0px;
@@ -671,7 +671,7 @@ body {
   opacity: 0;
 }
 
-.c-checkbox input[type="checkbox"]:checked + .c-checkbox__icon, .c-checkbox input[type="checkbox"]:checked:disabled + .c-checkbox__icon {
+.c-checkbox input[type='checkbox']:checked + .c-checkbox__icon, .c-checkbox input[type='checkbox']:checked:disabled + .c-checkbox__icon {
   border-width: 0px;
   --tw-bg-opacity: 1;
   background-color: rgba(96, 165, 250, var(--tw-bg-opacity));
@@ -679,11 +679,11 @@ body {
   color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 
-.c-checkbox input[type="checkbox"]:checked + .c-checkbox__icon svg {
+.c-checkbox input[type='checkbox']:checked + .c-checkbox__icon svg {
   visibility: visible;
 }
 
-.c-checkbox input[type="checkbox"]:disabled + .c-checkbox__icon {
+.c-checkbox input[type='checkbox']:disabled + .c-checkbox__icon {
   cursor: not-allowed;
   --tw-border-opacity: 1;
   border-color: rgba(209, 213, 219, var(--tw-border-opacity));
@@ -693,11 +693,11 @@ body {
   color: rgba(107, 114, 128, var(--tw-text-opacity));
 }
 
-.c-checkbox input[type="checkbox"]:disabled:checked + .c-checkbox__icon svg {
+.c-checkbox input[type='checkbox']:disabled:checked + .c-checkbox__icon svg {
   cursor: not-allowed;
 }
 
-.c-checkbox__icon{
+.c-checkbox__icon {
   width: 18px;
   height: 18px;
   position: relative;
@@ -777,8 +777,8 @@ body {
   background-color: rgba(27, 34, 43, var(--tw-bg-opacity));
 }
 
-.c-radio:before{
-  content: "";
+.c-radio:before {
+  content: '';
   position: absolute;
   top: 50%;
   left: 0.25rem;
@@ -802,16 +802,16 @@ body {
   background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 }
 
-.sidebar{
+.sidebar {
   -webkit-backdrop-filter: blur(20px);
           backdrop-filter: blur(20px);
   --tw-bg-opacity: 1;
   background-color: rgba(27, 34, 43, var(--tw-bg-opacity));
 }
 
-.sidebar__content{
+.sidebar__content {
   height: calc(100vh - 64px);
-  width: 16rem;
+  width: 18rem;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
@@ -827,6 +827,7 @@ body {
 }
 
 #sidebar.is_active .sidebar__media, .sidebar__content.is_active .sidebar__media {
+  margin-right: 0.75rem;
   width: 8rem;
 }
 
@@ -846,14 +847,38 @@ body {
   width: auto;
 }
 
-#sidebar.is_active ~ .main__content,
-  #sidebar.is_active ~ .main__content .main__content--fixed{
-  padding-left: 32.50000000rem;
+.sidebar__content.is_active .vehicle-info .sidebar__info {
+  width: 50%;
 }
 
-.main__content{
+.sidebar__content.is_compact .vehicle-info {
+  flex-wrap: wrap;
+}
+
+.sidebar__content.is_compact .vehicle-info .sidebar__media {
+  margin-right: 0px;
+  margin-bottom: 0.75rem;
+  width: 100%;
+}
+
+.sidebar__content.is_compact .vehicle-info .sidebar__media img {
+  height: 5rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.sidebar__content.is_compact .vehicle-info .sidebar__info {
+  width: 100%;
+}
+
+#sidebar.is_active ~ .main__content,
+  #sidebar.is_active ~ .main__content .main__content--fixed {
+  padding-left: 32.5rem;
+}
+
+.main__content {
   min-height: calc(100vh - 65px);
-  padding-left: 18.50000000rem;
+  padding-left: 18.5rem;
   /*padding-left: 32.50000000rem;*/
   overflow-y: auto;
   transition-property: all;
@@ -862,15 +887,15 @@ body {
   transition-duration: 700ms;
 }
 
-.main__content .main__content--fixed{
-  padding-left: 18.50000000rem;
+.main__content .main__content--fixed {
+  padding-left: 18.5rem;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
   transition-duration: 700ms;
 }
 
-.main__content--alone{
+.main__content--alone {
   min-height: calc(100vh - 65px);
   margin-left: 4.5rem;
   padding-left: 1.5rem;
@@ -1243,6 +1268,10 @@ body {
   height: 18rem;
 }
 
+.h-auto {
+  height: auto;
+}
+
 .h-32 {
   height: 8rem;
 }
@@ -1592,6 +1621,10 @@ body {
   --tw-divide-opacity: 0.5;
 }
 
+.divide-opacity-90 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-opacity: 0.9;
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
@@ -1604,8 +1637,16 @@ body {
   overflow-y: auto;
 }
 
+.overflow-y-scroll {
+  overflow-y: scroll;
+}
+
 .whitespace-nowrap {
   white-space: nowrap;
+}
+
+.break-words {
+  overflow-wrap: break-word;
 }
 
 .rounded-full {
@@ -2209,68 +2250,68 @@ body {
     border-color: rgba(239, 68, 68, var(--tw-border-opacity));
   }
 
-  .c-checkbox input[type="checkbox"] {
+  .c-checkbox input[type='checkbox'] {
     position: absolute;
   }
 
-  .c-checkbox input[type="checkbox"] {
+  .c-checkbox input[type='checkbox'] {
     height: 0px;
   }
 
-  .c-checkbox input[type="checkbox"] {
+  .c-checkbox input[type='checkbox'] {
     width: 0px;
   }
 
-  .c-checkbox input[type="checkbox"] {
+  .c-checkbox input[type='checkbox'] {
     cursor: pointer;
   }
 
-  .c-checkbox input[type="checkbox"] {
+  .c-checkbox input[type='checkbox'] {
     opacity: 0;
   }
 
-  .c-checkbox input[type="checkbox"]:checked + .c-checkbox__icon, .c-checkbox input[type="checkbox"]:checked:disabled + .c-checkbox__icon {
+  .c-checkbox input[type='checkbox']:checked + .c-checkbox__icon, .c-checkbox input[type='checkbox']:checked:disabled + .c-checkbox__icon {
     border-width: 0px;
   }
 
-  .c-checkbox input[type="checkbox"]:checked + .c-checkbox__icon, .c-checkbox input[type="checkbox"]:checked:disabled + .c-checkbox__icon {
+  .c-checkbox input[type='checkbox']:checked + .c-checkbox__icon, .c-checkbox input[type='checkbox']:checked:disabled + .c-checkbox__icon {
     --tw-bg-opacity: 1;
     background-color: rgba(96, 165, 250, var(--tw-bg-opacity));
   }
 
-  .c-checkbox input[type="checkbox"]:checked + .c-checkbox__icon, .c-checkbox input[type="checkbox"]:checked:disabled + .c-checkbox__icon {
+  .c-checkbox input[type='checkbox']:checked + .c-checkbox__icon, .c-checkbox input[type='checkbox']:checked:disabled + .c-checkbox__icon {
     --tw-text-opacity: 1;
     color: rgba(255, 255, 255, var(--tw-text-opacity));
   }
 
-  .c-checkbox input[type="checkbox"]:checked + .c-checkbox__icon svg {
+  .c-checkbox input[type='checkbox']:checked + .c-checkbox__icon svg {
     visibility: visible;
   }
 
-  .c-checkbox input[type="checkbox"]:disabled + .c-checkbox__icon {
+  .c-checkbox input[type='checkbox']:disabled + .c-checkbox__icon {
     cursor: not-allowed;
   }
 
-  .c-checkbox input[type="checkbox"]:disabled + .c-checkbox__icon {
+  .c-checkbox input[type='checkbox']:disabled + .c-checkbox__icon {
     --tw-border-opacity: 1;
     border-color: rgba(209, 213, 219, var(--tw-border-opacity));
   }
 
-  .c-checkbox input[type="checkbox"]:disabled + .c-checkbox__icon {
+  .c-checkbox input[type='checkbox']:disabled + .c-checkbox__icon {
     --tw-bg-opacity: 1;
     background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
   }
 
-  .c-checkbox input[type="checkbox"]:disabled + .c-checkbox__icon {
+  .c-checkbox input[type='checkbox']:disabled + .c-checkbox__icon {
     --tw-text-opacity: 1;
     color: rgba(107, 114, 128, var(--tw-text-opacity));
   }
 
-  .c-checkbox input[type="checkbox"]:disabled:checked + .c-checkbox__icon svg {
+  .c-checkbox input[type='checkbox']:disabled:checked + .c-checkbox__icon svg {
     cursor: not-allowed;
   }
 
-  .c-checkbox__icon{
+  .c-checkbox__icon {
     width: 18px;
     height: 18px;
   }
@@ -2425,8 +2466,8 @@ body {
     background-color: rgba(27, 34, 43, var(--tw-bg-opacity));
   }
 
-  .c-radio:before{
-    content: "";
+  .c-radio:before {
+    content: '';
   }
 
   .c-radio:before {
@@ -2486,7 +2527,7 @@ body {
     background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
   }
 
-  .sidebar{
+  .sidebar {
     -webkit-backdrop-filter: blur(20px);
             backdrop-filter: blur(20px);
   }
@@ -2496,12 +2537,12 @@ body {
     background-color: rgba(27, 34, 43, var(--tw-bg-opacity));
   }
 
-  .sidebar__content{
+  .sidebar__content {
     height: calc(100vh - 64px);
   }
 
   .sidebar__content {
-    width: 16rem;
+    width: 18rem;
   }
 
   .sidebar__content {
@@ -2520,6 +2561,10 @@ body {
 
   .sidebar__media {
     width: 4rem;
+  }
+
+  #sidebar.is_active .sidebar__media, .sidebar__content.is_active .sidebar__media {
+    margin-right: 0.75rem;
   }
 
   #sidebar.is_active .sidebar__media, .sidebar__content.is_active .sidebar__media {
@@ -2542,14 +2587,47 @@ body {
     width: auto;
   }
 
-  #sidebar.is_active ~ .main__content,
-  #sidebar.is_active ~ .main__content .main__content--fixed{
-    padding-left: 32.50000000rem;
+  .sidebar__content.is_active .vehicle-info .sidebar__info {
+    width: 50%;
   }
 
-  .main__content{
+  .sidebar__content.is_compact .vehicle-info {
+    flex-wrap: wrap;
+  }
+
+  .sidebar__content.is_compact .vehicle-info .sidebar__media {
+    margin-right: 0px;
+  }
+
+  .sidebar__content.is_compact .vehicle-info .sidebar__media {
+    margin-bottom: 0.75rem;
+  }
+
+  .sidebar__content.is_compact .vehicle-info .sidebar__media {
+    width: 100%;
+  }
+
+  .sidebar__content.is_compact .vehicle-info .sidebar__media img {
+    height: 5rem;
+  }
+
+  .sidebar__content.is_compact .vehicle-info .sidebar__media img {
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+
+  .sidebar__content.is_compact .vehicle-info .sidebar__info {
+    width: 100%;
+  }
+
+  #sidebar.is_active ~ .main__content,
+  #sidebar.is_active ~ .main__content .main__content--fixed {
+    padding-left: 32.5rem;
+  }
+
+  .main__content {
     min-height: calc(100vh - 65px);
-    padding-left: 18.50000000rem;
+    padding-left: 18.5rem;
     /*padding-left: 32.50000000rem;*/
   }
 
@@ -2567,8 +2645,8 @@ body {
     transition-duration: 700ms;
   }
 
-  .main__content .main__content--fixed{
-    padding-left: 18.50000000rem;
+  .main__content .main__content--fixed {
+    padding-left: 18.5rem;
   }
 
   .main__content .main__content--fixed {
@@ -2581,7 +2659,7 @@ body {
     transition-duration: 700ms;
   }
 
-  .main__content--alone{
+  .main__content--alone {
     min-height: calc(100vh - 65px);
   }
 
@@ -2592,6 +2670,26 @@ body {
   .main__content--alone {
     padding-left: 1.5rem;
   }
+}
+
+.custom-scroll.custom-scroll-y {
+  padding-right: 8px;
+}
+
+.custom-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  border-radius: 20px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background: #6a717e;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: #fff;
+  border-radius: 20px;
 }
 
 .hover\:bg-white:hover {
@@ -2610,6 +2708,10 @@ body {
 
 .hover\:bg-opacity-60:hover {
   --tw-bg-opacity: 0.6;
+}
+
+.hover\:bg-opacity-90:hover {
+  --tw-bg-opacity: 0.9;
 }
 
 .hover\:tracking-widest:hover {

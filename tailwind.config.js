@@ -1,5 +1,5 @@
 module.exports = {
-  mode: "jit",
+  mode: 'jit',
   purge: {
     enabled: true,
     content: ['./dist/**/*.html', './dist/**/*.js'],
@@ -17,11 +17,11 @@ module.exports = {
     extend: {
       spacing: {
         18: '4.5rem',
-        112: '28rem'
+        112: '28rem',
       },
       maxWidth: {
         aside: '520px',
-        media: '128px'
+        media: '128px',
       },
       fontSize: {
         '2xs': '.6875rem', //11px
@@ -29,12 +29,11 @@ module.exports = {
         base: '.9375rem', //15px
       },
       colors: {
-        body:{
+        body: {
           DEFAULT: '#1b222b',
           light: '#69717e',
-          accent: '#ff7f00'
+          accent: '#ff7f00',
         },
-
       },
     },
   },
