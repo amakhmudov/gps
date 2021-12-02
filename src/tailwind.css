@@ -151,24 +151,40 @@
     @apply w-full;
   }
 
+  .sidebar__content.is_compact + .main__content--chat {
+    padding-left: 23rem;
+  }
+
+  .sidebar__content.is_compact + .main__content--chat .main__content--fixed {
+    width: calc(100% - 23rem);
+    left: 23rem;
+  }
+
   #sidebar.is_active ~ .main__content,
   #sidebar.is_active ~ .main__content .main__content--fixed {
-    padding-left: 32.5rem;
+    padding-left: 33rem;
   }
 
   .main__content {
     min-height: calc(100vh - 65px);
-    padding-left: 18.5rem;
-
-    /*padding-left: 32.50000000rem;*/
-
     @apply overflow-y-auto transition-all duration-700;
   }
 
+  .main__content--chat {
+    height: calc(100vh - 65px);
+    padding-left: 33rem;
+  }
+
   .main__content .main__content--fixed {
-    padding-left: 18.5rem;
+    width: calc(100% - 33rem);
+    padding-left: 0;
+    left: 33rem;
 
     @apply transition-all duration-700;
+  }
+
+  .main__content .main__content--fixed.chat-author {
+    border: 1px solid #000;
   }
 
   .main__content--alone {

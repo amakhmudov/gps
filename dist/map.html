@@ -486,7 +486,7 @@
     </div>
 
     <div class="main flex-grow relative" id="map" x-data="{isGroupDepot: false}" @keydown.escape="isGroupDepot = false">
-      <div class="sidebar absolute w-18 h-full py-3 z-10 bg-opacity-70">
+      <div class="sidebar bd absolute w-18 h-full py-3 z-10 bg-opacity-70">
         <ul>
           <li>
             <button class="flex flex-col items-center w-full py-3 text-body bg-white text-2xs transition">
@@ -590,7 +590,7 @@
         </ul>
       </div>
 
-      <div x-data="{isOpen : true}" :class="{'is_active' : isOpen, 'is_compact' : ! isOpen}" class="sidebar__content absolute h-full flex flex-col z-10 top-0 left-20 transform">
+      <div x-data="{isOpen : true}" :class="{'is_active' : isOpen, 'is_compact' : ! isOpen}" class="bd sidebar__content absolute h-full flex flex-col z-10 top-0 left-20 transform">
         <div class="flex items-center p-6 pr-3 bg-gray-100 relative mb-2 shadow-lg rounded-lg">
           <p x-show="isOpen" x-transition:enter="transition-all ease-out duration-700 transform" x-transition:enter-start="w-0 origin-left" x-transition:enter-end="w-auto origin-left delay-300" class="text-lg font-medium h-7 mr-2 overflow-hidden whitespace-nowrap">All Vehicles, all Locations</p>
 
