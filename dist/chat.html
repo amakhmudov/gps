@@ -591,7 +591,7 @@
       </div>
 
       <div x-data="{isOpen : true}" :class="{'is_active' : isOpen, 'is_compact' : ! isOpen}" class="sidebar__content fixed flex flex-col z-10 left-20 transform">
-        <div class="flex items-center p-6 pr-3 bg-gray-100 relative mb-2 shadow-lg rounded-lg">
+        <div class="flex items-center p-6 px-3 bg-gray-100 relative mb-2 shadow-lg rounded-lg">
           <p x-show="isOpen" x-transition:enter="transition-all ease-out duration-700 transform" x-transition:enter-start="w-0 origin-left" x-transition:enter-end="w-auto origin-left delay-300" class="text-lg font-medium h-7 mr-2 overflow-hidden whitespace-nowrap">All Vehicles, all Locations</p>
 
           <div class="relative leading-none mr-auto" x-data="{isOpen: false}" @keydown.escape="isOpen = false">
@@ -659,7 +659,7 @@
             </div>
           </div>
 
-          <button @click="$component('map').isGroupDepot = true" class="w-12 h-9 mx-1 ml-6 inline-flex flex-shrink-0 items-center justify-center border border-gray-300 rounded text-body-light">
+          <button @click="$component('chat').isGroupDepot = true" class="w-12 h-9 mx-1 ml-6 inline-flex flex-shrink-0 items-center justify-center border border-gray-300 rounded text-body-light">
             <svg xmlns="http://www.w3.org/2000/svg" width="16.5" height="18">
               <path id="filter-icon" d="M.75.75v.75l6 7.5v7.5l3-2.25V9l6-7.5V.75zm1.5 3h12" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="1.5" />
             </svg>
@@ -3019,7 +3019,7 @@
 
       <div class="main__content main__content--chat relative bg-gray-100 pb-24 z-0">
         <div class="h-full overflow-y-scroll space-y-2 relative custom-scroll custom-scroll-y">
-          <div class="hidden1 chat-author relative w-full mx-6 z-10 pointer-events-none">
+          <div class="hidden1 chat-author relative mx-6 z-10 pointer-events-none">
             <div class="chat-author__content px-6 py-6 flex items-center justify-center space-x-4 bg-white shadow-lg1 pointer-events-auto">
               <span class="text-lg font-medium">OL-34-JR&nbsp;&middot;&nbsp;Arjen Verhaart</span>
 
@@ -3275,7 +3275,7 @@
             <div class="w-4/12">
               <p class="font-medium text-lg mb-4">Select Groups</p>
 
-              <div class="h-72 overflow-y-auto">
+              <div class="h-72 custom-scroll custom-scroll-y overflow-y-auto">
                 <label for="all-group" class="c-checkbox mb-3">
                   <input type="checkbox" name="all-group" id="all-group">
                   <span class="c-checkbox__icon">

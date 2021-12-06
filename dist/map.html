@@ -486,7 +486,7 @@
     </div>
 
     <div class="main flex-grow relative" id="map" x-data="{isGroupDepot: false}" @keydown.escape="isGroupDepot = false">
-      <div class="sidebar bd absolute w-18 h-full py-3 z-10 bg-opacity-70">
+      <div class="sidebar absolute w-18 h-full py-3 z-10 bg-opacity-70">
         <ul>
           <li>
             <button class="flex flex-col items-center w-full py-3 text-body bg-white text-2xs transition">
@@ -590,11 +590,25 @@
         </ul>
       </div>
 
-      <div x-data="{isOpen : true}" :class="{'is_active' : isOpen, 'is_compact' : ! isOpen}" class="bd sidebar__content absolute h-full flex flex-col z-10 top-0 left-20 transform">
-        <div class="flex items-center p-6 pr-3 bg-gray-100 relative mb-2 shadow-lg rounded-lg">
-          <p x-show="isOpen" x-transition:enter="transition-all ease-out duration-700 transform" x-transition:enter-start="w-0 origin-left" x-transition:enter-end="w-auto origin-left delay-300" class="text-lg font-medium h-7 mr-2 overflow-hidden whitespace-nowrap">All Vehicles, all Locations</p>
+      <div x-data="{isOpen : true}" :class="{'is_active' : isOpen, 'is_compact' : ! isOpen}" class="sidebar__content absolute h-full flex flex-col z-10 top-0 left-20 transform">
+        <div class="flex items-center p-6 px-3 bg-gray-100 relative mb-2 shadow-lg rounded-lg">
+          <p x-show="isOpen" x-transition:enter="transition-all ease-out duration-700 transform" x-transition:enter-start="w-0 origin-left" x-transition:enter-end="w-auto origin-left" class="text-body-light inline-flex items-start mr-2 whitespace-nowrap overflow-hidden">
+            <span class="w-3 h-3 mr-1.5 mt-1.5 flex-shrink-0 rounded-full bg-yellow-500"></span>
+            <span class="flex-shrink truncate">Dumps trucks, Rotterdam, Driving</span>
+          </p>
 
-          <div class="relative leading-none mr-auto" x-data="{isOpen: false}" @keydown.escape="isOpen = false">
+          <button class="text-body-light text-xs bg-gray-200 space-x-2 whitespace-nowrap rounded-full px-2.5 py-1.5 flex items-center mr-auto hover:bg-gray-100 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.414 9.414" class="w-2 h-2">
+              <path id="icons8-multiply" d="M8,8l8,8m0-8L8,16" transform="translate(-7.293 -7.293)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" />
+            </svg>
+
+            <span>Clear all</span>
+          </button>
+
+          <!-- Add `hidden` class to these elements in order to show filtered items -->
+          <p x-show="isOpen" x-transition:enter="transition-all ease-out duration-700 transform" x-transition:enter-start="w-0 origin-left" x-transition:enter-end="w-auto origin-left delay-300" class="hidden text-lg font-medium h-7 mr-2 overflow-hidden whitespace-nowrap">All Vehicles, all Locations</p>
+
+          <div class="hidden relative leading-none mr-auto" x-data="{isOpen: false}" @keydown.escape="isOpen = false">
             <button class="opacity-50" @click="isOpen = true">
               <svg xmlns="http://www.w3.org/2000/svg" width="17.816" height="17.816">
                 <g id="arrow-down-rounded-icon" transform="translate(-163.092 -136.092)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2">
@@ -658,6 +672,7 @@
               </div>
             </div>
           </div>
+          <!-- Add `hidden` class to these elements in order to show filtered items -->
 
           <button @click="$component('map').isGroupDepot = true" class="w-12 h-9 mx-1 ml-6 inline-flex flex-shrink-0 items-center justify-center border border-gray-300 rounded text-body-light">
             <svg xmlns="http://www.w3.org/2000/svg" width="16.5" height="18">
@@ -3033,7 +3048,7 @@
             <div class="w-4/12">
               <p class="font-medium text-lg mb-4">Select Groups</p>
 
-              <div class="h-72 overflow-y-auto">
+              <div class="h-72 custom-scroll custom-scroll-y overflow-y-auto">
                 <label for="all-group" class="c-checkbox mb-3">
                   <input type="checkbox" name="all-group" id="all-group">
                   <span class="c-checkbox__icon">
