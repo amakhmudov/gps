@@ -6,6 +6,10 @@
   border: 1px solid #f00;
 }
 
+[x-cloak] {
+  display: none !important;
+}
+
 @layer components {
   body {
     @apply text-base text-body;
@@ -109,7 +113,8 @@
 
   #sidebar.is_active .sidebar__media,
   .sidebar__content.is_active .sidebar__media {
-    @apply w-32 mr-3;
+    /* @apply w-32 mr-3; */
+    @apply mr-3;
   }
 
   #sidebar.is_active .sidebar__media.is_half,
@@ -136,11 +141,12 @@
   }
 
   .sidebar__content.is_compact .vehicle-info {
-    @apply flex-wrap;
+    /* @apply flex-wrap; */
   }
 
   .sidebar__content.is_compact .vehicle-info .sidebar__media {
-    @apply w-full mr-0 mb-3;
+    /* @apply w-full mr-0 mb-3; */
+    @apply mb-3;
   }
 
   .sidebar__content.is_compact .vehicle-info .sidebar__media img {
@@ -184,7 +190,7 @@
   }
 
   .main__content .main__content--fixed.chat-author {
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
   }
 
   .main__content--alone {
