@@ -38,7 +38,7 @@
         </svg>
       </button>
 
-      <div x-cloak x-show="isOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-5" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform translate-y-5" class="absolute p-6 border-t border-gray-200 top-full right-0 w-full bg-white z-30">
+      <div x-cloak x-show="isOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-y-5" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform translate-y-5" class="absolute p-6 border-t border-gray-200 top-full right-0 w-full bg-white shadow-lg z-30">
         <div class="w-64 ml-auto">
           <div class="flex items-center mb-6">
             <svg xmlns="http://www.w3.org/2000/svg" width="23.998" height="23.992" class="mr-4">
@@ -405,8 +405,8 @@
               <span>New</span>
             </button>
 
-            <div>
-              <button class="flex items-center px-2 py-1.5 space-x-1.5 rounded hover:bg-gray-100 transition">
+            <div x-data="{isOpen: false}" @keydown.escape="isOpen = false" class="relative">
+              <button @click="isOpen = true" :class="{'bg-gray-100' : isOpen}" class="flex items-center px-2 py-1.5 space-x-1.5 rounded hover:bg-gray-100 transition">
                 <svg width="18" height="24" viewBox="0 0 18 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12.635 8.55H15.363C15.6016 8.55 15.8379 8.597 16.0583 8.68831C16.2788 8.77963 16.4791 8.91347 16.6478 9.08219C16.8165 9.25091 16.9504 9.45122 17.0417 9.67167C17.133 9.89212 17.18 10.1284 17.18 10.367V21.267C17.1809 21.5062 17.1346 21.7432 17.0437 21.9645C16.9528 22.1857 16.8191 22.3869 16.6503 22.5563C16.4815 22.7258 16.2809 22.8603 16.06 22.952C15.8391 23.0438 15.6022 23.091 15.363 23.091H2.64C2.1581 23.091 1.69594 22.8996 1.35519 22.5588C1.01443 22.2181 0.823001 21.7559 0.823001 21.274V10.37C0.822606 10.1311 0.869313 9.89454 0.960449 9.67375C1.05159 9.45295 1.18536 9.25229 1.35413 9.08325C1.52289 8.91421 1.72333 8.7801 1.94397 8.6886C2.16462 8.5971 2.40114 8.55 2.64 8.55H5.363" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                   <path d="M9.00101 16.731V2.193" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
@@ -414,6 +414,75 @@
                 </svg>
                 <span>Export</span>
               </button>
+
+              <div x-cloak x-show="isOpen" @click.away="isOpen = false" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" class="w-56 bg-white shadow-lg p-4 rounded-lg absolute top-full left-1/2 -translate-x-1/2 z-10 leading-normal">
+
+                <button @click="isOpen = false" class="absolute right-1 top-1 w-6 h-6 bg-gray-200 rounded flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14.828" height="14.828">
+                    <g id="times-icon" transform="translate(-660.586 -213.586)">
+                      <path id="Path_12" data-name="Path 12" d="M662 215l12 12m0-12l-12 12" fill="none" stroke="#69717e" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" opacity=".999"></path>
+                    </g>
+                  </svg>
+                </button>
+
+                <p class="text-lg px-2 mb-4 font-medium overflow-hidden whitespace-nowrap">Export as...</p>
+
+                <ul class="space-y-2">
+                  <li>
+                    <a href="#" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-100 transition">
+                      <svg width="20" height="24" fill="none" class="flex-shrink-0" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.143 24H.857V0h12.572l5.714 5.714V24Z" fill="#4DB6AC" />
+                        <path d="M18.286 6.286h-5.429V.857l5.429 5.429Z" fill="#E0F2F1" />
+                        <path d="M7.74 15.249a2.126 2.126 0 0 1-.547 1.473 1.932 1.932 0 0 1-1.422.5 1.792 1.792 0 0 1-1.478-.636 2.815 2.815 0 0 1-.514-1.811v-.957a2.741 2.741 0 0 1 .531-1.807 1.82 1.82 0 0 1 1.476-.633 1.834 1.834 0 0 1 1.412.519c.35.419.544.946.549 1.492H6.596a1.528 1.528 0 0 0-.186-.83.733.733 0 0 0-.623-.228.7.7 0 0 0-.653.322c-.152.332-.22.696-.2 1.061v1.072a2.47 2.47 0 0 0 .19 1.164.7.7 0 0 0 .65.317.753.753 0 0 0 .625-.221c.142-.242.212-.52.2-.8l1.141.003Zm3.109.4a.712.712 0 0 0-.178-.525 2.042 2.042 0 0 0-.647-.369 3 3 0 0 1-1.23-.76 1.524 1.524 0 0 1-.375-1.029 1.442 1.442 0 0 1 .51-1.154c.364-.3.825-.454 1.295-.436.325-.006.646.07.934.221.267.14.487.357.631.623.15.28.226.595.221.914h-1.145a.947.947 0 0 0-.17-.607.599.599 0 0 0-.49-.209.614.614 0 0 0-.469.178.67.67 0 0 0-.168.479.59.59 0 0 0 .187.424c.196.17.421.303.664.393.459.14.875.394 1.209.738.258.312.393.708.377 1.113a1.465 1.465 0 0 1-.473 1.16c-.361.294-.82.443-1.285.418a2.215 2.215 0 0 1-1-.226 1.7 1.7 0 0 1-.709-.649 1.88 1.88 0 0 1-.256-1h1.153c-.022.253.046.506.191.715a.782.782 0 0 0 .625.223c.399.001.598-.21.598-.633v-.002Zm3.77-.07.957-4.125h1.281l-1.641 5.687h-1.2l-1.624-5.685h1.274l.953 4.123Z" fill="#00695C" />
+                      </svg>
+                      <span>.csv</span>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-50 transition">
+                      <svg width="19" height="24" fill="none" class="flex-shrink-0" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.286 24H0V0h12.572l5.714 5.714V24Z" fill="#388E3C" />
+                        <path d="M17.429 6.286H12V.857l5.429 5.429Z" fill="#E8F5E9" />
+                        <path d="m8.994 13.404 1.2-2.431h2.014L10.159 14.6l2.1 3.686h-2.03l-1.23-2.476-1.235 2.476H5.735L7.829 14.6 5.79 10.974h2.009l1.195 2.43Z" fill="#fff" />
+                      </svg>
+                      <span>.xls</span>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-50 transition">
+                      <svg width="20" height="24" fill="none" class="flex-shrink-0" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.143 24H.857V0h12.572l5.714 5.714V24Z" fill="#FF5722" />
+                        <path d="M18.286 6.286h-5.429V.857l5.429 5.429Z" fill="#FBE9E7" />
+                        <path d="M5.429 20.572a1.692 1.692 0 0 1-.571-.114 1.026 1.026 0 0 1-.572-1.258c.229-.686 1.486-1.543 3.143-2.286a20.559 20.559 0 0 0 1.657-4 6.594 6.594 0 0 1-.857-2.857 1.973 1.973 0 0 1 .286-1.029 1.256 1.256 0 0 1 1.029-.457 1.1 1.1 0 0 1 1.086.8 6.08 6.08 0 0 1-.286 3.371c.54.948 1.214 1.814 2 2.571a7.91 7.91 0 0 1 2.686-.229c1.085.173 1.256.916 1.256 1.202 0 1.2-1.257 1.2-1.714 1.2a3.828 3.828 0 0 1-2.457-.971 21.435 21.435 0 0 0-3.829 1.314 9.757 9.757 0 0 1-1.657 2.229c-.332.3-.754.48-1.2.514Zm.686-1.657a2.017 2.017 0 0 0-.629.514c.246-.122.46-.297.629-.514Zm7.771-2.686c.223.066.454.104.686.114.192-.003.383-.022.571-.057a2.138 2.138 0 0 0-1.257-.057Zm-4-2.057c-.229.686-.571 1.429-.857 2.114.686-.229 1.371-.457 2.057-.629a9.764 9.764 0 0 1-1.2-1.485Zm-.343-4.457h-.057c-.057.057-.114.457.114 1.314.09-.436.07-.887-.057-1.314Z" fill="#fff" />
+                      </svg>
+                      <span>.pdf</span>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-50 transition">
+                      <svg width="24" height="18" fill="none" class="flex-shrink-0" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M.923 1.616h22.154v14.769H.923V1.616Z" stroke="#1B222B" stroke-width="1.846" />
+                        <path d="M.923 1.616 12 9.001l11.077-7.385" stroke="#1B222B" stroke-width="1.846" />
+                      </svg>
+                      <span>Send to email</span>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#" class="flex items-center space-x-3 p-2 rounded hover:bg-gray-50 transition">
+                      <svg width="24" height="24" fill="none" class="flex-shrink-0" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 8V1H6v7m12 11h5v-9a2 2 0 0 0-2-2H3a2 2 0 0 0-2 2v9h17Z" stroke="#1B222B" stroke-width="2" />
+                        <path d="M6 15h12v8H6v-8Z" stroke="#1B222B" stroke-width="2" />
+                        <path d="M4 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z" fill="#1B222B" />
+                      </svg>
+                      <span>Print</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
 
             <button class="flex items-center px-2 py-1.5 space-x-1.5 rounded hover:bg-gray-100 transition">
