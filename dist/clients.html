@@ -496,7 +496,7 @@
           </div>
         </div>
 
-        <div x-data="{isOpen: false}" class="relative">
+        <div class="relative">
           <table x-data="tableSort()" class="reg-table">
             <thead>
               <tr>
@@ -514,7 +514,7 @@
                 <th @click="sortByColumn"><span class="reg-sort">City</span></th>
                 <th @click="sortByColumn"><span class="reg-sort">Country</span></th>
                 <th>
-                  <button>
+                  <button @click="$component('tableSortColumnsPopup').isOpen = true">
                     <svg width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M3.368 0a.675.675 0 0 0-.664.684v8.908a2.366 2.366 0 0 0-1.179.651 2.6 2.6 0 0 0 0 3.37c.322.327.731.553 1.18.651v3.061a.675.675 0 1 0 1.348 0v-3.061a2.366 2.366 0 0 0 1.18-.653 2.6 2.6 0 0 0 0-3.37 2.366 2.366 0 0 0-1.18-.651V.685a.675.675 0 0 0-.685-.684V0ZM8.99 0a.675.675 0 0 0-.664.684v2.162a2.366 2.366 0 0 0-1.179.651 2.6 2.6 0 0 0 0 3.37c.322.327.731.553 1.18.651v9.808a.675.675 0 1 0 1.348 0V7.518a2.366 2.366 0 0 0 1.18-.651 2.6 2.6 0 0 0 0-3.37 2.366 2.366 0 0 0-1.18-.651V.685A.675.675 0 0 0 8.99.001V0Zm5.622 0a.675.675 0 0 0-.664.684v9.808a2.366 2.366 0 0 0-1.179.651 2.6 2.6 0 0 0 0 3.37c.322.327.731.553 1.18.651v2.162a.675.675 0 1 0 1.348 0v-2.162a2.366 2.366 0 0 0 1.18-.653 2.6 2.6 0 0 0 0-3.37 2.367 2.367 0 0 0-1.18-.651V.685a.675.675 0 0 0-.685-.684V0ZM8.958 4.066a.677.677 0 0 0 .084 0 1.024 1.024 0 0 1 .8.328 1.253 1.253 0 0 1 0 1.578 1.026 1.026 0 0 1-.845.336 1.026 1.026 0 0 1-.845-.336 1.253 1.253 0 0 1 0-1.578 1.024 1.024 0 0 1 .806-.328Zm-5.622 6.745a.692.692 0 0 0 .084 0 1.025 1.025 0 0 1 .8.328 1.253 1.253 0 0 1 0 1.578 1.025 1.025 0 0 1-.8.328.692.692 0 0 0-.084 0 1.025 1.025 0 0 1-.8-.328 1.253 1.253 0 0 1 0-1.578 1.025 1.025 0 0 1 .8-.328Zm11.244.9a.692.692 0 0 0 .084 0 1.025 1.025 0 0 1 .8.328 1.253 1.253 0 0 1 0 1.578 1.025 1.025 0 0 1-.8.328.692.692 0 0 0-.084 0 1.025 1.025 0 0 1-.8-.328 1.253 1.253 0 0 1 0-1.578 1.024 1.024 0 0 1 .8-.328Z" fill="currentColor" />
                     </svg>
@@ -764,7 +764,230 @@
             </tbody>
           </table>
 
+          <div id="tableSortColumnsPopup" x-data="{isOpen: false}" x-cloak x-show="isOpen" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" class="w-72 bg-white shadow-lg p-6 rounded-lg absolute top-4 right-4 z-10 leading-normal">
 
+            <button @click="isOpen = false" class="absolute right-1 top-1 w-6 h-6 bg-gray-200 rounded flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14.828" height="14.828">
+                <g id="times-icon" transform="translate(-660.586 -213.586)">
+                  <path id="Path_12" data-name="Path 12" d="M662 215l12 12m0-12l-12 12" fill="none" stroke="#69717e" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" opacity=".999"></path>
+                </g>
+              </svg>
+            </button>
+
+            <p class="text-lg mb-4 font-medium overflow-hidden whitespace-nowrap">Columns</p>
+
+            <ul class="space-y-2">
+              <li>
+                <label for="tableSort-select-all" class="c-checkbox mb-3">
+                  <input type="checkbox" name="tableSort-select-all" id="tableSort-select-all">
+                  <span class="c-checkbox__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8.16">
+                      <g id="check-icon" transform="translate(-508 -397.92)">
+                        <path id="Path_28" data-name="Path 28" d="M17.309 7.651a.72.72 0 010 1.018l-6.72 6.72a.72.72 0 01-1.018 0l-3.84-3.84a.72.72 0 111.018-1.018l3.331 3.331 6.211-6.211a.72.72 0 011.018 0z" transform="translate(502.48 390.48)" fill="#fff" fill-rule="evenodd"></path>
+                      </g>
+                    </svg>
+                  </span>
+                  <span class="c-checkbox__title text-body-light capitalize">Select All</span>
+                </label>
+              </li>
+
+              <li>
+                <label for="tableSort-client-id" class="c-checkbox mb-3">
+                  <input type="checkbox" name="tableSort-client-id" id="tableSort-client-id" checked>
+                  <span class="c-checkbox__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8.16">
+                      <g id="check-icon" transform="translate(-508 -397.92)">
+                        <path id="Path_28" data-name="Path 28" d="M17.309 7.651a.72.72 0 010 1.018l-6.72 6.72a.72.72 0 01-1.018 0l-3.84-3.84a.72.72 0 111.018-1.018l3.331 3.331 6.211-6.211a.72.72 0 011.018 0z" transform="translate(502.48 390.48)" fill="#fff" fill-rule="evenodd"></path>
+                      </g>
+                    </svg>
+                  </span>
+                  <span class="c-checkbox__title text-body-light capitalize">Client ID</span>
+                </label>
+              </li>
+
+              <li>
+                <label for="tableSort-company" class="c-checkbox mb-3">
+                  <input type="checkbox" name="tableSort-company" id="tableSort-company" checked>
+                  <span class="c-checkbox__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8.16">
+                      <g id="check-icon" transform="translate(-508 -397.92)">
+                        <path id="Path_28" data-name="Path 28" d="M17.309 7.651a.72.72 0 010 1.018l-6.72 6.72a.72.72 0 01-1.018 0l-3.84-3.84a.72.72 0 111.018-1.018l3.331 3.331 6.211-6.211a.72.72 0 011.018 0z" transform="translate(502.48 390.48)" fill="#fff" fill-rule="evenodd"></path>
+                      </g>
+                    </svg>
+                  </span>
+                  <span class="c-checkbox__title text-body-light capitalize">Company</span>
+                </label>
+              </li>
+
+              <li>
+                <label for="tableSort-reference" class="c-checkbox mb-3">
+                  <input type="checkbox" name="tableSort-reference" id="tableSort-reference" checked>
+                  <span class="c-checkbox__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8.16">
+                      <g id="check-icon" transform="translate(-508 -397.92)">
+                        <path id="Path_28" data-name="Path 28" d="M17.309 7.651a.72.72 0 010 1.018l-6.72 6.72a.72.72 0 01-1.018 0l-3.84-3.84a.72.72 0 111.018-1.018l3.331 3.331 6.211-6.211a.72.72 0 011.018 0z" transform="translate(502.48 390.48)" fill="#fff" fill-rule="evenodd"></path>
+                      </g>
+                    </svg>
+                  </span>
+                  <span class="c-checkbox__title text-body-light capitalize">Reference</span>
+                </label>
+              </li>
+
+              <li>
+                <label for="tableSort-title" class="c-checkbox mb-3">
+                  <input type="checkbox" name="tableSort-title" id="tableSort-title" checked>
+                  <span class="c-checkbox__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8.16">
+                      <g id="check-icon" transform="translate(-508 -397.92)">
+                        <path id="Path_28" data-name="Path 28" d="M17.309 7.651a.72.72 0 010 1.018l-6.72 6.72a.72.72 0 01-1.018 0l-3.84-3.84a.72.72 0 111.018-1.018l3.331 3.331 6.211-6.211a.72.72 0 011.018 0z" transform="translate(502.48 390.48)" fill="#fff" fill-rule="evenodd"></path>
+                      </g>
+                    </svg>
+                  </span>
+                  <span class="c-checkbox__title text-body-light capitalize">Title</span>
+                </label>
+              </li>
+
+              <li>
+                <label for="tableSort-first-name" class="c-checkbox mb-3">
+                  <input type="checkbox" name="tableSort-first-name" id="tableSort-first-name" checked>
+                  <span class="c-checkbox__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8.16">
+                      <g id="check-icon" transform="translate(-508 -397.92)">
+                        <path id="Path_28" data-name="Path 28" d="M17.309 7.651a.72.72 0 010 1.018l-6.72 6.72a.72.72 0 01-1.018 0l-3.84-3.84a.72.72 0 111.018-1.018l3.331 3.331 6.211-6.211a.72.72 0 011.018 0z" transform="translate(502.48 390.48)" fill="#fff" fill-rule="evenodd"></path>
+                      </g>
+                    </svg>
+                  </span>
+                  <span class="c-checkbox__title text-body-light capitalize">First Name</span>
+                </label>
+              </li>
+
+              <li>
+                <label for="tableSort-last-name" class="c-checkbox mb-3">
+                  <input type="checkbox" name="tableSort-last-name" id="tableSort-last-name" checked>
+                  <span class="c-checkbox__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8.16">
+                      <g id="check-icon" transform="translate(-508 -397.92)">
+                        <path id="Path_28" data-name="Path 28" d="M17.309 7.651a.72.72 0 010 1.018l-6.72 6.72a.72.72 0 01-1.018 0l-3.84-3.84a.72.72 0 111.018-1.018l3.331 3.331 6.211-6.211a.72.72 0 011.018 0z" transform="translate(502.48 390.48)" fill="#fff" fill-rule="evenodd"></path>
+                      </g>
+                    </svg>
+                  </span>
+                  <span class="c-checkbox__title text-body-light capitalize">Last Name</span>
+                </label>
+              </li>
+
+              <li>
+                <label for="tableSort-holding" class="c-checkbox mb-3">
+                  <input type="checkbox" name="tableSort-holding" id="tableSort-holding">
+                  <span class="c-checkbox__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8.16">
+                      <g id="check-icon" transform="translate(-508 -397.92)">
+                        <path id="Path_28" data-name="Path 28" d="M17.309 7.651a.72.72 0 010 1.018l-6.72 6.72a.72.72 0 01-1.018 0l-3.84-3.84a.72.72 0 111.018-1.018l3.331 3.331 6.211-6.211a.72.72 0 011.018 0z" transform="translate(502.48 390.48)" fill="#fff" fill-rule="evenodd"></path>
+                      </g>
+                    </svg>
+                  </span>
+                  <span class="c-checkbox__title text-body-light capitalize">Holding</span>
+                </label>
+              </li>
+
+              <li>
+                <label for="tableSort-phone" class="c-checkbox mb-3">
+                  <input type="checkbox" name="tableSort-phone" id="tableSort-phone" checked>
+                  <span class="c-checkbox__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8.16">
+                      <g id="check-icon" transform="translate(-508 -397.92)">
+                        <path id="Path_28" data-name="Path 28" d="M17.309 7.651a.72.72 0 010 1.018l-6.72 6.72a.72.72 0 01-1.018 0l-3.84-3.84a.72.72 0 111.018-1.018l3.331 3.331 6.211-6.211a.72.72 0 011.018 0z" transform="translate(502.48 390.48)" fill="#fff" fill-rule="evenodd"></path>
+                      </g>
+                    </svg>
+                  </span>
+                  <span class="c-checkbox__title text-body-light capitalize">Phone</span>
+                </label>
+              </li>
+
+              <li>
+                <label for="tableSort-fax" class="c-checkbox mb-3">
+                  <input type="checkbox" name="tableSort-fax" id="tableSort-fax" checked>
+                  <span class="c-checkbox__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8.16">
+                      <g id="check-icon" transform="translate(-508 -397.92)">
+                        <path id="Path_28" data-name="Path 28" d="M17.309 7.651a.72.72 0 010 1.018l-6.72 6.72a.72.72 0 01-1.018 0l-3.84-3.84a.72.72 0 111.018-1.018l3.331 3.331 6.211-6.211a.72.72 0 011.018 0z" transform="translate(502.48 390.48)" fill="#fff" fill-rule="evenodd"></path>
+                      </g>
+                    </svg>
+                  </span>
+                  <span class="c-checkbox__title text-body-light capitalize">Fax</span>
+                </label>
+              </li>
+
+              <li>
+                <label for="tableSort-email" class="c-checkbox mb-3">
+                  <input type="checkbox" name="tableSort-email" id="tableSort-email" checked>
+                  <span class="c-checkbox__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8.16">
+                      <g id="check-icon" transform="translate(-508 -397.92)">
+                        <path id="Path_28" data-name="Path 28" d="M17.309 7.651a.72.72 0 010 1.018l-6.72 6.72a.72.72 0 01-1.018 0l-3.84-3.84a.72.72 0 111.018-1.018l3.331 3.331 6.211-6.211a.72.72 0 011.018 0z" transform="translate(502.48 390.48)" fill="#fff" fill-rule="evenodd"></path>
+                      </g>
+                    </svg>
+                  </span>
+                  <span class="c-checkbox__title text-body-light capitalize">Email</span>
+                </label>
+              </li>
+
+              <li>
+                <label for="tableSort-zip-code" class="c-checkbox mb-3">
+                  <input type="checkbox" name="tableSort-zip-code" id="tableSort-zip-code" checked>
+                  <span class="c-checkbox__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8.16">
+                      <g id="check-icon" transform="translate(-508 -397.92)">
+                        <path id="Path_28" data-name="Path 28" d="M17.309 7.651a.72.72 0 010 1.018l-6.72 6.72a.72.72 0 01-1.018 0l-3.84-3.84a.72.72 0 111.018-1.018l3.331 3.331 6.211-6.211a.72.72 0 011.018 0z" transform="translate(502.48 390.48)" fill="#fff" fill-rule="evenodd"></path>
+                      </g>
+                    </svg>
+                  </span>
+                  <span class="c-checkbox__title text-body-light capitalize">ZIP Code</span>
+                </label>
+              </li>
+
+              <li>
+                <label for="tableSort-city" class="c-checkbox mb-3">
+                  <input type="checkbox" name="tableSort-city" id="tableSort-city" checked>
+                  <span class="c-checkbox__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8.16">
+                      <g id="check-icon" transform="translate(-508 -397.92)">
+                        <path id="Path_28" data-name="Path 28" d="M17.309 7.651a.72.72 0 010 1.018l-6.72 6.72a.72.72 0 01-1.018 0l-3.84-3.84a.72.72 0 111.018-1.018l3.331 3.331 6.211-6.211a.72.72 0 011.018 0z" transform="translate(502.48 390.48)" fill="#fff" fill-rule="evenodd"></path>
+                      </g>
+                    </svg>
+                  </span>
+                  <span class="c-checkbox__title text-body-light capitalize">City</span>
+                </label>
+              </li>
+
+              <li>
+                <label for="tableSort-country" class="c-checkbox mb-3">
+                  <input type="checkbox" name="tableSort-country" id="tableSort-country" checked>
+                  <span class="c-checkbox__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8.16">
+                      <g id="check-icon" transform="translate(-508 -397.92)">
+                        <path id="Path_28" data-name="Path 28" d="M17.309 7.651a.72.72 0 010 1.018l-6.72 6.72a.72.72 0 01-1.018 0l-3.84-3.84a.72.72 0 111.018-1.018l3.331 3.331 6.211-6.211a.72.72 0 011.018 0z" transform="translate(502.48 390.48)" fill="#fff" fill-rule="evenodd"></path>
+                      </g>
+                    </svg>
+                  </span>
+                  <span class="c-checkbox__title text-body-light capitalize">Country</span>
+                </label>
+              </li>
+            </ul>
+
+            <div class="flex justify-center space-x-3 mt-6">
+              <button class="px-6 flex-grow py-3 font-medium text-lg border rounded">Reset</button>
+
+              <button class="px-6 flex-grow py-3 font-medium text-white text-lg border border-blue-500 rounded flex items-center bg-blue-500">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="mr-2 opacity-40">
+                  <g id="checked-icon" transform="translate(-476 -507)">
+                    <circle id="Ellipse_1" data-name="Ellipse 1" cx="11" cy="11" r="11" transform="translate(477 508)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"></circle>
+                    <path id="Path_1" data-name="Path 1" d="M20.675 11.4l-1.4-1.4-6.25 6.25L9.775 13l-1.4 1.4 4.65 4.65z" transform="translate(473.675 505)" fill="#fff"></path>
+                  </g>
+                </svg>
+                Apply
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
