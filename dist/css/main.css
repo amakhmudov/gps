@@ -1026,14 +1026,6 @@ body {
   right: -0.75rem;
 }
 
-.top-16 {
-  top: 4rem;
-}
-
-.right-6 {
-  right: 1.5rem;
-}
-
 .left-1\/2 {
   left: 50%;
 }
@@ -1044,10 +1036,6 @@ body {
 
 .left-full {
   left: 100%;
-}
-
-.top-10 {
-  top: 2.5rem;
 }
 
 .z-30 {
@@ -1068,10 +1056,6 @@ body {
 
 .z-auto {
   z-index: auto;
-}
-
-.z-50 {
-  z-index: 50;
 }
 
 .row-span-2 {
@@ -1589,16 +1573,16 @@ body {
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
-.space-x-6 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1.5rem * var(--tw-space-x-reverse));
-  margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(1rem * var(--tw-space-x-reverse));
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-x-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .divide-x > :not([hidden]) ~ :not([hidden]) {
@@ -1665,10 +1649,6 @@ body {
 
 .rounded-lg {
   border-radius: 0.5rem;
-}
-
-.rounded-2xl {
-  border-radius: 1rem;
 }
 
 .rounded-t-2xl {
@@ -1921,21 +1901,6 @@ body {
   padding-bottom: 3rem;
 }
 
-.px-14 {
-  padding-left: 3.5rem;
-  padding-right: 3.5rem;
-}
-
-.px-24 {
-  padding-left: 6rem;
-  padding-right: 6rem;
-}
-
-.px-28 {
-  padding-left: 7rem;
-  padding-right: 7rem;
-}
-
 .pr-3 {
   padding-right: 0.75rem;
 }
@@ -1966,10 +1931,6 @@ body {
 
 .pb-12 {
   padding-bottom: 3rem;
-}
-
-.pr-16 {
-  padding-right: 4rem;
 }
 
 .pl-0 {
@@ -2179,516 +2140,6 @@ body {
 
 .bd {
   border: 1px solid #f00;
-}
-
-@layer components {
-  body {
-    font-size: .9375rem;
-  }
-
-  body {
-    --tw-text-opacity: 1;
-    color: rgba(27, 34, 43, var(--tw-text-opacity));
-  }
-
-  .form-control {
-    border-radius: 0.25rem;
-  }
-
-  .form-control {
-    border-width: 1px;
-  }
-
-  .form-control {
-    --tw-border-opacity: 1;
-    border-color: rgba(209, 213, 219, var(--tw-border-opacity));
-  }
-
-  .form-control {
-    --tw-text-opacity: 1;
-    color: rgba(105, 113, 126, var(--tw-text-opacity));
-  }
-
-  .form-control::-moz-placeholder {
-    --tw-placeholder-opacity: 1;
-    color: rgba(105, 113, 126, var(--tw-placeholder-opacity));
-  }
-
-  .form-control:-ms-input-placeholder {
-    --tw-placeholder-opacity: 1;
-    color: rgba(105, 113, 126, var(--tw-placeholder-opacity));
-  }
-
-  .form-control::placeholder {
-    --tw-placeholder-opacity: 1;
-    color: rgba(105, 113, 126, var(--tw-placeholder-opacity));
-  }
-
-  /* Custom checkbox functionality */
-
-  .c-checkbox {
-    position: relative;
-  }
-
-  .c-checkbox {
-    display: flex;
-  }
-
-  .c-checkbox {
-    align-items: center;
-  }
-
-  .c-checkbox {
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-  }
-
-  .c-checkbox.is_error .c-checkbox__icon {
-    --tw-border-opacity: 1;
-    border-color: rgba(239, 68, 68, var(--tw-border-opacity));
-  }
-
-  .c-checkbox input[type='checkbox'] {
-    position: absolute;
-  }
-
-  .c-checkbox input[type='checkbox'] {
-    height: 0px;
-  }
-
-  .c-checkbox input[type='checkbox'] {
-    width: 0px;
-  }
-
-  .c-checkbox input[type='checkbox'] {
-    cursor: pointer;
-  }
-
-  .c-checkbox input[type='checkbox'] {
-    opacity: 0;
-  }
-
-  .c-checkbox input[type='checkbox']:checked + .c-checkbox__icon, .c-checkbox input[type='checkbox']:checked:disabled + .c-checkbox__icon {
-    border-width: 0px;
-  }
-
-  .c-checkbox input[type='checkbox']:checked + .c-checkbox__icon, .c-checkbox input[type='checkbox']:checked:disabled + .c-checkbox__icon {
-    --tw-bg-opacity: 1;
-    background-color: rgba(96, 165, 250, var(--tw-bg-opacity));
-  }
-
-  .c-checkbox input[type='checkbox']:checked + .c-checkbox__icon, .c-checkbox input[type='checkbox']:checked:disabled + .c-checkbox__icon {
-    --tw-text-opacity: 1;
-    color: rgba(255, 255, 255, var(--tw-text-opacity));
-  }
-
-  .c-checkbox input[type='checkbox']:checked + .c-checkbox__icon svg {
-    visibility: visible;
-  }
-
-  .c-checkbox input[type='checkbox']:disabled + .c-checkbox__icon {
-    cursor: not-allowed;
-  }
-
-  .c-checkbox input[type='checkbox']:disabled + .c-checkbox__icon {
-    --tw-border-opacity: 1;
-    border-color: rgba(209, 213, 219, var(--tw-border-opacity));
-  }
-
-  .c-checkbox input[type='checkbox']:disabled + .c-checkbox__icon {
-    --tw-bg-opacity: 1;
-    background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
-  }
-
-  .c-checkbox input[type='checkbox']:disabled + .c-checkbox__icon {
-    --tw-text-opacity: 1;
-    color: rgba(107, 114, 128, var(--tw-text-opacity));
-  }
-
-  .c-checkbox input[type='checkbox']:disabled:checked + .c-checkbox__icon svg {
-    cursor: not-allowed;
-  }
-
-  .c-checkbox__icon {
-    width: 18px;
-    height: 18px;
-  }
-
-  .c-checkbox__icon {
-    position: relative;
-  }
-
-  .c-checkbox__icon {
-    border-radius: 0.25rem;
-  }
-
-  .c-checkbox__icon {
-    border-width: 1px;
-  }
-
-  .c-checkbox__icon {
-    --tw-border-opacity: 1;
-    border-color: rgba(209, 213, 219, var(--tw-border-opacity));
-  }
-
-  .c-checkbox__icon {
-    --tw-bg-opacity: 1;
-    background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-  }
-
-  .c-checkbox__icon {
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-  }
-
-  .c-checkbox__icon:focus, .c-checkbox__icon:hover {
-    --tw-border-opacity: 1;
-    border-color: rgba(243, 244, 246, var(--tw-border-opacity));
-  }
-
-  .c-checkbox__icon svg {
-    visibility: hidden;
-  }
-
-  .c-checkbox__icon svg {
-    position: absolute;
-  }
-
-  .c-checkbox__icon svg {
-    top: 50%;
-  }
-
-  .c-checkbox__icon svg {
-    left: 50%;
-  }
-
-  .c-checkbox__icon svg {
-    --tw-translate-x: -50%;
-    transform: var(--tw-transform);
-  }
-
-  .c-checkbox__icon svg {
-    --tw-translate-y: -50%;
-    transform: var(--tw-transform);
-  }
-
-  .c-checkbox__icon svg {
-    transform: var(--tw-transform);
-  }
-
-  .c-checkbox__icon svg {
-    cursor: pointer;
-  }
-
-  .c-checkbox__icon svg {
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-  }
-
-  .c-checkbox__title {
-    margin-left: 0.75rem;
-  }
-
-  .c-checkbox__title {
-    cursor: pointer;
-  }
-
-  /*Custom radio functionality*/
-
-  .c-radio {
-    position: relative;
-  }
-
-  .c-radio {
-    height: 1.75rem;
-  }
-
-  .c-radio {
-    width: 2.75rem;
-  }
-
-  .c-radio {
-    cursor: pointer;
-  }
-
-  .c-radio {
-    -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none;
-  }
-
-  .c-radio {
-    border-radius: 9999px;
-  }
-
-  .c-radio {
-    border-width: 1px;
-  }
-
-  .c-radio {
-    --tw-border-opacity: 1;
-    border-color: rgba(209, 213, 219, var(--tw-border-opacity));
-  }
-
-  .c-radio {
-    --tw-bg-opacity: 1;
-    background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-  }
-
-  .c-radio {
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-  }
-
-  .c-radio:focus {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-  }
-
-  .c-radio:checked, .c-radio:active {
-    --tw-border-opacity: 1;
-    border-color: rgba(27, 34, 43, var(--tw-border-opacity));
-  }
-
-  .c-radio:checked, .c-radio:active {
-    --tw-bg-opacity: 1;
-    background-color: rgba(27, 34, 43, var(--tw-bg-opacity));
-  }
-
-  .c-radio:before {
-    content: '';
-  }
-
-  .c-radio:before {
-    position: absolute;
-  }
-
-  .c-radio:before {
-    top: 50%;
-  }
-
-  .c-radio:before {
-    left: 0.25rem;
-  }
-
-  .c-radio:before {
-    height: 1.25rem;
-  }
-
-  .c-radio:before {
-    width: 1.25rem;
-  }
-
-  .c-radio:before {
-    --tw-translate-y: -50%;
-    transform: var(--tw-transform);
-  }
-
-  .c-radio:before {
-    transform: var(--tw-transform);
-  }
-
-  .c-radio:before {
-    border-radius: 9999px;
-  }
-
-  .c-radio:before {
-    --tw-bg-opacity: 1;
-    background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
-  }
-
-  .c-radio:before {
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-  }
-
-  .c-radio:before {
-    transition-duration: 300ms;
-  }
-
-  .c-radio:checked:before, .c-radio:active:before {
-    margin-left: 1rem;
-  }
-
-  .c-radio:checked:before, .c-radio:active:before {
-    --tw-bg-opacity: 1;
-    background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-  }
-
-  .sidebar {
-    -webkit-backdrop-filter: blur(20px);
-            backdrop-filter: blur(20px);
-  }
-
-  .sidebar {
-    --tw-bg-opacity: 1;
-    background-color: rgba(27, 34, 43, var(--tw-bg-opacity));
-  }
-
-  .sidebar__content {
-    height: calc(100vh - 64px);
-  }
-
-  .sidebar__content {
-    width: 18rem;
-  }
-
-  .sidebar__content {
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-  }
-
-  .sidebar__content {
-    transition-duration: 700ms;
-  }
-
-  #sidebar.is_active .sidebar__content, .sidebar__content.is_active {
-    width: 28rem;
-  }
-
-  .sidebar__media {
-    width: 4rem;
-  }
-
-  #sidebar.is_active .sidebar__media, .sidebar__content.is_active .sidebar__media {
-    margin-right: 0.75rem;
-  }
-
-  #sidebar.is_active .sidebar__media, .sidebar__content.is_active .sidebar__media {
-    width: 8rem;
-  }
-
-  #sidebar.is_active .sidebar__media.is_half, .sidebar__content.is_active .sidebar__media.is_half {
-    width: 50%;
-  }
-
-  #sidebar.is_active .sidebar__more-info, .sidebar__content.is_active .sidebar__more-info {
-    display: block;
-  }
-
-  .sidebar__width-full {
-    width: 100%;
-  }
-
-  #sidebar.is_active .sidebar__width-full, .sidebar__content.is_active .sidebar__width-full {
-    width: auto;
-  }
-
-  .sidebar__content.is_active .vehicle-info .sidebar__info {
-    width: 50%;
-  }
-
-  .sidebar__content.is_compact .vehicle-info {
-    flex-wrap: wrap;
-  }
-
-  .sidebar__content.is_compact .vehicle-info .sidebar__media {
-    margin-right: 0px;
-  }
-
-  .sidebar__content.is_compact .vehicle-info .sidebar__media {
-    margin-bottom: 0.75rem;
-  }
-
-  .sidebar__content.is_compact .vehicle-info .sidebar__media {
-    width: 100%;
-  }
-
-  .sidebar__content.is_compact .vehicle-info .sidebar__media img {
-    height: 5rem;
-  }
-
-  .sidebar__content.is_compact .vehicle-info .sidebar__media img {
-    -o-object-fit: cover;
-       object-fit: cover;
-  }
-
-  .sidebar__content.is_compact .vehicle-info .sidebar__info {
-    width: 100%;
-  }
-
-  .sidebar__content.is_compact + .main__content--chat {
-    padding-left: 23rem;
-  }
-
-  .sidebar__content.is_compact + .main__content--chat .main__content--fixed {
-    width: calc(100% - 23rem);
-    left: 23rem;
-  }
-
-  #sidebar.is_active ~ .main__content,
-  #sidebar.is_active ~ .main__content .main__content--fixed {
-    padding-left: 33rem;
-  }
-
-  .main__content {
-    min-height: calc(100vh - 65px);
-  }
-
-  .main__content {
-    overflow-y: auto;
-  }
-
-  .main__content {
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-  }
-
-  .main__content {
-    transition-duration: 700ms;
-  }
-
-  .main__content--chat {
-    height: calc(100vh - 65px);
-    padding-left: 33rem;
-  }
-
-  .main__content .main__content--fixed {
-    width: calc(100% - 33rem);
-    padding-left: 0;
-    left: 33rem;
-  }
-
-  .main__content .main__content--fixed {
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-  }
-
-  .main__content .main__content--fixed {
-    transition-duration: 700ms;
-  }
-
-  .main__content .main__content--fixed.chat-author {
-    border: 1px solid #000;
-  }
-
-  .main__content--alone {
-    min-height: calc(100vh - 65px);
-  }
-
-  .main__content--alone {
-    margin-left: 4.5rem;
-  }
-
-  .main__content--alone {
-    padding-left: 1.5rem;
-  }
 }
 
 .custom-scroll.custom-scroll-y {
