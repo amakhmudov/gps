@@ -34,6 +34,9 @@ module.exports = {
           light: '#69717e',
           accent: '#ff7f00',
         },
+        blue: {
+          500: '#187cbc'
+        }
       },
     },
   },
@@ -42,5 +45,5 @@ module.exports = {
       letterSpacing: ['hover', 'focus'],
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
 };
