@@ -198,6 +198,72 @@
 
     @apply ml-18 pl-6;
   }
+
+  .reg-table {
+    @apply table-auto w-full;
+  }
+
+  .reg-table thead {
+    @apply text-white bg-blue-500;
+  }
+
+  .reg-table thead th {
+    @apply px-3 py-4 text-left font-medium;
+  }
+
+  .reg-table thead th .reg-table thead th:first-child,
+  .reg-table tbody td:first-child {
+    @apply pl-6;
+  }
+
+  .reg-table thead th:last-child {
+    @apply pr-8 text-right;
+  }
+
+  .reg-table thead .reg-sort {
+    @apply relative pr-3.5;
+  }
+
+  .reg-table thead .reg-sort:before,
+  .reg-table thead .reg-sort:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border: 4px solid transparent;
+
+    @apply absolute right-0 opacity-0 transition;
+  }
+
+  .reg-table thead .reg-sort:hover:before,
+  .reg-table thead .reg-sort:hover:after {
+    @apply opacity-30 transition;
+  }
+
+  .reg-table thead .reg-sort:before {
+    top: 1px;
+    border-bottom: 4px solid #fff;
+  }
+
+  .reg-table thead .reg-sort:after {
+    bottom: -1px;
+    border-top: 4px solid #fff;
+  }
+
+  .reg-table thead .reg-sort.is_asc:hover:before {
+    @apply opacity-100;
+  }
+
+  .reg-table thead .reg-sort.is_desc:hover:after {
+    @apply opacity-100;
+  }
+
+  .reg-table tbody tr:nth-child(even) {
+    @apply bg-gray-100 border-gray-200 border-b;
+  }
+
+  .reg-table tbody td {
+    @apply px-3 py-4;
+  }
 }
 
 .custom-scroll.custom-scroll-y {

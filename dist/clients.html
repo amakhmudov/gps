@@ -284,7 +284,7 @@
       </div>
 
       <div class="main__content--alone relative z-auto">
-        <div class="flex items-center justify-between px-6 py-3 bg-gray-100 bd">
+        <div class="flex items-center justify-between px-6 py-3 bg-gray-100">
           <a href="settings.html" class="w-8 h-9 ml-1 inline-flex flex-shrink-0 items-center justify-center text-body-light">
             <svg xmlns="http://www.w3.org/2000/svg" width="10.414" height="18.828" :class="{'hidden' : !isOpen}">
               <path id="arrow-left-icon" d="M9 17.414l-8-8 8-8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
@@ -326,7 +326,7 @@
           </form>
         </div>
 
-        <div class="flex items-center justify-between px-6 py-3 bd">
+        <div class="flex items-center justify-between px-6 py-3">
           <div x-data="{isOpen: false}" @keydown.escape="isOpen = false" class="relative leading-none">
             <div class="flex items-center space-x-2">
               <p class="text-lg font-medium overflow-hidden whitespace-nowrap">Clients</p>
@@ -494,11 +494,346 @@
               <span>Import</span>
             </button>
           </div>
+        </div>
+
+        <div x-data="{isOpen: false}" class="relative">
+          <table x-data="tableSort()" class="reg-table">
+            <thead>
+              <tr>
+                <th @click="sortByColumn"><span class="reg-sort">Cilent ID</span></th>
+                <th @click="sortByColumn"><span class="reg-sort">Company</span></th>
+                <th @click="sortByColumn"><span class="reg-sort">Reference</span></th>
+                <th @click="sortByColumn"><span class="reg-sort">Title</span></th>
+                <th @click="sortByColumn"><span class="reg-sort">First Name</span></th>
+                <th @click="sortByColumn"><span class="reg-sort">Last Name</span></th>
+                <th @click="sortByColumn"><span class="reg-sort">Holding</span></th>
+                <th @click="sortByColumn"><span class="reg-sort">Phone</span></th>
+                <th @click="sortByColumn"><span class="reg-sort">Fax</span></th>
+                <th @click="sortByColumn"><span class="reg-sort">Email</span></th>
+                <th @click="sortByColumn"><span class="reg-sort">ZIP Code</span></th>
+                <th @click="sortByColumn"><span class="reg-sort">City</span></th>
+                <th @click="sortByColumn"><span class="reg-sort">Country</span></th>
+                <th>
+                  <button>
+                    <svg width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3.368 0a.675.675 0 0 0-.664.684v8.908a2.366 2.366 0 0 0-1.179.651 2.6 2.6 0 0 0 0 3.37c.322.327.731.553 1.18.651v3.061a.675.675 0 1 0 1.348 0v-3.061a2.366 2.366 0 0 0 1.18-.653 2.6 2.6 0 0 0 0-3.37 2.366 2.366 0 0 0-1.18-.651V.685a.675.675 0 0 0-.685-.684V0ZM8.99 0a.675.675 0 0 0-.664.684v2.162a2.366 2.366 0 0 0-1.179.651 2.6 2.6 0 0 0 0 3.37c.322.327.731.553 1.18.651v9.808a.675.675 0 1 0 1.348 0V7.518a2.366 2.366 0 0 0 1.18-.651 2.6 2.6 0 0 0 0-3.37 2.366 2.366 0 0 0-1.18-.651V.685A.675.675 0 0 0 8.99.001V0Zm5.622 0a.675.675 0 0 0-.664.684v9.808a2.366 2.366 0 0 0-1.179.651 2.6 2.6 0 0 0 0 3.37c.322.327.731.553 1.18.651v2.162a.675.675 0 1 0 1.348 0v-2.162a2.366 2.366 0 0 0 1.18-.653 2.6 2.6 0 0 0 0-3.37 2.367 2.367 0 0 0-1.18-.651V.685a.675.675 0 0 0-.685-.684V0ZM8.958 4.066a.677.677 0 0 0 .084 0 1.024 1.024 0 0 1 .8.328 1.253 1.253 0 0 1 0 1.578 1.026 1.026 0 0 1-.845.336 1.026 1.026 0 0 1-.845-.336 1.253 1.253 0 0 1 0-1.578 1.024 1.024 0 0 1 .806-.328Zm-5.622 6.745a.692.692 0 0 0 .084 0 1.025 1.025 0 0 1 .8.328 1.253 1.253 0 0 1 0 1.578 1.025 1.025 0 0 1-.8.328.692.692 0 0 0-.084 0 1.025 1.025 0 0 1-.8-.328 1.253 1.253 0 0 1 0-1.578 1.025 1.025 0 0 1 .8-.328Zm11.244.9a.692.692 0 0 0 .084 0 1.025 1.025 0 0 1 .8.328 1.253 1.253 0 0 1 0 1.578 1.025 1.025 0 0 1-.8.328.692.692 0 0 0-.084 0 1.025 1.025 0 0 1-.8-.328 1.253 1.253 0 0 1 0-1.578 1.024 1.024 0 0 1 .8-.328Z" fill="currentColor" />
+                    </svg>
+                  </button>
+                </th>
+              </tr>
+            </thead>
+
+            <tbody x-ref="tbody">
+              <tr>
+                <td>1</td>
+                <td>Aarhoeve Winkel</td>
+                <td>2117085</td>
+                <td>&nbsp;</td>
+                <td>Jeroen</td>
+                <td>Hoolwerf</td>
+                <td>&nbsp;</td>
+                <td>908874567</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>2461&nbsp;RT</td>
+                <td>Ter Aar</td>
+                <td>NL</td>
+                <td>&nbsp;</td>
+              </tr>
+
+              <tr>
+                <td>2</td>
+                <td>Aarhoeve Winkel</td>
+                <td>2117085</td>
+                <td>&nbsp;</td>
+                <td>Jeroen</td>
+                <td>Hoolwerf</td>
+                <td>&nbsp;</td>
+                <td>908874567</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>2461&nbsp;RT</td>
+                <td>Ter Aar</td>
+                <td>NL</td>
+                <td>&nbsp;</td>
+              </tr>
+
+              <tr>
+                <td>4184</td>
+                <td>Barhoeve Winkel</td>
+                <td>2117085</td>
+                <td>&nbsp;</td>
+                <td>Aeroen</td>
+                <td>Aoolwerf</td>
+                <td>&nbsp;</td>
+                <td>908874567</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>2461&nbsp;RT</td>
+                <td>Aer Aar</td>
+                <td>NL</td>
+                <td>&nbsp;</td>
+              </tr>
+
+              <tr>
+                <td>4184</td>
+                <td>Aarhoeve Winkel</td>
+                <td>2117085</td>
+                <td>&nbsp;</td>
+                <td>Jeroen</td>
+                <td>Hoolwerf</td>
+                <td>&nbsp;</td>
+                <td>908874567</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>2461&nbsp;RT</td>
+                <td>Ter Aar</td>
+                <td>NL</td>
+                <td>&nbsp;</td>
+              </tr>
+
+              <tr>
+                <td>4184</td>
+                <td>Aarhoeve Winkel</td>
+                <td>2117085</td>
+                <td>&nbsp;</td>
+                <td>Jeroen</td>
+                <td>Hoolwerf</td>
+                <td>&nbsp;</td>
+                <td>908874567</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>2461&nbsp;RT</td>
+                <td>Ter Aar</td>
+                <td>NL</td>
+                <td>&nbsp;</td>
+              </tr>
+
+              <tr>
+                <td>4184</td>
+                <td>Aarhoeve Winkel</td>
+                <td>2117085</td>
+                <td>&nbsp;</td>
+                <td>Jeroen</td>
+                <td>Hoolwerf</td>
+                <td>&nbsp;</td>
+                <td>908874567</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>2461&nbsp;RT</td>
+                <td>Ter Aar</td>
+                <td>NL</td>
+                <td>&nbsp;</td>
+              </tr>
+
+              <tr>
+                <td>4184</td>
+                <td>Aarhoeve Winkel</td>
+                <td>2117085</td>
+                <td>&nbsp;</td>
+                <td>Jeroen</td>
+                <td>Hoolwerf</td>
+                <td>&nbsp;</td>
+                <td>908874567</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>2461&nbsp;RT</td>
+                <td>Ter Aar</td>
+                <td>NL</td>
+                <td>&nbsp;</td>
+              </tr>
+
+              <tr>
+                <td>1</td>
+                <td>Aarhoeve Winkel</td>
+                <td>2117085</td>
+                <td>&nbsp;</td>
+                <td>Jeroen</td>
+                <td>Hoolwerf</td>
+                <td>&nbsp;</td>
+                <td>908874567</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>2461&nbsp;RT</td>
+                <td>Ter Aar</td>
+                <td>NL</td>
+                <td>&nbsp;</td>
+              </tr>
+
+              <tr>
+                <td>2</td>
+                <td>Aarhoeve Winkel</td>
+                <td>2117085</td>
+                <td>&nbsp;</td>
+                <td>Jeroen</td>
+                <td>Hoolwerf</td>
+                <td>&nbsp;</td>
+                <td>908874567</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>2461&nbsp;RT</td>
+                <td>Ter Aar</td>
+                <td>NL</td>
+                <td>&nbsp;</td>
+              </tr>
+
+              <tr>
+                <td>4184</td>
+                <td>Barhoeve Winkel</td>
+                <td>2117085</td>
+                <td>&nbsp;</td>
+                <td>Aeroen</td>
+                <td>Aoolwerf</td>
+                <td>&nbsp;</td>
+                <td>908874567</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>2461&nbsp;RT</td>
+                <td>Aer Aar</td>
+                <td>NL</td>
+                <td>&nbsp;</td>
+              </tr>
+
+              <tr>
+                <td>4184</td>
+                <td>Aarhoeve Winkel</td>
+                <td>2117085</td>
+                <td>&nbsp;</td>
+                <td>Jeroen</td>
+                <td>Hoolwerf</td>
+                <td>&nbsp;</td>
+                <td>908874567</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>2461&nbsp;RT</td>
+                <td>Ter Aar</td>
+                <td>NL</td>
+                <td>&nbsp;</td>
+              </tr>
+
+              <tr>
+                <td>4184</td>
+                <td>Aarhoeve Winkel</td>
+                <td>2117085</td>
+                <td>&nbsp;</td>
+                <td>Jeroen</td>
+                <td>Hoolwerf</td>
+                <td>&nbsp;</td>
+                <td>908874567</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>2461&nbsp;RT</td>
+                <td>Ter Aar</td>
+                <td>NL</td>
+                <td>&nbsp;</td>
+              </tr>
+
+              <tr>
+                <td>4184</td>
+                <td>Aarhoeve Winkel</td>
+                <td>2117085</td>
+                <td>&nbsp;</td>
+                <td>Jeroen</td>
+                <td>Hoolwerf</td>
+                <td>&nbsp;</td>
+                <td>908874567</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>2461&nbsp;RT</td>
+                <td>Ter Aar</td>
+                <td>NL</td>
+                <td>&nbsp;</td>
+              </tr>
+
+              <tr>
+                <td>4184</td>
+                <td>Aarhoeve Winkel</td>
+                <td>2117085</td>
+                <td>&nbsp;</td>
+                <td>Jeroen</td>
+                <td>Hoolwerf</td>
+                <td>&nbsp;</td>
+                <td>908874567</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>2461&nbsp;RT</td>
+                <td>Ter Aar</td>
+                <td>NL</td>
+                <td>&nbsp;</td>
+              </tr>
+            </tbody>
+          </table>
+
 
         </div>
       </div>
     </div>
   </div>
+
+  <script>
+    function tableSort() {
+      return {
+        sortBy: "",
+        sortAsc: false,
+        sortByColumn($event) {
+          if (this.sortBy === $event.target.innerText) {
+            if (this.sortAsc) {
+              this.sortBy = "";
+              this.sortAsc = false;
+            } else {
+              this.sortAsc = !this.sortAsc;
+            }
+          } else {
+            this.sortBy = $event.target.innerText;
+          }
+
+          if (this.sortAsc) {
+            $event.target.classList.add("is_asc");
+            $event.target.classList.remove("is_desc");
+          }
+          else {
+            $event.target.classList.add("is_desc");
+            $event.target.classList.remove("is_asc");
+          }
+
+          let rows = this.getTableRows()
+            .sort(
+              this.sortCallback(
+                Array.from($event.target.parentNode.children).indexOf(
+                  $event.target
+                )
+              )
+            )
+            .forEach((tr) => {
+              this.$refs.tbody.appendChild(tr);
+            });
+        },
+
+        getTableRows() {
+          return Array.from(this.$refs.tbody.querySelectorAll("tr"));
+        },
+
+        getCellValue(row, index) {
+          return row.children[index].innerText;
+        },
+
+        sortCallback(index) {
+          return (a, b) =>
+            ((row1, row2) => {
+              return row1 !== "" &&
+                row2 !== "" &&
+                !isNaN(row1) &&
+                !isNaN(row2)
+                ? row1 - row2
+                : row1.toString().localeCompare(row2);
+            })(
+              this.getCellValue(this.sortAsc ? a : b, index),
+              this.getCellValue(this.sortAsc ? b : a, index)
+            );
+        }
+      };
+    }
+  </script>
 
   <script src="js/component.min.js"></script>
   <script defer src="js/alpine.min.js"></script>

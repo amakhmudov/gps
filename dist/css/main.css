@@ -590,7 +590,7 @@ video {
   --tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: #fff;
-  --tw-ring-color: rgba(59, 130, 246, 0.5);
+  --tw-ring-color: rgba(24, 124, 188, 0.5);
   --tw-ring-offset-shadow: 0 0 #0000;
   --tw-ring-shadow: 0 0 #0000;
   --tw-blur: var(--tw-empty,/*!*/ /*!*/);
@@ -917,6 +917,99 @@ body {
   min-height: calc(100vh - 65px);
   margin-left: 4.5rem;
   padding-left: 1.5rem;
+}
+
+.reg-table {
+  width: 100%;
+  table-layout: auto;
+}
+
+.reg-table thead {
+  --tw-bg-opacity: 1;
+  background-color: rgba(24, 124, 188, var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
+.reg-table thead th {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-align: left;
+  font-weight: 500;
+}
+
+.reg-table thead th .reg-table thead th:first-child, .reg-table tbody td:first-child {
+  padding-left: 1.5rem;
+}
+
+.reg-table thead th:last-child {
+  padding-right: 2rem;
+  text-align: right;
+}
+
+.reg-table thead .reg-sort {
+  position: relative;
+  padding-right: 0.875rem;
+}
+
+.reg-table thead .reg-sort:before,
+  .reg-table thead .reg-sort:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border: 4px solid transparent;
+  position: absolute;
+  right: 0px;
+  opacity: 0;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.reg-table thead .reg-sort:hover:before, .reg-table thead .reg-sort:hover:after {
+  opacity: 0.3;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.reg-table thead .reg-sort:before {
+  top: 1px;
+  border-bottom: 4px solid #fff;
+}
+
+.reg-table thead .reg-sort:after {
+  bottom: -1px;
+  border-top: 4px solid #fff;
+}
+
+.reg-table thead .reg-sort.is_asc:hover:before {
+  opacity: 1;
+}
+
+.reg-table thead .reg-sort.is_desc:hover:after {
+  opacity: 1;
+}
+
+.reg-table tbody tr:nth-child(even) {
+  border-bottom-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgba(229, 231, 235, var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+}
+
+.reg-table tbody td {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .pointer-events-none {
@@ -1769,7 +1862,7 @@ body {
 
 .border-blue-500 {
   --tw-border-opacity: 1;
-  border-color: rgba(59, 130, 246, var(--tw-border-opacity));
+  border-color: rgba(24, 124, 188, var(--tw-border-opacity));
 }
 
 .border-body {
@@ -1814,7 +1907,7 @@ body {
 
 .bg-blue-500 {
   --tw-bg-opacity: 1;
-  background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
+  background-color: rgba(24, 124, 188, var(--tw-bg-opacity));
 }
 
 .bg-body-accent {
@@ -2139,7 +2232,7 @@ body {
 
 .text-blue-500 {
   --tw-text-opacity: 1;
-  color: rgba(59, 130, 246, var(--tw-text-opacity));
+  color: rgba(24, 124, 188, var(--tw-text-opacity));
 }
 
 .underline {
@@ -2762,6 +2855,144 @@ body {
 
   .main__content--alone {
     padding-left: 1.5rem;
+  }
+
+  .reg-table {
+    width: 100%;
+  }
+
+  .reg-table {
+    table-layout: auto;
+  }
+
+  .reg-table thead {
+    --tw-bg-opacity: 1;
+    background-color: rgba(24, 124, 188, var(--tw-bg-opacity));
+  }
+
+  .reg-table thead {
+    --tw-text-opacity: 1;
+    color: rgba(255, 255, 255, var(--tw-text-opacity));
+  }
+
+  .reg-table thead th {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .reg-table thead th {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .reg-table thead th {
+    text-align: left;
+  }
+
+  .reg-table thead th {
+    font-weight: 500;
+  }
+
+  .reg-table thead th .reg-table thead th:first-child, .reg-table tbody td:first-child {
+    padding-left: 1.5rem;
+  }
+
+  .reg-table thead th:last-child {
+    padding-right: 2rem;
+  }
+
+  .reg-table thead th:last-child {
+    text-align: right;
+  }
+
+  .reg-table thead .reg-sort {
+    position: relative;
+  }
+
+  .reg-table thead .reg-sort {
+    padding-right: 0.875rem;
+  }
+
+  .reg-table thead .reg-sort:before,
+  .reg-table thead .reg-sort:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border: 4px solid transparent;
+  }
+
+  .reg-table thead .reg-sort:before, .reg-table thead .reg-sort:after {
+    position: absolute;
+  }
+
+  .reg-table thead .reg-sort:before, .reg-table thead .reg-sort:after {
+    right: 0px;
+  }
+
+  .reg-table thead .reg-sort:before, .reg-table thead .reg-sort:after {
+    opacity: 0;
+  }
+
+  .reg-table thead .reg-sort:before, .reg-table thead .reg-sort:after {
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  .reg-table thead .reg-sort:hover:before, .reg-table thead .reg-sort:hover:after {
+    opacity: 0.3;
+  }
+
+  .reg-table thead .reg-sort:hover:before, .reg-table thead .reg-sort:hover:after {
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  .reg-table thead .reg-sort:before {
+    top: 1px;
+    border-bottom: 4px solid #fff;
+  }
+
+  .reg-table thead .reg-sort:after {
+    bottom: -1px;
+    border-top: 4px solid #fff;
+  }
+
+  .reg-table thead .reg-sort.is_asc:hover:before {
+    opacity: 1;
+  }
+
+  .reg-table thead .reg-sort.is_desc:hover:after {
+    opacity: 1;
+  }
+
+  .reg-table tbody tr:nth-child(even) {
+    border-bottom-width: 1px;
+  }
+
+  .reg-table tbody tr:nth-child(even) {
+    --tw-border-opacity: 1;
+    border-color: rgba(229, 231, 235, var(--tw-border-opacity));
+  }
+
+  .reg-table tbody tr:nth-child(even) {
+    --tw-bg-opacity: 1;
+    background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+  }
+
+  .reg-table tbody td {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .reg-table tbody td {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 }
 
