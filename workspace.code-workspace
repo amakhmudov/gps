@@ -1,9 +1,11 @@
 {
-	"folders": [
-		{
-			"name": "gps",
-			"path": "."
-		}
-	],
-  "settings": {}
+  "folders": [
+    {
+      "name": "gps",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "liveServer.settings.port": 5501
+  }
 }

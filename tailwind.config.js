@@ -38,6 +38,9 @@ module.exports = {
           500: '#187cbc'
         }
       },
+      boxShadow: {
+        'shadow-lg-opposite': '-10px 10px 15px -3px rgb(0 0 0 / 0.1), -4px 4px 6px -4px rgb(0 0 0 / 0.1)',
+      }
     },
   },
   variants: {

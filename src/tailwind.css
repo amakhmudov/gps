@@ -19,6 +19,11 @@
     @apply rounded border border-gray-300 text-body-light placeholder-body-light;
   }
 
+  input[type='text'],
+  select {
+    @apply focus:outline-none focus:shadow transition;
+  }
+
   /* Custom checkbox functionality */
   .c-checkbox {
     @apply flex items-center relative transition;

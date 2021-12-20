@@ -499,7 +499,7 @@
         <div class="relative">
           <table x-data="tableSort()" class="reg-table">
             <thead>
-              <tr>
+              <tr class="cursor-pointer">
                 <th @click="sortByColumn"><span class="reg-sort">Cilent ID</span></th>
                 <th @click="sortByColumn"><span class="reg-sort">Company</span></th>
                 <th @click="sortByColumn"><span class="reg-sort">Reference</span></th>
@@ -524,7 +524,7 @@
             </thead>
 
             <tbody x-ref="tbody">
-              <tr>
+              <tr class="cursor-pointer" @click="$component('client-id1').isOpen = true">
                 <td>1</td>
                 <td>Aarhoeve Winkel</td>
                 <td>2117085</td>
@@ -541,7 +541,7 @@
                 <td>&nbsp;</td>
               </tr>
 
-              <tr>
+              <tr class="cursor-pointer">
                 <td>2</td>
                 <td>Aarhoeve Winkel</td>
                 <td>2117085</td>
@@ -558,7 +558,7 @@
                 <td>&nbsp;</td>
               </tr>
 
-              <tr>
+              <tr class="cursor-pointer">
                 <td>4184</td>
                 <td>Barhoeve Winkel</td>
                 <td>2117085</td>
@@ -575,7 +575,7 @@
                 <td>&nbsp;</td>
               </tr>
 
-              <tr>
+              <tr class="cursor-pointer">
                 <td>4184</td>
                 <td>Aarhoeve Winkel</td>
                 <td>2117085</td>
@@ -592,7 +592,7 @@
                 <td>&nbsp;</td>
               </tr>
 
-              <tr>
+              <tr class="cursor-pointer">
                 <td>4184</td>
                 <td>Aarhoeve Winkel</td>
                 <td>2117085</td>
@@ -609,7 +609,7 @@
                 <td>&nbsp;</td>
               </tr>
 
-              <tr>
+              <tr class="cursor-pointer">
                 <td>4184</td>
                 <td>Aarhoeve Winkel</td>
                 <td>2117085</td>
@@ -626,7 +626,7 @@
                 <td>&nbsp;</td>
               </tr>
 
-              <tr>
+              <tr class="cursor-pointer">
                 <td>4184</td>
                 <td>Aarhoeve Winkel</td>
                 <td>2117085</td>
@@ -643,7 +643,7 @@
                 <td>&nbsp;</td>
               </tr>
 
-              <tr>
+              <tr class="cursor-pointer">
                 <td>1</td>
                 <td>Aarhoeve Winkel</td>
                 <td>2117085</td>
@@ -660,7 +660,7 @@
                 <td>&nbsp;</td>
               </tr>
 
-              <tr>
+              <tr class="cursor-pointer">
                 <td>2</td>
                 <td>Aarhoeve Winkel</td>
                 <td>2117085</td>
@@ -677,7 +677,7 @@
                 <td>&nbsp;</td>
               </tr>
 
-              <tr>
+              <tr class="cursor-pointer">
                 <td>4184</td>
                 <td>Barhoeve Winkel</td>
                 <td>2117085</td>
@@ -694,7 +694,7 @@
                 <td>&nbsp;</td>
               </tr>
 
-              <tr>
+              <tr class="cursor-pointer">
                 <td>4184</td>
                 <td>Aarhoeve Winkel</td>
                 <td>2117085</td>
@@ -711,7 +711,7 @@
                 <td>&nbsp;</td>
               </tr>
 
-              <tr>
+              <tr class="cursor-pointer">
                 <td>4184</td>
                 <td>Aarhoeve Winkel</td>
                 <td>2117085</td>
@@ -728,7 +728,7 @@
                 <td>&nbsp;</td>
               </tr>
 
-              <tr>
+              <tr class="cursor-pointer">
                 <td>4184</td>
                 <td>Aarhoeve Winkel</td>
                 <td>2117085</td>
@@ -745,7 +745,7 @@
                 <td>&nbsp;</td>
               </tr>
 
-              <tr>
+              <tr class="cursor-pointer">
                 <td>4184</td>
                 <td>Aarhoeve Winkel</td>
                 <td>2117085</td>
@@ -764,7 +764,7 @@
             </tbody>
           </table>
 
-          <div id="tableSortColumnsPopup" x-data="{isOpen: false}" x-cloak x-show="isOpen" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" class="w-72 bg-white shadow-lg p-6 rounded-lg absolute top-4 right-4 z-10 leading-normal">
+          <div id="tableSortColumnsPopup" x-data="{isOpen: false}" x-cloak x-show="isOpen" @click.away="isOpen = false" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" class="w-72 bg-white shadow-lg p-6 rounded-lg absolute top-4 right-4 z-10 leading-normal">
 
             <button @click="isOpen = false" class="absolute right-1 top-1 w-6 h-6 bg-gray-200 rounded flex items-center justify-center">
               <svg xmlns="http://www.w3.org/2000/svg" width="14.828" height="14.828">
@@ -987,6 +987,136 @@
                 Apply
               </button>
             </div>
+          </div>
+        </div>
+
+        <div id="client-id1" x-data="{isOpen: false}" x-cloak x-show="isOpen" @click.away="isOpen = false" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" class="w-[500px] h-full bg-white shadow-lg p-6 px-9 shadow-lg-opposite absolute top-0 right-0 z-10 leading-normal">
+
+          <button @click="isOpen = false" class="absolute right-1 top-1 w-6 h-6 bg-gray-200 rounded flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14.828" height="14.828">
+              <g id="times-icon" transform="translate(-660.586 -213.586)">
+                <path id="Path_12" data-name="Path 12" d="M662 215l12 12m0-12l-12 12" fill="none" stroke="#69717e" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" opacity=".999"></path>
+              </g>
+            </svg>
+          </button>
+
+          <p class="text-lg mb-10 text-center font-medium overflow-hidden whitespace-nowrap">4184, Jeroen Hoolwerf</p>
+
+          <div x-data="{tab: 'generalTab'}" class="p-6 pt-0 bg-gray-100 rounded-lg border border-gray-200">
+            <div class="flex justify-center relative -translate-y-1/2 z-10">
+              <div class="rounded-lg bg-gray-100 border border-gray-200 p-0.5">
+                <button @click="tab = 'generalTab'" :class="{'bg-white shadow-sm': tab === 'generalTab'}" class="px-3 py-2 rounded text-body-light focus:text-body focus:outline-none transition">General</button>
+
+                <button @click="tab = 'locationTab'" :class="{'bg-white shadow-sm' : tab === 'locationTab'}" class="px-3 py-2 rounded text-body-light focus:text-body focus:outline-none transition">Location</button>
+              </div>
+            </div>
+
+            <div x-show="tab == 'generalTab'" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0" class="tab-content">
+              <form class="space-y-3">
+                <div class="flex items-center">
+                  <label for="client-id1-company" class="w-3/12 flex-shrink-0">Company</label>
+                  <input type="text" name="client-id1-company" id="client-id1-company" class="flex-auto px-3 py-2 text-body-light bg-white border rounded placeholder-body-light focus:shadow-outline">
+                </div>
+
+                <div class="flex items-center">
+                  <label for="client-id1-reference" class="w-3/12 flex-shrink-0">Reference</label>
+                  <input type="text" name="client-id1-reference" id="client-id1-reference" class="flex-auto px-3 py-2 text-body-light bg-white border rounded placeholder-body-light focus:shadow-outline">
+                </div>
+
+                <div class="flex items-center">
+                  <label for="client-id1-title" class="w-3/12 flex-shrink-0">Title</label>
+                  <input type="text" name="client-id1-title" id="client-id1-title" class="flex-auto px-3 py-2 text-body-light bg-white border rounded placeholder-body-light focus:shadow-outline">
+                </div>
+
+                <div class="flex items-center">
+                  <label for="client-id1-first-name" class="w-3/12 flex-shrink-0">First Name</label>
+                  <input type="text" name="client-id1-first-name" id="client-id1-first-name" class="flex-auto px-3 py-2 text-body-light bg-white border rounded placeholder-body-light focus:shadow-outline">
+                </div>
+
+                <div class="flex items-center">
+                  <label for="client-id1-last-name" class="w-3/12 flex-shrink-0">Last Name</label>
+                  <input type="text" name="client-id1-last-name" id="client-id1-last-name" class="flex-auto px-3 py-2 text-body-light bg-white border rounded placeholder-body-light focus:shadow-outline">
+                </div>
+
+                <div class="flex items-center">
+                  <label for="client-id1-email" class="w-3/12 flex-shrink-0">Email</label>
+                  <input type="text" name="client-id1-email" id="client-id1-email" class="flex-auto px-3 py-2 text-body-light bg-white border rounded placeholder-body-light focus:shadow-outline">
+                </div>
+
+                <div class="flex items-center">
+                  <label for="client-id1-phone" class="w-3/12 flex-shrink-0">Phone</label>
+                  <input type="text" name="client-id1-phone" id="client-id1-phone" class="flex-auto px-3 py-2 text-body-light bg-white border rounded placeholder-body-light focus:shadow-outline">
+                </div>
+
+                <div class="flex items-center">
+                  <label for="client-id1-fax" class="w-3/12 flex-shrink-0">Fax</label>
+                  <input type="text" name="client-id1-fax" id="client-id1-fax" class="flex-auto px-3 py-2 text-body-light bg-white border rounded placeholder-body-light focus:shadow-outline">
+                </div>
+              </form>
+
+            </div>
+
+            <div x-show="tab == 'locationTab'" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0" class="tab-content">
+              <form class="space-y-3">
+                <div class="flex items-center bg-white border border-gray-200 rounded relative hover:shadow transition">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 rotate-90 -translate-y-1/2 transform  absolute top-1/2 left-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                  </svg>
+
+                  <input type="text" name="client-id1-location-search" id="client-id1-location-search" class="flex-grow h-9 py-2 px-12 pr-10 text-body-light placeholder-body-light bg-transparent rounded" placeholder="Search location">
+                </div>
+
+                <div class="space-y-3 my-6">
+                  <div>
+                    <button class="group w-full p-4 flex items-center justify-between text-left rounded bg-white border border-gray-200 hover:shadow transition duration-300">
+                      <span class="px-2">AG - Boldershof ECR</span>
+
+                      <svg class="flex-shrink-0 opacity-50 transition group-hover:opacity-100 group-hover:text-red-500" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 0a4.213 4.213 0 0 0-4.152 3.6H3.743a.808.808 0 0 0-.288 0H1.5a.9.9 0 1 0 0 1.8h1.283l1.511 15.618A3.311 3.311 0 0 0 7.579 24h8.841a3.311 3.311 0 0 0 3.285-2.982L21.217 5.4H22.5a.9.9 0 1 0 0-1.8h-1.954a.9.9 0 0 0-.288 0h-4.106A4.213 4.213 0 0 0 12 0Zm0 1.8a2.378 2.378 0 0 1 2.317 1.8H9.683A2.378 2.378 0 0 1 12 1.8ZM4.59 5.4h14.819l-1.5 15.444A1.49 1.49 0 0 1 16.42 22.2H7.579a1.49 1.49 0 0 1-1.493-1.356L4.59 5.4Zm5.3 2.987a.9.9 0 0 0-.886.913v9a.9.9 0 0 0 1.8 0v-9a.9.9 0 0 0-.914-.913Zm4.2 0a.9.9 0 0 0-.886.913v9a.9.9 0 1 0 1.8 0v-9a.9.9 0 0 0-.914-.913Z" fill="currentColor" />
+                      </svg>
+                    </button>
+                  </div>
+
+                  <div>
+                    <button class="group w-full p-4 flex items-center justify-between text-left rounded bg-white border border-gray-200 hover:shadow transition duration-300">
+                      <span class="px-2">Bovenburen, 9675, Winschoten (NL)</span>
+
+                      <svg class="flex-shrink-0 opacity-50 transition group-hover:opacity-100 group-hover:text-red-500" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 0a4.213 4.213 0 0 0-4.152 3.6H3.743a.808.808 0 0 0-.288 0H1.5a.9.9 0 1 0 0 1.8h1.283l1.511 15.618A3.311 3.311 0 0 0 7.579 24h8.841a3.311 3.311 0 0 0 3.285-2.982L21.217 5.4H22.5a.9.9 0 1 0 0-1.8h-1.954a.9.9 0 0 0-.288 0h-4.106A4.213 4.213 0 0 0 12 0Zm0 1.8a2.378 2.378 0 0 1 2.317 1.8H9.683A2.378 2.378 0 0 1 12 1.8ZM4.59 5.4h14.819l-1.5 15.444A1.49 1.49 0 0 1 16.42 22.2H7.579a1.49 1.49 0 0 1-1.493-1.356L4.59 5.4Zm5.3 2.987a.9.9 0 0 0-.886.913v9a.9.9 0 0 0 1.8 0v-9a.9.9 0 0 0-.914-.913Zm4.2 0a.9.9 0 0 0-.886.913v9a.9.9 0 1 0 1.8 0v-9a.9.9 0 0 0-.914-.913Z" fill="currentColor" />
+                      </svg>
+                    </button>
+                  </div>
+
+                  <div>
+                    <button class="group w-full p-4 flex items-center justify-between text-left rounded bg-white border border-gray-200  hover:shadow transition duration-300">
+                      <span class="px-2">A35, 7543, Enschede (NL)</span>
+
+                      <svg class="flex-shrink-0 opacity-50 transition group-hover:opacity-100 group-hover:text-red-500" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 0a4.213 4.213 0 0 0-4.152 3.6H3.743a.808.808 0 0 0-.288 0H1.5a.9.9 0 1 0 0 1.8h1.283l1.511 15.618A3.311 3.311 0 0 0 7.579 24h8.841a3.311 3.311 0 0 0 3.285-2.982L21.217 5.4H22.5a.9.9 0 1 0 0-1.8h-1.954a.9.9 0 0 0-.288 0h-4.106A4.213 4.213 0 0 0 12 0Zm0 1.8a2.378 2.378 0 0 1 2.317 1.8H9.683A2.378 2.378 0 0 1 12 1.8ZM4.59 5.4h14.819l-1.5 15.444A1.49 1.49 0 0 1 16.42 22.2H7.579a1.49 1.49 0 0 1-1.493-1.356L4.59 5.4Zm5.3 2.987a.9.9 0 0 0-.886.913v9a.9.9 0 0 0 1.8 0v-9a.9.9 0 0 0-.914-.913Zm4.2 0a.9.9 0 0 0-.886.913v9a.9.9 0 1 0 1.8 0v-9a.9.9 0 0 0-.914-.913Z" fill="currentColor" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <button class="w-full flex items-center justify-center space-x-2 p-4 rounded bg-white border border-gray-200 hover:shadow transition duration-300">
+                  <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-blue-500 flex-shrink-0">
+                    <path d="M12 7.417v9.167-9.167Zm-4.583 4.584h9.167-9.167Zm4.584-11a11 11 0 1 0 0 22 11 11 0 0 0 0-22Z" stroke="currentColor" stroke-width="2" />
+                  </svg>
+
+                  <span>Add new Location</span>
+                </button>
+
+
+              </form>
+            </div>
+          </div>
+
+          <div class="flex justify-center space-x-3 mt-6">
+            <button class="px-6 py-3 font-medium text-lg border rounded">Cancel</button>
+
+            <button class="px-6 py-3 font-medium text-lg border rounded text-white border-blue-500 bg-blue-500">
+              Save
+            </button>
           </div>
         </div>
       </div>
