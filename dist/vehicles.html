@@ -1000,9 +1000,8 @@
           </div>
         </div>
 
-        <div id="client-id1" x-data="{isOpen: false}" x-cloak x-show="isOpen" @click.away="isOpen = false" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" class="w-[500px] h-full bg-white shadow-lg p-6 px-9 shadow-lg-opposite absolute top-0 right-0 z-10 leading-normal">
-
-          <button @click="isOpen = false" class="absolute right-1 top-1 w-6 h-6 bg-gray-200 rounded flex items-center justify-center">
+        <div id="client-id1" x-data="{isOpen: false, tab: 'vehicleViewTab'}" x-cloak x-show="isOpen" @click.away="isOpen = false" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" class="w-[500px] h-full bg-white shadow-lg p-6 px-9 shadow-lg-opposite absolute top-0 right-0 z-10 leading-normal">
+          <button @click="isOpen = false; tab = 'vehicleViewTab'" class="absolute right-1 top-1 w-6 h-6 bg-gray-200 rounded flex items-center justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="14.828" height="14.828">
               <g id="times-icon" transform="translate(-660.586 -213.586)">
                 <path id="Path_12" data-name="Path 12" d="M662 215l12 12m0-12l-12 12" fill="none" stroke="#69717e" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" opacity=".999"></path>
@@ -1010,123 +1009,248 @@
             </svg>
           </button>
 
-          <p class="text-lg mb-10 text-center font-medium overflow-hidden whitespace-nowrap">4184, Jeroen Hoolwerf</p>
+          <div x-show="tab == 'vehicleViewTab'" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0" class="tab-content">
+            <div class="p-6 pt-0 mt-10 bg-gray-100 rounded-lg border border-gray-200">
+              <div class="flex justify-center relative -translate-y-1/2 z-10">
+                <div class="flex items-center rounded-lg bg-[#ead10c] overflow-hidden shadow-xl">
+                  <span class="px-2.5 py-2 text-white flex flex-col items-center bg-[#1e55a0]">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9.00586 17.3291L8.07422 18L8.39844 16.8652L7.50391 16.147L8.625 16.1128L9.00586 15L9.37891 16.1128L10.5059 16.147L9.61328 16.8652L9.93164 18L9.00586 17.3291ZM12.752 16.3291L11.8262 16.9961L12.1445 15.8618L11.252 15.144L12.377 15.1138L12.75 13.9961L13.1289 15.1138L14.25 15.144L13.3594 15.8618L13.6816 16.9961L12.752 16.3291ZM5.25195 16.3291L4.32617 16.9961L4.64453 15.8618L3.75 15.144L4.87695 15.1138L5.25 13.9961L5.62305 15.1138L6.75 15.144L5.85742 15.8618L6.17578 16.9961L5.25195 16.3291ZM15.4961 13.5801L14.5684 14.251L14.8887 13.1172L13.9941 12.3989L15.1191 12.3691L15.4941 11.251L15.8672 12.3691L16.9941 12.3989L16.1016 13.1172L16.4238 14.251L15.4961 13.5801ZM2.50781 13.5801L1.58203 14.251L1.90039 13.1172L1.00781 12.3989L2.13281 12.3691L2.50781 11.251L2.87891 12.3691L4.00781 12.3989L3.11328 13.1172L3.43164 14.251L2.50781 13.5801ZM16.502 9.83203L15.5762 10.5029L15.8945 9.36914L15 8.64697L16.127 8.61719L16.5 7.50391L16.875 8.61719L18 8.64697L17.1074 9.36914L17.4258 10.5029L16.502 9.83203ZM1.50195 9.83203L0.576172 10.5029L0.894531 9.36914L0 8.64697L1.12695 8.61719L1.5 7.50391L1.87891 8.61719L3 8.64697L2.10742 9.36914L2.43164 10.5029L1.50195 9.83203ZM15.502 6.08105L14.5742 6.75195L14.8945 5.61816L14 4.8999L15.125 4.87012L15.5 3.75293L15.873 4.87012L17 4.8999L16.1074 5.61816L16.4297 6.75195L15.502 6.08105ZM2.51367 6.08105L1.58789 6.75195L1.90625 5.61816L1.01367 4.8999L2.13867 4.87012L2.51367 3.75293L2.88672 4.87012L4.01367 4.8999L3.11914 5.61816L3.4375 6.75195L2.51367 6.08105ZM12.7559 3.33594L11.8301 4.00684L12.1484 2.87305L11.2578 2.15479L12.3828 2.12109L12.7539 1.00781L13.1348 2.12109L14.2539 2.15479L13.3633 2.87305L13.6855 4.00684L12.7559 3.33594ZM5.25586 3.33594L4.33008 4.00684L4.64844 2.87305L3.75391 2.15479L4.88281 2.12109L5.25391 1.00781L5.62695 2.12109L6.75391 2.15479L5.86133 2.87305L6.17969 4.00684L5.25586 3.33594ZM9.00781 2.3291L8.07617 3L8.40039 1.86621L7.50781 1.14795L8.62695 1.11816L9.00586 0L9.37891 1.11719L10.5059 1.14697L9.61328 1.86523L9.93164 2.99902L9.00781 2.3291Z" fill="#EAD10C" />
+                    </svg>
+                    <strong class="font-bold">NL</strong>
+                  </span>
 
-          <div x-data="{tab: 'generalTab'}" class="p-6 pt-0 bg-gray-100 rounded-lg border border-gray-200">
-            <div class="flex justify-center relative -translate-y-1/2 z-10">
-              <div class="rounded-lg bg-gray-100 border border-gray-200 p-0.5">
-                <button @click="tab = 'generalTab'" :class="{'bg-white shadow-sm': tab === 'generalTab'}" class="px-3 py-2 rounded text-body-light focus:text-body focus:outline-none transition">General</button>
-
-                <button @click="tab = 'locationTab'" :class="{'bg-white shadow-sm' : tab === 'locationTab'}" class="px-3 py-2 rounded text-body-light focus:text-body focus:outline-none transition">Location</button>
+                  <span class="px-6 py-2 text-2xl font-medium uppercase">bx-xb-26</span>
+                </div>
               </div>
-            </div>
 
-            <div x-show="tab == 'generalTab'" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0" class="tab-content">
               <form class="space-y-3">
+                <p class="text-lg font-medium">Vehicle</p>
+
                 <div class="flex items-center">
-                  <label for="client-id1-company" class="w-3/12 flex-shrink-0">Company</label>
-                  <input type="text" name="client-id1-company" id="client-id1-company" class="flex-auto px-3 py-2 text-body-light bg-white border rounded placeholder-body-light focus:shadow-outline">
+                  <span class="w-4/12 flex-shrink-0">License Plate</span>
+                  <span>BX-XB-26</span>
                 </div>
 
                 <div class="flex items-center">
-                  <label for="client-id1-reference" class="w-3/12 flex-shrink-0">Reference</label>
-                  <input type="text" name="client-id1-reference" id="client-id1-reference" class="flex-auto px-3 py-2 text-body-light bg-white border rounded placeholder-body-light focus:shadow-outline">
+                  <span class="w-4/12 flex-shrink-0">Vehicle Name</span>
+                  <span>Minivan 23</span>
                 </div>
 
                 <div class="flex items-center">
-                  <label for="client-id1-title" class="w-3/12 flex-shrink-0">Title</label>
-                  <input type="text" name="client-id1-title" id="client-id1-title" class="flex-auto px-3 py-2 text-body-light bg-white border rounded placeholder-body-light focus:shadow-outline">
+                  <span class="w-4/12 flex-shrink-0">Brand</span>
+                  <span>Citroen</span>
                 </div>
 
                 <div class="flex items-center">
-                  <label for="client-id1-first-name" class="w-3/12 flex-shrink-0">First Name</label>
-                  <input type="text" name="client-id1-first-name" id="client-id1-first-name" class="flex-auto px-3 py-2 text-body-light bg-white border rounded placeholder-body-light focus:shadow-outline">
+                  <span class="w-4/12 flex-shrink-0">Model</span>
+                  <span>C4 Aircross</span>
                 </div>
 
                 <div class="flex items-center">
-                  <label for="client-id1-last-name" class="w-3/12 flex-shrink-0">Last Name</label>
-                  <input type="text" name="client-id1-last-name" id="client-id1-last-name" class="flex-auto px-3 py-2 text-body-light bg-white border rounded placeholder-body-light focus:shadow-outline">
+                  <span class="w-4/12 flex-shrink-0">Vehicle Type</span>
+                  <span>Minivan</span>
                 </div>
 
                 <div class="flex items-center">
-                  <label for="client-id1-email" class="w-3/12 flex-shrink-0">Email</label>
-                  <input type="text" name="client-id1-email" id="client-id1-email" class="flex-auto px-3 py-2 text-body-light bg-white border rounded placeholder-body-light focus:shadow-outline">
+                  <span class="w-4/12 flex-shrink-0">Build</span>
+                  <span>2020</span>
                 </div>
 
                 <div class="flex items-center">
-                  <label for="client-id1-phone" class="w-3/12 flex-shrink-0">Phone</label>
-                  <input type="text" name="client-id1-phone" id="client-id1-phone" class="flex-auto px-3 py-2 text-body-light bg-white border rounded placeholder-body-light focus:shadow-outline">
+                  <span class="w-4/12 flex-shrink-0">Color</span>
+                  <span class="flex items-center space-x-2"><i class="w-4 h-4 rounded-full bg-red-500"></i><span>Red</span></span>
+                </div>
+
+                <p class="text-lg font-medium">Engine</p>
+
+                <div class="flex items-center">
+                  <span class="w-4/12 flex-shrink-0">Fuel</span>
+                  <span>Diesel</span>
                 </div>
 
                 <div class="flex items-center">
-                  <label for="client-id1-fax" class="w-3/12 flex-shrink-0">Fax</label>
-                  <input type="text" name="client-id1-fax" id="client-id1-fax" class="flex-auto px-3 py-2 text-body-light bg-white border rounded placeholder-body-light focus:shadow-outline">
+                  <span class="w-4/12 flex-shrink-0">Cylinders</span>
+                  <span>4</span>
+                </div>
+
+                <div class="flex items-center">
+                  <span class="w-4/12 flex-shrink-0">Engine Capacity</span>
+                  <span>1360&nbsp;cm<sup>3</sup></span>
+                </div>
+
+                <div class="flex items-center">
+                  <span class="w-4/12 flex-shrink-0">Economy Label</span>
+                  <span class="flex-auto arrow-ribbon bg-[#0cea48] after:right-[-30px] after:border-[30px] after:border-gray-100 after:border-t-[#f3f4f6] after:border-r-[#f3f4f6] after:border-b-[#f3f4f6] after:border-l-[#0cea48]"><span>C</span></span>
                 </div>
               </form>
-
             </div>
 
-            <div x-show="tab == 'locationTab'" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0" class="tab-content">
-              <form class="space-y-3">
-                <div class="flex items-center bg-white border border-gray-200 rounded relative hover:shadow transition">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 rotate-90 -translate-y-1/2 transform  absolute top-1/2 left-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                  </svg>
-
-                  <input type="text" name="client-id1-location-search" id="client-id1-location-search" class="flex-grow h-9 py-2 px-12 pr-10 text-body-light placeholder-body-light bg-transparent rounded" placeholder="Search location">
-                </div>
-
-                <div class="space-y-3 my-6">
-                  <div>
-                    <button class="group w-full p-4 flex items-center justify-between text-left rounded bg-white border border-gray-200 hover:shadow transition duration-300">
-                      <span class="px-2">AG - Boldershof ECR</span>
-
-                      <svg class="flex-shrink-0 opacity-50 transition group-hover:opacity-100 group-hover:text-red-500" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 0a4.213 4.213 0 0 0-4.152 3.6H3.743a.808.808 0 0 0-.288 0H1.5a.9.9 0 1 0 0 1.8h1.283l1.511 15.618A3.311 3.311 0 0 0 7.579 24h8.841a3.311 3.311 0 0 0 3.285-2.982L21.217 5.4H22.5a.9.9 0 1 0 0-1.8h-1.954a.9.9 0 0 0-.288 0h-4.106A4.213 4.213 0 0 0 12 0Zm0 1.8a2.378 2.378 0 0 1 2.317 1.8H9.683A2.378 2.378 0 0 1 12 1.8ZM4.59 5.4h14.819l-1.5 15.444A1.49 1.49 0 0 1 16.42 22.2H7.579a1.49 1.49 0 0 1-1.493-1.356L4.59 5.4Zm5.3 2.987a.9.9 0 0 0-.886.913v9a.9.9 0 0 0 1.8 0v-9a.9.9 0 0 0-.914-.913Zm4.2 0a.9.9 0 0 0-.886.913v9a.9.9 0 1 0 1.8 0v-9a.9.9 0 0 0-.914-.913Z" fill="currentColor" />
-                      </svg>
-                    </button>
-                  </div>
-
-                  <div>
-                    <button class="group w-full p-4 flex items-center justify-between text-left rounded bg-white border border-gray-200 hover:shadow transition duration-300">
-                      <span class="px-2">Bovenburen, 9675, Winschoten (NL)</span>
-
-                      <svg class="flex-shrink-0 opacity-50 transition group-hover:opacity-100 group-hover:text-red-500" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 0a4.213 4.213 0 0 0-4.152 3.6H3.743a.808.808 0 0 0-.288 0H1.5a.9.9 0 1 0 0 1.8h1.283l1.511 15.618A3.311 3.311 0 0 0 7.579 24h8.841a3.311 3.311 0 0 0 3.285-2.982L21.217 5.4H22.5a.9.9 0 1 0 0-1.8h-1.954a.9.9 0 0 0-.288 0h-4.106A4.213 4.213 0 0 0 12 0Zm0 1.8a2.378 2.378 0 0 1 2.317 1.8H9.683A2.378 2.378 0 0 1 12 1.8ZM4.59 5.4h14.819l-1.5 15.444A1.49 1.49 0 0 1 16.42 22.2H7.579a1.49 1.49 0 0 1-1.493-1.356L4.59 5.4Zm5.3 2.987a.9.9 0 0 0-.886.913v9a.9.9 0 0 0 1.8 0v-9a.9.9 0 0 0-.914-.913Zm4.2 0a.9.9 0 0 0-.886.913v9a.9.9 0 1 0 1.8 0v-9a.9.9 0 0 0-.914-.913Z" fill="currentColor" />
-                      </svg>
-                    </button>
-                  </div>
-
-                  <div>
-                    <button class="group w-full p-4 flex items-center justify-between text-left rounded bg-white border border-gray-200  hover:shadow transition duration-300">
-                      <span class="px-2">A35, 7543, Enschede (NL)</span>
-
-                      <svg class="flex-shrink-0 opacity-50 transition group-hover:opacity-100 group-hover:text-red-500" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 0a4.213 4.213 0 0 0-4.152 3.6H3.743a.808.808 0 0 0-.288 0H1.5a.9.9 0 1 0 0 1.8h1.283l1.511 15.618A3.311 3.311 0 0 0 7.579 24h8.841a3.311 3.311 0 0 0 3.285-2.982L21.217 5.4H22.5a.9.9 0 1 0 0-1.8h-1.954a.9.9 0 0 0-.288 0h-4.106A4.213 4.213 0 0 0 12 0Zm0 1.8a2.378 2.378 0 0 1 2.317 1.8H9.683A2.378 2.378 0 0 1 12 1.8ZM4.59 5.4h14.819l-1.5 15.444A1.49 1.49 0 0 1 16.42 22.2H7.579a1.49 1.49 0 0 1-1.493-1.356L4.59 5.4Zm5.3 2.987a.9.9 0 0 0-.886.913v9a.9.9 0 0 0 1.8 0v-9a.9.9 0 0 0-.914-.913Zm4.2 0a.9.9 0 0 0-.886.913v9a.9.9 0 1 0 1.8 0v-9a.9.9 0 0 0-.914-.913Z" fill="currentColor" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-
-                <button class="w-full flex items-center justify-center space-x-2 p-4 rounded bg-white border border-gray-200 hover:shadow transition duration-300">
-                  <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-blue-500 flex-shrink-0">
-                    <path d="M12 7.417v9.167-9.167Zm-4.583 4.584h9.167-9.167Zm4.584-11a11 11 0 1 0 0 22 11 11 0 0 0 0-22Z" stroke="currentColor" stroke-width="2" />
-                  </svg>
-
-                  <span>Add new Location</span>
-                </button>
-
-
-              </form>
+            <div class="flex justify-center space-x-3 mt-6">
+              <button @click="tab = 'vehicleEditTab'" class="px-6 py-3 font-medium text-lg border rounded">Edit vehicle</button>
             </div>
           </div>
 
-          <div class="flex justify-center space-x-3 mt-6">
-            <button class="px-6 py-3 font-medium text-lg border rounded">Cancel</button>
+          <div x-show="tab == 'vehicleEditTab'" x-transition:enter="transition ease-out duration-300 transform" x-transition:enter-start="opacity-0 transform translate-y-4" x-transition:enter-end="opacity-100 transform translate-y-0" class="tab-content">
+            <div class="p-6 pt-0 mt-10 bg-gray-100 rounded-lg border border-gray-200">
+              <div class="flex justify-center relative -translate-y-1/2 z-10">
+                <div class="flex items-center rounded-lg bg-[#ead10c] overflow-hidden shadow-xl">
+                  <span class="px-2.5 py-2 text-white flex flex-col items-center bg-[#1e55a0]">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9.00586 17.3291L8.07422 18L8.39844 16.8652L7.50391 16.147L8.625 16.1128L9.00586 15L9.37891 16.1128L10.5059 16.147L9.61328 16.8652L9.93164 18L9.00586 17.3291ZM12.752 16.3291L11.8262 16.9961L12.1445 15.8618L11.252 15.144L12.377 15.1138L12.75 13.9961L13.1289 15.1138L14.25 15.144L13.3594 15.8618L13.6816 16.9961L12.752 16.3291ZM5.25195 16.3291L4.32617 16.9961L4.64453 15.8618L3.75 15.144L4.87695 15.1138L5.25 13.9961L5.62305 15.1138L6.75 15.144L5.85742 15.8618L6.17578 16.9961L5.25195 16.3291ZM15.4961 13.5801L14.5684 14.251L14.8887 13.1172L13.9941 12.3989L15.1191 12.3691L15.4941 11.251L15.8672 12.3691L16.9941 12.3989L16.1016 13.1172L16.4238 14.251L15.4961 13.5801ZM2.50781 13.5801L1.58203 14.251L1.90039 13.1172L1.00781 12.3989L2.13281 12.3691L2.50781 11.251L2.87891 12.3691L4.00781 12.3989L3.11328 13.1172L3.43164 14.251L2.50781 13.5801ZM16.502 9.83203L15.5762 10.5029L15.8945 9.36914L15 8.64697L16.127 8.61719L16.5 7.50391L16.875 8.61719L18 8.64697L17.1074 9.36914L17.4258 10.5029L16.502 9.83203ZM1.50195 9.83203L0.576172 10.5029L0.894531 9.36914L0 8.64697L1.12695 8.61719L1.5 7.50391L1.87891 8.61719L3 8.64697L2.10742 9.36914L2.43164 10.5029L1.50195 9.83203ZM15.502 6.08105L14.5742 6.75195L14.8945 5.61816L14 4.8999L15.125 4.87012L15.5 3.75293L15.873 4.87012L17 4.8999L16.1074 5.61816L16.4297 6.75195L15.502 6.08105ZM2.51367 6.08105L1.58789 6.75195L1.90625 5.61816L1.01367 4.8999L2.13867 4.87012L2.51367 3.75293L2.88672 4.87012L4.01367 4.8999L3.11914 5.61816L3.4375 6.75195L2.51367 6.08105ZM12.7559 3.33594L11.8301 4.00684L12.1484 2.87305L11.2578 2.15479L12.3828 2.12109L12.7539 1.00781L13.1348 2.12109L14.2539 2.15479L13.3633 2.87305L13.6855 4.00684L12.7559 3.33594ZM5.25586 3.33594L4.33008 4.00684L4.64844 2.87305L3.75391 2.15479L4.88281 2.12109L5.25391 1.00781L5.62695 2.12109L6.75391 2.15479L5.86133 2.87305L6.17969 4.00684L5.25586 3.33594ZM9.00781 2.3291L8.07617 3L8.40039 1.86621L7.50781 1.14795L8.62695 1.11816L9.00586 0L9.37891 1.11719L10.5059 1.14697L9.61328 1.86523L9.93164 2.99902L9.00781 2.3291Z" fill="#EAD10C" />
+                    </svg>
+                    <strong class="font-bold">NL</strong>
+                  </span>
 
-            <button class="px-6 py-3 font-medium text-lg border rounded text-white border-blue-500 bg-blue-500">
-              Save
-            </button>
+                  <span class="px-6 py-2 text-2xl font-medium uppercase">bx-xb-26</span>
+                </div>
+              </div>
+
+              <form class="space-y-3">
+                <p class="text-lg font-medium">Vehicle</p>
+                <div class="flex items-center">
+                  <label for="client-id1-vehicle-license-plate" class="w-4/12 flex-shrink-0">LIcence Plate</label>
+                  <input type="text" name="client-id1-vehicle-license-plate" id="client-id1-vehicle-license-plate" class="flex-auto px-3 py-2 text-body-light bg-white border rounded placeholder-body-light focus:shadow-outline" placeholder="BX-XB-26">
+                </div>
+
+                <div class="flex items-center">
+                  <label for="client-id1-vehicle-name" class="w-4/12 flex-shrink-0">Vehicle Name</label>
+                  <input type="text" name="client-id1-vehicle-name" id="client-id1-vehicle-name" class="flex-auto px-3 py-2 text-body-light bg-white border rounded placeholder-body-light focus:shadow-outline" placeholder="Minivan 23">
+                </div>
+
+                <div class="flex items-center">
+                  <label for="client-id1-vehicle-brand" class="w-4/12 flex-shrink-0">Brand</label>
+                  <div class="flex-auto c-select relative">
+                    <select name="client-id1-vehicle-brand" id="client-id1-vehicle-brand" class="w-full appearance-none text-body-light bg-white border px-3 py-2 rounded focus:shadow-outline">
+                      <option value="citroen">Citroen</option>
+                      <option value="bmw">BMW</option>
+                    </select>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13.828" height="7.914" class="absolute pointer-events-none top-1/2 right-3 -translate-y-1/2 transform">
+                      <g id="angle-down-icon" transform="translate(.342 -2.585)">
+                        <path id="Path_27" data-name="Path 27" d="M1.072 3.999l5.5 5.5 5.5-5.5" fill="none" stroke="#1b222b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="flex items-center">
+                  <label for="client-id1-vehicle-model" class="w-4/12 flex-shrink-0">Model</label>
+                  <div class="flex-auto c-select relative">
+                    <select name="client-id1-vehicle-model" id="client-id1-vehicle-model" class="w-full appearance-none text-body-light bg-white border px-3 py-2 rounded focus:shadow-outline">
+                      <option value="c4-aircross">C4 Aircross</option>
+                    </select>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13.828" height="7.914" class="absolute pointer-events-none top-1/2 right-3 -translate-y-1/2 transform">
+                      <g id="angle-down-icon" transform="translate(.342 -2.585)">
+                        <path id="Path_27" data-name="Path 27" d="M1.072 3.999l5.5 5.5 5.5-5.5" fill="none" stroke="#1b222b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="flex items-center">
+                  <label for="client-id1-vehicle-type" class="w-4/12 flex-shrink-0">Vehicle type</label>
+                  <div class="flex-auto c-select relative">
+                    <select name="client-id1-vehicle-type" id="client-id1-vehicle-type" class="w-full appearance-none text-body-light bg-white border px-3 py-2 rounded focus:shadow-outline">
+                      <option value="minivan">Minivan</option>
+                    </select>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13.828" height="7.914" class="absolute pointer-events-none top-1/2 right-3 -translate-y-1/2 transform">
+                      <g id="angle-down-icon" transform="translate(.342 -2.585)">
+                        <path id="Path_27" data-name="Path 27" d="M1.072 3.999l5.5 5.5 5.5-5.5" fill="none" stroke="#1b222b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="flex items-center">
+                  <label for="client-id1-vehicle-build" class="w-4/12 flex-shrink-0">Build</label>
+                  <input type="text" name="client-id1-vehicle-build" id="client-id1-vehicle-build" class="flex-auto px-3 py-2 text-body-light bg-white border rounded placeholder-body-light focus:shadow-outline" placeholder="2020">
+                </div>
+
+                <div class="flex items-center">
+                  <label for="client-id1-vehicle-color" class="w-4/12 flex-shrink-0">Color</label>
+                  <div class="flex-auto c-select relative">
+                    <select name="client-id1-vehicle-color" id="client-id1-vehicle-color" class="w-full appearance-none text-body-light bg-white border px-3 py-2 rounded focus:shadow-outline">
+                      <option value="red">Red</option>
+                      <option value="green">Green</option>
+                      <option value="blue">Blue</option>
+                    </select>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13.828" height="7.914" class="absolute pointer-events-none top-1/2 right-3 -translate-y-1/2 transform">
+                      <g id="angle-down-icon" transform="translate(.342 -2.585)">
+                        <path id="Path_27" data-name="Path 27" d="M1.072 3.999l5.5 5.5 5.5-5.5" fill="none" stroke="#1b222b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+
+                <p class="text-xl font-medium">Engine</p>
+
+                <div class="flex items-center">
+                  <label for="client-id1-vehicle-fuel" class="w-4/12 flex-shrink-0">Fuel</label>
+                  <div class="flex-auto c-select relative">
+                    <select name="client-id1-vehicle-fuel" id="client-id1-vehicle-fuel" class="w-full appearance-none text-body-light bg-white border px-3 py-2 rounded focus:shadow-outline">
+                      <option value="diesel">Diesel</option>
+                      <option value="petrol">Petrol</option>
+                    </select>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13.828" height="7.914" class="absolute pointer-events-none top-1/2 right-3 -translate-y-1/2 transform">
+                      <g id="angle-down-icon" transform="translate(.342 -2.585)">
+                        <path id="Path_27" data-name="Path 27" d="M1.072 3.999l5.5 5.5 5.5-5.5" fill="none" stroke="#1b222b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="flex items-center">
+                  <label for="client-id1-vehicle-cylinders" class="w-4/12 flex-shrink-0">Cylinders</label>
+                  <div class="flex-auto c-select relative">
+                    <select name="client-id1-vehicle-cylinders" id="client-id1-vehicle-cylinders" class="w-full appearance-none text-body-light bg-white border px-3 py-2 rounded focus:shadow-outline">
+                      <option value="4">4</option>
+                      <option value="6">6</option>
+                    </select>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13.828" height="7.914" class="absolute pointer-events-none top-1/2 right-3 -translate-y-1/2 transform">
+                      <g id="angle-down-icon" transform="translate(.342 -2.585)">
+                        <path id="Path_27" data-name="Path 27" d="M1.072 3.999l5.5 5.5 5.5-5.5" fill="none" stroke="#1b222b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="flex items-center">
+                  <label for="client-id1-vehicle-engine-capacity" class="w-4/12 flex-shrink-0">Engine Capacity</label>
+                  <input type="text" name="client-id1-vehicle-engine-capacity" id="client-id1-vehicle-engine-capacity" class="flex-auto px-3 py-2 text-body-light bg-white border rounded placeholder-body-light focus:shadow-outline" placeholder="1360">
+                </div>
+
+                <div class="flex items-center">
+                  <label for="client-id1-vehicle-economy-label" class="w-4/12 flex-shrink-0">Economy label</label>
+                  <div class="flex-auto c-select relative">
+                    <select name="client-id1-vehicle-economy-label" id="client-id1-vehicle-economy-label" class="w-full appearance-none text-body-light bg-white border px-3 py-2 rounded focus:shadow-outline">
+                      <option value="c">C</option>
+                      <option value="b">B</option>
+                      <option value="a">A</option>
+                    </select>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13.828" height="7.914" class="absolute pointer-events-none top-1/2 right-3 -translate-y-1/2 transform">
+                      <g id="angle-down-icon" transform="translate(.342 -2.585)">
+                        <path id="Path_27" data-name="Path 27" d="M1.072 3.999l5.5 5.5 5.5-5.5" fill="none" stroke="#1b222b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="flex justify-center space-x-3 mt-6">
+              <button class="px-6 py-3 font-medium text-lg border rounded">Cancel</button>
+
+              <button class="px-6 py-3 font-medium text-lg border rounded text-white border-blue-500 bg-blue-500">
+                Save
+              </button>
+            </div>
           </div>
         </div>
       </div>

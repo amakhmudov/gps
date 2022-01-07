@@ -216,7 +216,7 @@
     @apply px-3 py-4 text-left font-medium;
   }
 
-  .reg-table thead th .reg-table thead th:first-child,
+  .reg-table thead th:first-child,
   .reg-table tbody td:first-child {
     @apply pl-6;
   }
@@ -268,6 +268,20 @@
 
   .reg-table tbody td {
     @apply px-3 py-4;
+  }
+
+  .arrow-ribbon {
+    @apply flex relative overflow-hidden;
+  }
+
+  .arrow-ribbon span {
+    @apply text-white p-1 px-1.5 bg-black/20;
+  }
+
+  .arrow-ribbon:after {
+    content: '';
+
+    @apply absolute top-1/2 -translate-y-1/2 h-full w-0;
   }
 }
 
