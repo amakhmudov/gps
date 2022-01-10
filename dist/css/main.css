@@ -1179,6 +1179,14 @@ input[type='text']:focus, select:focus {
   left: 100%;
 }
 
+.-right-10 {
+  right: -2.5rem;
+}
+
+.-right-0 {
+  right: 0px;
+}
+
 .z-30 {
   z-index: 30;
 }
@@ -1274,6 +1282,11 @@ input[type='text']:focus, select:focus {
 .-mx-2 {
   margin-left: -0.5rem;
   margin-right: -0.5rem;
+}
+
+.-mx-3 {
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
 }
 
 .ml-auto {
@@ -1400,6 +1413,10 @@ input[type='text']:focus, select:focus {
   margin-top: 2.5rem;
 }
 
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+
 .block {
   display: block;
 }
@@ -1480,8 +1497,20 @@ input[type='text']:focus, select:focus {
   height: 0.5rem;
 }
 
+.max-h-48 {
+  max-height: 12rem;
+}
+
+.max-h-96 {
+  max-height: 24rem;
+}
+
 .min-h-screen {
   min-height: 100vh;
+}
+
+.min-h-full {
+  min-height: 100%;
 }
 
 .w-9 {
@@ -1592,6 +1621,14 @@ input[type='text']:focus, select:focus {
   width: 0.5rem;
 }
 
+.w-8\/12 {
+  width: 66.666667%;
+}
+
+.w-9\/12 {
+  width: 75%;
+}
+
 .max-w-lg {
   max-width: 32rem;
 }
@@ -1673,6 +1710,31 @@ input[type='text']:focus, select:focus {
 
 .-translate-x-1\/2 {
   --tw-translate-x: -50%;
+  transform: var(--tw-transform);
+}
+
+.translate-x-full {
+  --tw-translate-x: 100%;
+  transform: var(--tw-transform);
+}
+
+.translate-x-1\/2 {
+  --tw-translate-x: 50%;
+  transform: var(--tw-transform);
+}
+
+.translate-x-5 {
+  --tw-translate-x: 1.25rem;
+  transform: var(--tw-transform);
+}
+
+.translate-y-1\/2 {
+  --tw-translate-y: 50%;
+  transform: var(--tw-transform);
+}
+
+.translate-x-10 {
+  --tw-translate-x: 2.5rem;
   transform: var(--tw-transform);
 }
 
@@ -1877,8 +1939,20 @@ input[type='text']:focus, select:focus {
   overflow-y: auto;
 }
 
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+.overflow-y-visible {
+  overflow-y: visible;
+}
+
 .overflow-y-scroll {
   overflow-y: scroll;
+}
+
+.overscroll-y-auto {
+  overscroll-behavior-y: auto;
 }
 
 .truncate {
@@ -2258,6 +2332,10 @@ input[type='text']:focus, select:focus {
   padding-right: 1.5rem;
 }
 
+.pt-10 {
+  padding-top: 2.5rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -2456,6 +2534,14 @@ input[type='text']:focus, select:focus {
 
 .duration-700 {
   transition-duration: 700ms;
+}
+
+.duration-\[5000ms\] {
+  transition-duration: 5000ms;
+}
+
+.duration-1000 {
+  transition-duration: 1000ms;
 }
 
 .ease-out {
