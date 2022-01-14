@@ -270,6 +270,14 @@
     @apply px-3 py-4;
   }
 
+  .small-table tr td {
+    @apply px-2 pb-1;
+  }
+
+  .small-table tr:last-child td {
+    @apply pb-0;
+  }
+
   .arrow-ribbon {
     @apply flex relative overflow-hidden;
   }
