@@ -28,6 +28,9 @@ module.exports = {
         '3xs': '.625rem', //10px
         base: '.9375rem', //15px
       },
+      fontFamily:{
+        'san': ['SF Pro Display']
+      },
       colors: {
         body: {
           DEFAULT: '#1b222b',

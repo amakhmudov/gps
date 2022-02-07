@@ -1,82 +1,166 @@
-/*! tailwindcss v2.2.4 | MIT License | https://tailwindcss.com */
+@font-face {
+  font-family: "SF Pro Display";
 
-/*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
+  font-style: normal;
+
+  font-weight: 100;
+
+  src: local("SF Pro Display"),
+    url("../fonts/SF-Pro-Display-Ultralight.otf") format("woff");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+
+  font-style: normal;
+
+  font-weight: 200;
+
+  src: local("SF Pro Display"),
+    url("../fonts/SF-Pro-Display-Thin.otf") format("woff");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+
+  font-style: normal;
+
+  font-weight: 300;
+
+  src: local("SF Pro Display"),
+    url("../fonts/SF-Pro-Display-Light.otf") format("woff");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+
+  font-style: normal;
+
+  font-weight: 400;
+
+  src: local("SF Pro Display"),
+    url("../fonts/SF-Pro-Display-Regular.otf") format("woff");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+
+  font-style: normal;
+
+  font-weight: 500;
+
+  src: local("SF Pro Display"),
+    url("../fonts/SF-Pro-Display-Medium.otf") format("woff");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+
+  font-style: normal;
+
+  font-weight: 600;
+
+  src: local("SF Pro Display"),
+    url("../fonts/SF-Pro-Display-Semibold.otf") format("woff");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+
+  font-style: normal;
+
+  font-weight: 700;
+
+  src: local("SF Pro Display"),
+    url("../fonts/SF-Pro-Display-Bold.otf") format("woff");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+
+  font-style: normal;
+
+  font-weight: 800;
+
+  src: local("SF Pro Display"),
+    url("../fonts/SF-Pro-Display-Heavy.otf") format("woff");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+
+  font-style: normal;
+
+  font-weight: 900;
+
+  src: local("SF Pro Display"),
+    url("../fonts/SF-Pro-Display-Black.otf") format("woff");
+}
 
 /*
-Document
-========
+! tailwindcss v3.0.18 | MIT License | https://tailwindcss.com
 */
 
-/**
-Use a better box model (opinionated).
+/*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
 
 *,
 ::before,
 ::after {
   box-sizing: border-box;
-}
-
-/**
-Use a more readable tab size (opinionated).
-*/
-
-html {
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-     tab-size: 4;
-}
-
-/**
-1. Correct the line height in all browsers.
-2. Prevent adjustments of font size after orientation changes in iOS.
-*/
-
-html {
-  line-height: 1.15;
   /* 1 */
-  -webkit-text-size-adjust: 100%;
+  border-width: 0;
+  /* 2 */
+  border-style: solid;
+  /* 2 */
+  border-color: #e5e7eb;
   /* 2 */
 }
 
+::before,
+::after {
+  --tw-content: '';
+}
+
 /*
-Sections
-========
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
 */
 
-/**
-Remove the margin in all browsers.
+html {
+  line-height: 1.5;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -moz-tab-size: 4;
+  /* 3 */
+  -o-tab-size: 4;
+     tab-size: 4;
+  /* 3 */
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  /* 4 */
+}
+
+/*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
 */
 
 body {
   margin: 0;
-}
-
-/**
-Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
-*/
-
-body {
-  font-family:
-		system-ui,
-		-apple-system, /* Firefox supports this but not yet `system-ui` */
-		'Segoe UI',
-		Roboto,
-		Helvetica,
-		Arial,
-		sans-serif,
-		'Apple Color Emoji',
-		'Segoe UI Emoji';
+  /* 1 */
+  line-height: inherit;
+  /* 2 */
 }
 
 /*
-Grouping content
-================
-*/
-
-/**
 1. Add the correct height in Firefox.
 2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
 */
 
 hr {
@@ -84,23 +168,43 @@ hr {
   /* 1 */
   color: inherit;
   /* 2 */
+  border-top-width: 1px;
+  /* 3 */
 }
 
 /*
-Text-level semantics
-====================
-*/
-
-/**
 Add the correct text decoration in Chrome, Edge, and Safari.
 */
 
-abbr[title] {
+abbr:where([title]) {
   -webkit-text-decoration: underline dotted;
           text-decoration: underline dotted;
 }
 
-/**
+/*
+Remove the default font size and weight for headings.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/*
 Add the correct font weight in Edge and Safari.
 */
 
@@ -109,28 +213,22 @@ strong {
   font-weight: bolder;
 }
 
-/**
-1. Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
-2. Correct the odd 'em' font sizing in all browsers.
+/*
+1. Use the user's configured `mono` font family by default.
+2. Correct the odd `em` font sizing in all browsers.
 */
 
 code,
 kbd,
 samp,
 pre {
-  font-family:
-		ui-monospace,
-		SFMono-Regular,
-		Consolas,
-		'Liberation Mono',
-		Menlo,
-		monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   /* 1 */
   font-size: 1em;
   /* 2 */
 }
 
-/**
+/*
 Add the correct font size in all browsers.
 */
 
@@ -138,8 +236,8 @@ small {
   font-size: 80%;
 }
 
-/**
-Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
+/*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
 */
 
 sub,
@@ -159,13 +257,9 @@ sup {
 }
 
 /*
-Tabular data
-============
-*/
-
-/**
 1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
 2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
 */
 
 table {
@@ -173,16 +267,14 @@ table {
   /* 1 */
   border-color: inherit;
   /* 2 */
+  border-collapse: collapse;
+  /* 3 */
 }
 
 /*
-Forms
-=====
-*/
-
-/**
 1. Change the font styles in all browsers.
 2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
 */
 
 button,
@@ -194,25 +286,28 @@ textarea {
   /* 1 */
   font-size: 100%;
   /* 1 */
-  line-height: 1.15;
+  line-height: inherit;
+  /* 1 */
+  color: inherit;
   /* 1 */
   margin: 0;
   /* 2 */
+  padding: 0;
+  /* 3 */
 }
 
-/**
+/*
 Remove the inheritance of text transform in Edge and Firefox.
-1. Remove the inheritance of text transform in Firefox.
 */
 
 button,
 select {
-  /* 1 */
   text-transform: none;
 }
 
-/**
-Correct the inability to style clickable types in iOS and Safari.
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
 */
 
 button,
@@ -220,43 +315,30 @@ button,
 [type='reset'],
 [type='submit'] {
   -webkit-appearance: button;
+  /* 1 */
+  background-color: transparent;
+  /* 2 */
+  background-image: none;
+  /* 2 */
 }
 
-/**
-Remove the inner border and padding in Firefox.
-*/
-
-::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
-}
-
-/**
-Restore the focus styles unset by the previous rule.
+/*
+Use the modern Firefox focus style for all focusable elements.
 */
 
 :-moz-focusring {
-  outline: 1px dotted ButtonText;
+  outline: auto;
 }
 
-/**
-Remove the additional ':invalid' styles in Firefox.
-See: https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737
+/*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
 */
 
 :-moz-ui-invalid {
   box-shadow: none;
 }
 
-/**
-Remove the padding so developers are not caught out when they zero out 'fieldset' elements in all browsers.
-*/
-
-legend {
-  padding: 0;
-}
-
-/**
+/*
 Add the correct vertical alignment in Chrome and Firefox.
 */
 
@@ -264,7 +346,7 @@ progress {
   vertical-align: baseline;
 }
 
-/**
+/*
 Correct the cursor style of increment and decrement buttons in Safari.
 */
 
@@ -273,7 +355,7 @@ Correct the cursor style of increment and decrement buttons in Safari.
   height: auto;
 }
 
-/**
+/*
 1. Correct the odd appearance in Chrome and Safari.
 2. Correct the outline style in Safari.
 */
@@ -285,7 +367,7 @@ Correct the cursor style of increment and decrement buttons in Safari.
   /* 2 */
 }
 
-/**
+/*
 Remove the inner padding in Chrome and Safari on macOS.
 */
 
@@ -293,9 +375,9 @@ Remove the inner padding in Chrome and Safari on macOS.
   -webkit-appearance: none;
 }
 
-/**
+/*
 1. Correct the inability to style clickable types in iOS and Safari.
-2. Change font properties to 'inherit' in Safari.
+2. Change font properties to `inherit` in Safari.
 */
 
 ::-webkit-file-upload-button {
@@ -306,11 +388,6 @@ Remove the inner padding in Chrome and Safari on macOS.
 }
 
 /*
-Interactive
-===========
-*/
-
-/*
 Add the correct display in Chrome and Safari.
 */
 
@@ -318,15 +395,9 @@ summary {
   display: list-item;
 }
 
-/**
- * Manually forked from SUIT CSS Base: https://github.com/suitcss/base
- * A thin layer on top of normalize.css that provides a starting point more
- * suitable for web applications.
- */
-
-/**
- * Removes the default spacing and border for appropriate elements.
- */
+/*
+Removes the default spacing and border for appropriate elements.
+*/
 
 blockquote,
 dl,
@@ -344,209 +415,80 @@ pre {
   margin: 0;
 }
 
-button {
-  background-color: transparent;
-  background-image: none;
-}
-
 fieldset {
   margin: 0;
   padding: 0;
 }
 
+legend {
+  padding: 0;
+}
+
 ol,
-ul {
+ul,
+menu {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/**
- * Tailwind custom reset styles
- */
-
-/**
- * 1. Use the user's configured `sans` font-family (with Tailwind's default
- *    sans-serif font stack as a fallback) as a sane default.
- * 2. Use Tailwind's default "normal" line-height so the user isn't forced
- *    to override it to ensure consistency even when using the default theme.
- */
-
-html {
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  /* 1 */
-  line-height: 1.5;
-  /* 2 */
-}
-
-/**
- * Inherit font-family and line-height from `html` so users can set them as
- * a class directly on the `html` element.
- */
-
-body {
-  font-family: inherit;
-  line-height: inherit;
-}
-
-/**
- * 1. Prevent padding and border from affecting element width.
- *
- *    We used to set this in the html element and inherit from
- *    the parent element for everything else. This caused issues
- *    in shadow-dom-enhanced elements like <details> where the content
- *    is wrapped by a div with box-sizing set to `content-box`.
- *
- *    https://github.com/mozdevs/cssremedy/issues/4
- *
- *
- * 2. Allow adding a border to an element by just adding a border-width.
- *
- *    By default, the way the browser specifies that an element should have no
- *    border is by setting it's border-style to `none` in the user-agent
- *    stylesheet.
- *
- *    In order to easily add borders to elements by just setting the `border-width`
- *    property, we change the default border-style for all elements to `solid`, and
- *    use border-width to hide them instead. This way our `border` utilities only
- *    need to set the `border-width` property instead of the entire `border`
- *    shorthand, making our border utilities much more straightforward to compose.
- *
- *    https://github.com/tailwindcss/tailwindcss/pull/116
- */
-
-*,
-::before,
-::after {
-  box-sizing: border-box;
-  /* 1 */
-  border-width: 0;
-  /* 2 */
-  border-style: solid;
-  /* 2 */
-  border-color: currentColor;
-  /* 2 */
-}
-
 /*
- * Ensure horizontal rules are visible by default
- */
-
-hr {
-  border-top-width: 1px;
-}
-
-/**
- * Undo the `border-style: none` reset that Normalize applies to images so that
- * our `border-{width}` utilities have the expected effect.
- *
- * The Normalize reset is unnecessary for us since we default the border-width
- * to 0 on all elements.
- *
- * https://github.com/tailwindcss/tailwindcss/issues/362
- */
-
-img {
-  border-style: solid;
-}
+Prevent resizing textareas horizontally by default.
+*/
 
 textarea {
   resize: vertical;
 }
 
+/*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+
 input::-moz-placeholder, textarea::-moz-placeholder {
   opacity: 1;
+  /* 1 */
   color: #9ca3af;
+  /* 2 */
 }
 
 input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   opacity: 1;
+  /* 1 */
   color: #9ca3af;
+  /* 2 */
 }
 
 input::placeholder,
 textarea::placeholder {
   opacity: 1;
+  /* 1 */
   color: #9ca3af;
+  /* 2 */
 }
+
+/*
+Set the default cursor for buttons.
+*/
 
 button,
 [role="button"] {
   cursor: pointer;
 }
 
-table {
-  border-collapse: collapse;
+/*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+
+:disabled {
+  cursor: default;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: inherit;
-  font-weight: inherit;
-}
-
-/**
- * Reset links to optimize for opt-in styling instead of
- * opt-out.
- */
-
-a {
-  color: inherit;
-  text-decoration: inherit;
-}
-
-/**
- * Reset form element properties that are easy to forget to
- * style explicitly so you don't inadvertently introduce
- * styles that deviate from your design system. These styles
- * supplement a partial reset that is already applied by
- * normalize.css.
- */
-
-button,
-input,
-optgroup,
-select,
-textarea {
-  padding: 0;
-  line-height: inherit;
-  color: inherit;
-}
-
-/**
- * Use the configured 'mono' font family for elements that
- * are expected to be rendered with a monospace font, falling
- * back to the system monospace stack if there is no configured
- * 'mono' font family.
- */
-
-pre,
-code,
-kbd,
-samp {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}
-
-/**
- * 1. Make replaced elements `display: block` by default as that's
- *    the behavior you want almost all of the time. Inspired by
- *    CSS Remedy, with `svg` added as well.
- *
- *    https://github.com/mozdevs/cssremedy/issues/14
- * 
- * 2. Add `vertical-align: middle` to align replaced elements more
- *    sensibly by default when overriding `display` by adding a
- *    utility like `inline`.
- *
- *    This can trigger a poorly considered linting error in some
- *    tools but is included by design.
- * 
- *    https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210
- */
+/*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
 
 img,
 svg,
@@ -562,17 +504,22 @@ object {
   /* 2 */
 }
 
-/**
- * Constrain images and videos to the parent width and preserve
- * their intrinsic aspect ratio.
- *
- * https://github.com/mozdevs/cssremedy/issues/14
- */
+/*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
 
 img,
 video {
   max-width: 100%;
   height: auto;
+}
+
+/*
+Ensure the default browser behavior of the `hidden` attribute.
+*/
+
+[hidden] {
+  display: none;
 }
 
 *, ::before, ::after {
@@ -583,78 +530,85 @@ video {
   --tw-skew-y: 0;
   --tw-scale-x: 1;
   --tw-scale-y: 1;
-  --tw-transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  --tw-border-opacity: 1;
-  border-color: rgba(229, 231, 235, var(--tw-border-opacity));
-  --tw-shadow: 0 0 #0000;
-  --tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: #fff;
-  --tw-ring-color: rgba(24, 124, 188, 0.5);
+  --tw-ring-color: rgb(24 124 188 / 0.5);
   --tw-ring-offset-shadow: 0 0 #0000;
   --tw-ring-shadow: 0 0 #0000;
-  --tw-blur: var(--tw-empty,/*!*/ /*!*/);
-  --tw-brightness: var(--tw-empty,/*!*/ /*!*/);
-  --tw-contrast: var(--tw-empty,/*!*/ /*!*/);
-  --tw-grayscale: var(--tw-empty,/*!*/ /*!*/);
-  --tw-hue-rotate: var(--tw-empty,/*!*/ /*!*/);
-  --tw-invert: var(--tw-empty,/*!*/ /*!*/);
-  --tw-saturate: var(--tw-empty,/*!*/ /*!*/);
-  --tw-sepia: var(--tw-empty,/*!*/ /*!*/);
-  --tw-drop-shadow: var(--tw-empty,/*!*/ /*!*/);
-  --tw-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-  --tw-backdrop-blur: var(--tw-empty,/*!*/ /*!*/);
-  --tw-backdrop-brightness: var(--tw-empty,/*!*/ /*!*/);
-  --tw-backdrop-contrast: var(--tw-empty,/*!*/ /*!*/);
-  --tw-backdrop-grayscale: var(--tw-empty,/*!*/ /*!*/);
-  --tw-backdrop-hue-rotate: var(--tw-empty,/*!*/ /*!*/);
-  --tw-backdrop-invert: var(--tw-empty,/*!*/ /*!*/);
-  --tw-backdrop-opacity: var(--tw-empty,/*!*/ /*!*/);
-  --tw-backdrop-saturate: var(--tw-empty,/*!*/ /*!*/);
-  --tw-backdrop-sepia: var(--tw-empty,/*!*/ /*!*/);
-  --tw-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
 }
 
 body {
+  font-family: SF Pro Display;
   font-size: .9375rem;
   --tw-text-opacity: 1;
-  color: rgba(27, 34, 43, var(--tw-text-opacity));
+  color: rgb(27 34 43 / var(--tw-text-opacity));
 }
 
 .form-control {
   border-radius: 0.25rem;
   border-width: 1px;
   --tw-border-opacity: 1;
-  border-color: rgba(209, 213, 219, var(--tw-border-opacity));
+  border-color: rgb(209 213 219 / var(--tw-border-opacity));
   --tw-text-opacity: 1;
-  color: rgba(105, 113, 126, var(--tw-text-opacity));
+  color: rgb(105 113 126 / var(--tw-text-opacity));
 }
 
 .form-control::-moz-placeholder {
   --tw-placeholder-opacity: 1;
-  color: rgba(105, 113, 126, var(--tw-placeholder-opacity));
+  color: rgb(105 113 126 / var(--tw-placeholder-opacity));
 }
 
 .form-control:-ms-input-placeholder {
   --tw-placeholder-opacity: 1;
-  color: rgba(105, 113, 126, var(--tw-placeholder-opacity));
+  color: rgb(105 113 126 / var(--tw-placeholder-opacity));
 }
 
 .form-control::placeholder {
   --tw-placeholder-opacity: 1;
-  color: rgba(105, 113, 126, var(--tw-placeholder-opacity));
+  color: rgb(105 113 126 / var(--tw-placeholder-opacity));
 }
 
-input[type='text'], select {
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+input[type="text"], select {
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
 
-input[type='text']:focus, select:focus {
-  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+input[type="text"]:focus, select:focus {
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -666,19 +620,19 @@ input[type='text']:focus, select:focus {
   position: relative;
   display: flex;
   align-items: center;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
 
 .c-checkbox.is_error .c-checkbox__icon {
   --tw-border-opacity: 1;
-  border-color: rgba(239, 68, 68, var(--tw-border-opacity));
+  border-color: rgb(239 68 68 / var(--tw-border-opacity));
 }
 
-.c-checkbox input[type='checkbox'] {
+.c-checkbox input[type="checkbox"] {
   position: absolute;
   height: 0px;
   width: 0px;
@@ -686,29 +640,29 @@ input[type='text']:focus, select:focus {
   opacity: 0;
 }
 
-.c-checkbox input[type='checkbox']:checked + .c-checkbox__icon, .c-checkbox input[type='checkbox']:checked:disabled + .c-checkbox__icon {
+.c-checkbox input[type="checkbox"]:checked + .c-checkbox__icon, .c-checkbox input[type="checkbox"]:checked:disabled + .c-checkbox__icon {
   border-width: 0px;
   --tw-bg-opacity: 1;
-  background-color: rgba(96, 165, 250, var(--tw-bg-opacity));
+  background-color: rgb(96 165 250 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(255, 255, 255, var(--tw-text-opacity));
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.c-checkbox input[type='checkbox']:checked + .c-checkbox__icon svg {
+.c-checkbox input[type="checkbox"]:checked + .c-checkbox__icon svg {
   visibility: visible;
 }
 
-.c-checkbox input[type='checkbox']:disabled + .c-checkbox__icon {
+.c-checkbox input[type="checkbox"]:disabled + .c-checkbox__icon {
   cursor: not-allowed;
   --tw-border-opacity: 1;
-  border-color: rgba(209, 213, 219, var(--tw-border-opacity));
+  border-color: rgb(209 213 219 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(107, 114, 128, var(--tw-text-opacity));
+  color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 
-.c-checkbox input[type='checkbox']:disabled:checked + .c-checkbox__icon svg {
+.c-checkbox input[type="checkbox"]:disabled:checked + .c-checkbox__icon svg {
   cursor: not-allowed;
 }
 
@@ -719,19 +673,19 @@ input[type='text']:focus, select:focus {
   border-radius: 0.25rem;
   border-width: 1px;
   --tw-border-opacity: 1;
-  border-color: rgba(209, 213, 219, var(--tw-border-opacity));
+  border-color: rgb(209 213 219 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
 
 .c-checkbox__icon:focus, .c-checkbox__icon:hover {
   --tw-border-opacity: 1;
-  border-color: rgba(243, 244, 246, var(--tw-border-opacity));
+  border-color: rgb(243 244 246 / var(--tw-border-opacity));
 }
 
 .c-checkbox__icon svg {
@@ -740,14 +694,12 @@ input[type='text']:focus, select:focus {
   top: 50%;
   left: 50%;
   --tw-translate-x: -50%;
-  transform: var(--tw-transform);
   --tw-translate-y: -50%;
-  transform: var(--tw-transform);
-  transform: var(--tw-transform);
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   cursor: pointer;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -770,12 +722,12 @@ input[type='text']:focus, select:focus {
   border-radius: 9999px;
   border-width: 1px;
   --tw-border-opacity: 1;
-  border-color: rgba(209, 213, 219, var(--tw-border-opacity));
+  border-color: rgb(209 213 219 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -787,41 +739,39 @@ input[type='text']:focus, select:focus {
 
 .c-radio:checked, .c-radio:active {
   --tw-border-opacity: 1;
-  border-color: rgba(27, 34, 43, var(--tw-border-opacity));
+  border-color: rgb(27 34 43 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(27, 34, 43, var(--tw-bg-opacity));
+  background-color: rgb(27 34 43 / var(--tw-bg-opacity));
 }
 
 .c-radio:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 0.25rem;
   height: 1.25rem;
   width: 1.25rem;
   --tw-translate-y: -50%;
-  transform: var(--tw-transform);
-  transform: var(--tw-transform);
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   border-radius: 9999px;
   --tw-bg-opacity: 1;
-  background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
+  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
   transition-duration: 300ms;
 }
 
 .c-radio:checked:before, .c-radio:active:before {
   margin-left: 1rem;
   --tw-bg-opacity: 1;
-  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .sidebar {
   -webkit-backdrop-filter: blur(20px);
           backdrop-filter: blur(20px);
   --tw-bg-opacity: 1;
-  background-color: rgba(27, 34, 43, var(--tw-bg-opacity));
+  background-color: rgb(27 34 43 / var(--tw-bg-opacity));
 }
 
 .sidebar__content {
@@ -829,7 +779,6 @@ input[type='text']:focus, select:focus {
   width: 18rem;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
   transition-duration: 700ms;
 }
 
@@ -905,7 +854,6 @@ input[type='text']:focus, select:focus {
   overflow-y: auto;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
   transition-duration: 700ms;
 }
 
@@ -920,7 +868,6 @@ input[type='text']:focus, select:focus {
   left: 33rem;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
   transition-duration: 700ms;
 }
 
@@ -941,9 +888,9 @@ input[type='text']:focus, select:focus {
 
 .reg-table thead {
   --tw-bg-opacity: 1;
-  background-color: rgba(24, 124, 188, var(--tw-bg-opacity));
+  background-color: rgb(24 124 188 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(255, 255, 255, var(--tw-text-opacity));
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .reg-table thead th {
@@ -971,25 +918,25 @@ input[type='text']:focus, select:focus {
 
 .reg-table thead .reg-sort:before,
   .reg-table thead .reg-sort:after {
-  content: '';
+  content: "";
   width: 0;
   height: 0;
   border: 4px solid transparent;
   position: absolute;
   right: 0px;
   opacity: 0;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
 
 .reg-table thead .reg-sort:hover:before, .reg-table thead .reg-sort:hover:after {
   opacity: 0.3;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -1015,9 +962,9 @@ input[type='text']:focus, select:focus {
 .reg-table tbody tr:nth-child(even) {
   border-bottom-width: 1px;
   --tw-border-opacity: 1;
-  border-color: rgba(229, 231, 235, var(--tw-border-opacity));
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
 .reg-table tbody td {
@@ -1044,22 +991,22 @@ input[type='text']:focus, select:focus {
 }
 
 .arrow-ribbon span {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgb(0 0 0 / 0.2);
   padding: 0.25rem;
   padding-left: 0.375rem;
   padding-right: 0.375rem;
   --tw-text-opacity: 1;
-  color: rgba(255, 255, 255, var(--tw-text-opacity));
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .arrow-ribbon:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   height: 100%;
   width: 0px;
   --tw-translate-y: -50%;
-  transform: var(--tw-transform);
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .pointer-events-none {
@@ -1091,6 +1038,7 @@ input[type='text']:focus, select:focus {
 }
 
 .sticky {
+  position: -webkit-sticky;
   position: sticky;
 }
 
@@ -1141,6 +1089,10 @@ input[type='text']:focus, select:focus {
   right: 0.375rem;
 }
 
+.left-3 {
+  left: 0.75rem;
+}
+
 .left-20 {
   left: 5rem;
 }
@@ -1159,10 +1111,6 @@ input[type='text']:focus, select:focus {
 
 .left-6 {
   left: 1.5rem;
-}
-
-.left-3 {
-  left: 0.75rem;
 }
 
 .top-auto {
@@ -1671,10 +1619,6 @@ input[type='text']:focus, select:focus {
   flex-grow: 1;
 }
 
-.table-auto {
-  table-layout: auto;
-}
-
 .table-fixed {
   table-layout: fixed;
 }
@@ -1693,81 +1637,81 @@ input[type='text']:focus, select:focus {
 
 .translate-y-5 {
   --tw-translate-y: 1.25rem;
-  transform: var(--tw-transform);
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .translate-y-0 {
   --tw-translate-y: 0px;
-  transform: var(--tw-transform);
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .-translate-y-1\/2 {
   --tw-translate-y: -50%;
-  transform: var(--tw-transform);
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .translate-x-10 {
   --tw-translate-x: 2.5rem;
-  transform: var(--tw-transform);
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .translate-x-0 {
   --tw-translate-x: 0px;
-  transform: var(--tw-transform);
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .translate-y-1\/2 {
   --tw-translate-y: 50%;
-  transform: var(--tw-transform);
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .translate-y-4 {
   --tw-translate-y: 1rem;
-  transform: var(--tw-transform);
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .-translate-x-10 {
   --tw-translate-x: -2.5rem;
-  transform: var(--tw-transform);
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .-translate-y-2 {
   --tw-translate-y: -0.5rem;
-  transform: var(--tw-transform);
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .-translate-x-1\/2 {
   --tw-translate-x: -50%;
-  transform: var(--tw-transform);
-}
-
-.rotate-180 {
-  --tw-rotate: 180deg;
-  transform: var(--tw-transform);
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .rotate-90 {
   --tw-rotate: 90deg;
-  transform: var(--tw-transform);
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.rotate-180 {
+  --tw-rotate: 180deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .scale-x-0 {
   --tw-scale-x: 0;
-  transform: var(--tw-transform);
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .scale-x-100 {
   --tw-scale-x: 1;
-  transform: var(--tw-transform);
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .scale-y-100 {
   --tw-scale-y: 1;
-  transform: var(--tw-transform);
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .transform {
-  transform: var(--tw-transform);
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .cursor-pointer {
@@ -1882,6 +1826,12 @@ input[type='text']:focus, select:focus {
   margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.space-y-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+}
+
 .space-y-1 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1900,12 +1850,6 @@ input[type='text']:focus, select:focus {
   margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
-.space-y-4 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
-}
-
 .divide-x > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-x-reverse: 0;
   border-right-width: calc(1px * var(--tw-divide-x-reverse));
@@ -1920,12 +1864,12 @@ input[type='text']:focus, select:focus {
 
 .divide-gray-100 > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-opacity: 1;
-  border-color: rgba(243, 244, 246, var(--tw-divide-opacity));
+  border-color: rgb(243 244 246 / var(--tw-divide-opacity));
 }
 
 .divide-gray-400 > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-opacity: 1;
-  border-color: rgba(156, 163, 175, var(--tw-divide-opacity));
+  border-color: rgb(156 163 175 / var(--tw-divide-opacity));
 }
 
 .divide-opacity-90 > :not([hidden]) ~ :not([hidden]) {
@@ -2017,71 +1961,71 @@ input[type='text']:focus, select:focus {
 
 .border-gray-200 {
   --tw-border-opacity: 1;
-  border-color: rgba(229, 231, 235, var(--tw-border-opacity));
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
 
 .border-blue-500 {
   --tw-border-opacity: 1;
-  border-color: rgba(24, 124, 188, var(--tw-border-opacity));
+  border-color: rgb(24 124 188 / var(--tw-border-opacity));
 }
 
 .border-body {
   --tw-border-opacity: 1;
-  border-color: rgba(27, 34, 43, var(--tw-border-opacity));
+  border-color: rgb(27 34 43 / var(--tw-border-opacity));
 }
 
 .border-gray-300 {
   --tw-border-opacity: 1;
-  border-color: rgba(209, 213, 219, var(--tw-border-opacity));
+  border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
 
 .border-gray-100 {
   --tw-border-opacity: 1;
-  border-color: rgba(243, 244, 246, var(--tw-border-opacity));
+  border-color: rgb(243 244 246 / var(--tw-border-opacity));
 }
 
 .bg-body-light {
   --tw-bg-opacity: 1;
-  background-color: rgba(105, 113, 126, var(--tw-bg-opacity));
+  background-color: rgb(105 113 126 / var(--tw-bg-opacity));
 }
 
 .bg-white {
   --tw-bg-opacity: 1;
-  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .bg-gray-100 {
   --tw-bg-opacity: 1;
-  background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
 .bg-body {
   --tw-bg-opacity: 1;
-  background-color: rgba(27, 34, 43, var(--tw-bg-opacity));
+  background-color: rgb(27 34 43 / var(--tw-bg-opacity));
 }
 
 .bg-gray-200 {
   --tw-bg-opacity: 1;
-  background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 
 .bg-blue-500 {
   --tw-bg-opacity: 1;
-  background-color: rgba(24, 124, 188, var(--tw-bg-opacity));
+  background-color: rgb(24 124 188 / var(--tw-bg-opacity));
 }
 
 .bg-body-accent {
   --tw-bg-opacity: 1;
-  background-color: rgba(255, 127, 0, var(--tw-bg-opacity));
+  background-color: rgb(255 127 0 / var(--tw-bg-opacity));
 }
 
 .bg-\[\#d9dbdd\] {
   --tw-bg-opacity: 1;
-  background-color: rgba(217, 219, 221, var(--tw-bg-opacity));
+  background-color: rgb(217 219 221 / var(--tw-bg-opacity));
 }
 
 .bg-blue-500\/20 {
-  background-color: rgba(24, 124, 188, 0.2);
+  background-color: rgb(24 124 188 / 0.2);
 }
 
 .bg-transparent {
@@ -2090,62 +2034,62 @@ input[type='text']:focus, select:focus {
 
 .bg-gray-600 {
   --tw-bg-opacity: 1;
-  background-color: rgba(75, 85, 99, var(--tw-bg-opacity));
+  background-color: rgb(75 85 99 / var(--tw-bg-opacity));
 }
 
 .bg-green-500 {
   --tw-bg-opacity: 1;
-  background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
 }
 
 .bg-yellow-500 {
   --tw-bg-opacity: 1;
-  background-color: rgba(245, 158, 11, var(--tw-bg-opacity));
+  background-color: rgb(234 179 8 / var(--tw-bg-opacity));
 }
 
 .bg-red-500 {
   --tw-bg-opacity: 1;
-  background-color: rgba(239, 68, 68, var(--tw-bg-opacity));
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
 
 .bg-purple-300 {
   --tw-bg-opacity: 1;
-  background-color: rgba(196, 181, 253, var(--tw-bg-opacity));
+  background-color: rgb(216 180 254 / var(--tw-bg-opacity));
 }
 
 .bg-indigo-500 {
   --tw-bg-opacity: 1;
-  background-color: rgba(99, 102, 241, var(--tw-bg-opacity));
+  background-color: rgb(99 102 241 / var(--tw-bg-opacity));
 }
 
 .bg-pink-500 {
   --tw-bg-opacity: 1;
-  background-color: rgba(236, 72, 153, var(--tw-bg-opacity));
+  background-color: rgb(236 72 153 / var(--tw-bg-opacity));
 }
 
 .bg-black {
   --tw-bg-opacity: 1;
-  background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
 .bg-blue-100 {
   --tw-bg-opacity: 1;
-  background-color: rgba(219, 234, 254, var(--tw-bg-opacity));
+  background-color: rgb(219 234 254 / var(--tw-bg-opacity));
 }
 
 .bg-\[\#ead10c\] {
   --tw-bg-opacity: 1;
-  background-color: rgba(234, 209, 12, var(--tw-bg-opacity));
+  background-color: rgb(234 209 12 / var(--tw-bg-opacity));
 }
 
 .bg-\[\#1e55a0\] {
   --tw-bg-opacity: 1;
-  background-color: rgba(30, 85, 160, var(--tw-bg-opacity));
+  background-color: rgb(30 85 160 / var(--tw-bg-opacity));
 }
 
 .bg-\[\#0cea48\] {
   --tw-bg-opacity: 1;
-  background-color: rgba(12, 234, 72, var(--tw-bg-opacity));
+  background-color: rgb(12 234 72 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-80 {
@@ -2170,12 +2114,12 @@ input[type='text']:focus, select:focus {
 
 .from-gray-100 {
   --tw-gradient-from: #f3f4f6;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(243, 244, 246, 0));
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(243 244 246 / 0));
 }
 
 .from-transparent {
   --tw-gradient-from: transparent;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(0 0 0 / 0));
 }
 
 .to-body {
@@ -2315,16 +2259,16 @@ input[type='text']:focus, select:focus {
   padding-top: 2.5rem;
 }
 
+.pr-10 {
+  padding-right: 2.5rem;
+}
+
 .pb-4 {
   padding-bottom: 1rem;
 }
 
 .pl-2 {
   padding-left: 0.5rem;
-}
-
-.pr-10 {
-  padding-right: 2.5rem;
 }
 
 .pb-24 {
@@ -2431,46 +2375,57 @@ input[type='text']:focus, select:focus {
 
 .text-white {
   --tw-text-opacity: 1;
-  color: rgba(255, 255, 255, var(--tw-text-opacity));
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .text-body-light {
   --tw-text-opacity: 1;
-  color: rgba(105, 113, 126, var(--tw-text-opacity));
+  color: rgb(105 113 126 / var(--tw-text-opacity));
 }
 
 .text-body {
   --tw-text-opacity: 1;
-  color: rgba(27, 34, 43, var(--tw-text-opacity));
+  color: rgb(27 34 43 / var(--tw-text-opacity));
 }
 
 .text-body-accent {
   --tw-text-opacity: 1;
-  color: rgba(255, 127, 0, var(--tw-text-opacity));
+  color: rgb(255 127 0 / var(--tw-text-opacity));
 }
 
 .text-blue-500 {
   --tw-text-opacity: 1;
-  color: rgba(24, 124, 188, var(--tw-text-opacity));
+  color: rgb(24 124 188 / var(--tw-text-opacity));
+}
+
+.text-red-800 {
+  --tw-text-opacity: 1;
+  color: rgb(153 27 27 / var(--tw-text-opacity));
+}
+
+.text-green-700 {
+  --tw-text-opacity: 1;
+  color: rgb(21 128 61 / var(--tw-text-opacity));
 }
 
 .underline {
-  text-decoration: underline;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
 }
 
 .placeholder-body-light::-moz-placeholder {
   --tw-placeholder-opacity: 1;
-  color: rgba(105, 113, 126, var(--tw-placeholder-opacity));
+  color: rgb(105 113 126 / var(--tw-placeholder-opacity));
 }
 
 .placeholder-body-light:-ms-input-placeholder {
   --tw-placeholder-opacity: 1;
-  color: rgba(105, 113, 126, var(--tw-placeholder-opacity));
+  color: rgb(105 113 126 / var(--tw-placeholder-opacity));
 }
 
 .placeholder-body-light::placeholder {
   --tw-placeholder-opacity: 1;
-  color: rgba(105, 113, 126, var(--tw-placeholder-opacity));
+  color: rgb(105 113 126 / var(--tw-placeholder-opacity));
 }
 
 .opacity-0 {
@@ -2506,33 +2461,37 @@ input[type='text']:focus, select:focus {
 }
 
 .shadow-lg {
-  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-sm {
-  --tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow {
-  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-xl {
-  --tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .filter {
-  filter: var(--tw-filter);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .transition {
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -2575,737 +2534,6 @@ input[type='text']:focus, select:focus {
   display: none !important;
 }
 
-@layer components {
-  body {
-    font-size: .9375rem;
-  }
-
-  body {
-    --tw-text-opacity: 1;
-    color: rgba(27, 34, 43, var(--tw-text-opacity));
-  }
-
-  .form-control {
-    border-radius: 0.25rem;
-  }
-
-  .form-control {
-    border-width: 1px;
-  }
-
-  .form-control {
-    --tw-border-opacity: 1;
-    border-color: rgba(209, 213, 219, var(--tw-border-opacity));
-  }
-
-  .form-control {
-    --tw-text-opacity: 1;
-    color: rgba(105, 113, 126, var(--tw-text-opacity));
-  }
-
-  .form-control::-moz-placeholder {
-    --tw-placeholder-opacity: 1;
-    color: rgba(105, 113, 126, var(--tw-placeholder-opacity));
-  }
-
-  .form-control:-ms-input-placeholder {
-    --tw-placeholder-opacity: 1;
-    color: rgba(105, 113, 126, var(--tw-placeholder-opacity));
-  }
-
-  .form-control::placeholder {
-    --tw-placeholder-opacity: 1;
-    color: rgba(105, 113, 126, var(--tw-placeholder-opacity));
-  }
-
-  input[type='text'], select {
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-  }
-
-  input[type='text']:focus, select:focus {
-    --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  }
-
-  input[type='text']:focus, select:focus {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-  }
-
-  /* Custom checkbox functionality */
-
-  .c-checkbox {
-    position: relative;
-  }
-
-  .c-checkbox {
-    display: flex;
-  }
-
-  .c-checkbox {
-    align-items: center;
-  }
-
-  .c-checkbox {
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-  }
-
-  .c-checkbox.is_error .c-checkbox__icon {
-    --tw-border-opacity: 1;
-    border-color: rgba(239, 68, 68, var(--tw-border-opacity));
-  }
-
-  .c-checkbox input[type='checkbox'] {
-    position: absolute;
-  }
-
-  .c-checkbox input[type='checkbox'] {
-    height: 0px;
-  }
-
-  .c-checkbox input[type='checkbox'] {
-    width: 0px;
-  }
-
-  .c-checkbox input[type='checkbox'] {
-    cursor: pointer;
-  }
-
-  .c-checkbox input[type='checkbox'] {
-    opacity: 0;
-  }
-
-  .c-checkbox input[type='checkbox']:checked + .c-checkbox__icon, .c-checkbox input[type='checkbox']:checked:disabled + .c-checkbox__icon {
-    border-width: 0px;
-  }
-
-  .c-checkbox input[type='checkbox']:checked + .c-checkbox__icon, .c-checkbox input[type='checkbox']:checked:disabled + .c-checkbox__icon {
-    --tw-bg-opacity: 1;
-    background-color: rgba(96, 165, 250, var(--tw-bg-opacity));
-  }
-
-  .c-checkbox input[type='checkbox']:checked + .c-checkbox__icon, .c-checkbox input[type='checkbox']:checked:disabled + .c-checkbox__icon {
-    --tw-text-opacity: 1;
-    color: rgba(255, 255, 255, var(--tw-text-opacity));
-  }
-
-  .c-checkbox input[type='checkbox']:checked + .c-checkbox__icon svg {
-    visibility: visible;
-  }
-
-  .c-checkbox input[type='checkbox']:disabled + .c-checkbox__icon {
-    cursor: not-allowed;
-  }
-
-  .c-checkbox input[type='checkbox']:disabled + .c-checkbox__icon {
-    --tw-border-opacity: 1;
-    border-color: rgba(209, 213, 219, var(--tw-border-opacity));
-  }
-
-  .c-checkbox input[type='checkbox']:disabled + .c-checkbox__icon {
-    --tw-bg-opacity: 1;
-    background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
-  }
-
-  .c-checkbox input[type='checkbox']:disabled + .c-checkbox__icon {
-    --tw-text-opacity: 1;
-    color: rgba(107, 114, 128, var(--tw-text-opacity));
-  }
-
-  .c-checkbox input[type='checkbox']:disabled:checked + .c-checkbox__icon svg {
-    cursor: not-allowed;
-  }
-
-  .c-checkbox__icon {
-    width: 18px;
-    height: 18px;
-  }
-
-  .c-checkbox__icon {
-    position: relative;
-  }
-
-  .c-checkbox__icon {
-    border-radius: 0.25rem;
-  }
-
-  .c-checkbox__icon {
-    border-width: 1px;
-  }
-
-  .c-checkbox__icon {
-    --tw-border-opacity: 1;
-    border-color: rgba(209, 213, 219, var(--tw-border-opacity));
-  }
-
-  .c-checkbox__icon {
-    --tw-bg-opacity: 1;
-    background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-  }
-
-  .c-checkbox__icon {
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-  }
-
-  .c-checkbox__icon:focus, .c-checkbox__icon:hover {
-    --tw-border-opacity: 1;
-    border-color: rgba(243, 244, 246, var(--tw-border-opacity));
-  }
-
-  .c-checkbox__icon svg {
-    visibility: hidden;
-  }
-
-  .c-checkbox__icon svg {
-    position: absolute;
-  }
-
-  .c-checkbox__icon svg {
-    top: 50%;
-  }
-
-  .c-checkbox__icon svg {
-    left: 50%;
-  }
-
-  .c-checkbox__icon svg {
-    --tw-translate-x: -50%;
-    transform: var(--tw-transform);
-  }
-
-  .c-checkbox__icon svg {
-    --tw-translate-y: -50%;
-    transform: var(--tw-transform);
-  }
-
-  .c-checkbox__icon svg {
-    transform: var(--tw-transform);
-  }
-
-  .c-checkbox__icon svg {
-    cursor: pointer;
-  }
-
-  .c-checkbox__icon svg {
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-  }
-
-  .c-checkbox__title {
-    margin-left: 0.75rem;
-  }
-
-  .c-checkbox__title {
-    cursor: pointer;
-  }
-
-  /*Custom radio functionality*/
-
-  .c-radio {
-    position: relative;
-  }
-
-  .c-radio {
-    height: 1.75rem;
-  }
-
-  .c-radio {
-    width: 2.75rem;
-  }
-
-  .c-radio {
-    cursor: pointer;
-  }
-
-  .c-radio {
-    -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none;
-  }
-
-  .c-radio {
-    border-radius: 9999px;
-  }
-
-  .c-radio {
-    border-width: 1px;
-  }
-
-  .c-radio {
-    --tw-border-opacity: 1;
-    border-color: rgba(209, 213, 219, var(--tw-border-opacity));
-  }
-
-  .c-radio {
-    --tw-bg-opacity: 1;
-    background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-  }
-
-  .c-radio {
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-  }
-
-  .c-radio:focus {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-  }
-
-  .c-radio:checked, .c-radio:active {
-    --tw-border-opacity: 1;
-    border-color: rgba(27, 34, 43, var(--tw-border-opacity));
-  }
-
-  .c-radio:checked, .c-radio:active {
-    --tw-bg-opacity: 1;
-    background-color: rgba(27, 34, 43, var(--tw-bg-opacity));
-  }
-
-  .c-radio:before {
-    content: '';
-  }
-
-  .c-radio:before {
-    position: absolute;
-  }
-
-  .c-radio:before {
-    top: 50%;
-  }
-
-  .c-radio:before {
-    left: 0.25rem;
-  }
-
-  .c-radio:before {
-    height: 1.25rem;
-  }
-
-  .c-radio:before {
-    width: 1.25rem;
-  }
-
-  .c-radio:before {
-    --tw-translate-y: -50%;
-    transform: var(--tw-transform);
-  }
-
-  .c-radio:before {
-    transform: var(--tw-transform);
-  }
-
-  .c-radio:before {
-    border-radius: 9999px;
-  }
-
-  .c-radio:before {
-    --tw-bg-opacity: 1;
-    background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
-  }
-
-  .c-radio:before {
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-  }
-
-  .c-radio:before {
-    transition-duration: 300ms;
-  }
-
-  .c-radio:checked:before, .c-radio:active:before {
-    margin-left: 1rem;
-  }
-
-  .c-radio:checked:before, .c-radio:active:before {
-    --tw-bg-opacity: 1;
-    background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-  }
-
-  .sidebar {
-    -webkit-backdrop-filter: blur(20px);
-            backdrop-filter: blur(20px);
-  }
-
-  .sidebar {
-    --tw-bg-opacity: 1;
-    background-color: rgba(27, 34, 43, var(--tw-bg-opacity));
-  }
-
-  .sidebar__content {
-    height: calc(100vh - 64px);
-  }
-
-  .sidebar__content {
-    width: 18rem;
-  }
-
-  .sidebar__content {
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-  }
-
-  .sidebar__content {
-    transition-duration: 700ms;
-  }
-
-  #sidebar.is_active .sidebar__content, .sidebar__content.is_active {
-    width: 28rem;
-  }
-
-  .sidebar__media {
-    width: 4rem;
-  }
-
-  #sidebar.is_active .sidebar__media,
-  .sidebar__content.is_active .sidebar__media {
-    /* @apply w-32 mr-3; */
-  }
-
-  #sidebar.is_active .sidebar__media, .sidebar__content.is_active .sidebar__media {
-    margin-right: 0.75rem;
-  }
-
-  #sidebar.is_active .sidebar__media.is_half, .sidebar__content.is_active .sidebar__media.is_half {
-    width: 50%;
-  }
-
-  #sidebar.is_active .sidebar__more-info, .sidebar__content.is_active .sidebar__more-info {
-    display: block;
-  }
-
-  .sidebar__width-full {
-    width: 100%;
-  }
-
-  #sidebar.is_active .sidebar__width-full, .sidebar__content.is_active .sidebar__width-full {
-    width: auto;
-  }
-
-  .sidebar__content.is_active .vehicle-info .sidebar__info {
-    width: 50%;
-  }
-
-  .sidebar__content.is_compact .vehicle-info {
-    /* @apply flex-wrap; */
-  }
-
-  .sidebar__content.is_compact .vehicle-info .sidebar__media {
-    /* @apply w-full mr-0 mb-3; */
-  }
-
-  .sidebar__content.is_compact .vehicle-info .sidebar__media {
-    margin-bottom: 0.75rem;
-  }
-
-  .sidebar__content.is_compact .vehicle-info .sidebar__media img {
-    height: 5rem;
-  }
-
-  .sidebar__content.is_compact .vehicle-info .sidebar__media img {
-    -o-object-fit: cover;
-       object-fit: cover;
-  }
-
-  .sidebar__content.is_compact .vehicle-info .sidebar__info {
-    width: 100%;
-  }
-
-  .sidebar__content.is_compact + .main__content--chat {
-    padding-left: 23rem;
-  }
-
-  .sidebar__content.is_compact + .main__content--chat .main__content--fixed {
-    width: calc(100% - 23rem);
-    left: 23rem;
-  }
-
-  #sidebar.is_active ~ .main__content,
-  #sidebar.is_active ~ .main__content .main__content--fixed {
-    padding-left: 33rem;
-  }
-
-  .main__content {
-    min-height: calc(100vh - 65px);
-  }
-
-  .main__content {
-    overflow-y: auto;
-  }
-
-  .main__content {
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-  }
-
-  .main__content {
-    transition-duration: 700ms;
-  }
-
-  .main__content--chat {
-    height: calc(100vh - 65px);
-    padding-left: 33rem;
-  }
-
-  .main__content .main__content--fixed {
-    width: calc(100% - 33rem);
-    padding-left: 0;
-    left: 33rem;
-  }
-
-  .main__content .main__content--fixed {
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-  }
-
-  .main__content .main__content--fixed {
-    transition-duration: 700ms;
-  }
-
-  .main__content .main__content--fixed.chat-author {
-    /* border: 1px solid #000; */
-  }
-
-  .main__content--alone {
-    min-height: calc(100vh - 65px);
-  }
-
-  .main__content--alone {
-    margin-left: 4.5rem;
-  }
-
-  .main__content--alone {
-    padding-left: 1.5rem;
-  }
-
-  .reg-table {
-    width: 100%;
-  }
-
-  .reg-table {
-    table-layout: auto;
-  }
-
-  .reg-table thead {
-    --tw-bg-opacity: 1;
-    background-color: rgba(24, 124, 188, var(--tw-bg-opacity));
-  }
-
-  .reg-table thead {
-    --tw-text-opacity: 1;
-    color: rgba(255, 255, 255, var(--tw-text-opacity));
-  }
-
-  .reg-table thead th {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-  }
-
-  .reg-table thead th {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-
-  .reg-table thead th {
-    text-align: left;
-  }
-
-  .reg-table thead th {
-    font-weight: 500;
-  }
-
-  .reg-table thead th:first-child, .reg-table tbody td:first-child {
-    padding-left: 1.5rem;
-  }
-
-  .reg-table thead th:last-child {
-    padding-right: 2rem;
-  }
-
-  .reg-table thead th:last-child {
-    text-align: right;
-  }
-
-  .reg-table thead .reg-sort {
-    position: relative;
-  }
-
-  .reg-table thead .reg-sort {
-    padding-right: 0.875rem;
-  }
-
-  .reg-table thead .reg-sort:before,
-  .reg-table thead .reg-sort:after {
-    content: '';
-    width: 0;
-    height: 0;
-    border: 4px solid transparent;
-  }
-
-  .reg-table thead .reg-sort:before, .reg-table thead .reg-sort:after {
-    position: absolute;
-  }
-
-  .reg-table thead .reg-sort:before, .reg-table thead .reg-sort:after {
-    right: 0px;
-  }
-
-  .reg-table thead .reg-sort:before, .reg-table thead .reg-sort:after {
-    opacity: 0;
-  }
-
-  .reg-table thead .reg-sort:before, .reg-table thead .reg-sort:after {
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-  }
-
-  .reg-table thead .reg-sort:hover:before, .reg-table thead .reg-sort:hover:after {
-    opacity: 0.3;
-  }
-
-  .reg-table thead .reg-sort:hover:before, .reg-table thead .reg-sort:hover:after {
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-  }
-
-  .reg-table thead .reg-sort:before {
-    top: 1px;
-    border-bottom: 4px solid #fff;
-  }
-
-  .reg-table thead .reg-sort:after {
-    bottom: -1px;
-    border-top: 4px solid #fff;
-  }
-
-  .reg-table thead .reg-sort.is_asc:hover:before {
-    opacity: 1;
-  }
-
-  .reg-table thead .reg-sort.is_desc:hover:after {
-    opacity: 1;
-  }
-
-  .reg-table tbody tr:nth-child(even) {
-    border-bottom-width: 1px;
-  }
-
-  .reg-table tbody tr:nth-child(even) {
-    --tw-border-opacity: 1;
-    border-color: rgba(229, 231, 235, var(--tw-border-opacity));
-  }
-
-  .reg-table tbody tr:nth-child(even) {
-    --tw-bg-opacity: 1;
-    background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
-  }
-
-  .reg-table tbody td {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
-  }
-
-  .reg-table tbody td {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-
-  .small-table tr td {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-
-  .small-table tr td {
-    padding-bottom: 0.25rem;
-  }
-
-  .small-table tr:last-child td {
-    padding-bottom: 0px;
-  }
-
-  .arrow-ribbon {
-    position: relative;
-  }
-
-  .arrow-ribbon {
-    display: flex;
-  }
-
-  .arrow-ribbon {
-    overflow: hidden;
-  }
-
-  .arrow-ribbon span {
-    background-color: rgba(0, 0, 0, 0.2);
-  }
-
-  .arrow-ribbon span {
-    padding: 0.25rem;
-  }
-
-  .arrow-ribbon span {
-    padding-left: 0.375rem;
-    padding-right: 0.375rem;
-  }
-
-  .arrow-ribbon span {
-    --tw-text-opacity: 1;
-    color: rgba(255, 255, 255, var(--tw-text-opacity));
-  }
-
-  .arrow-ribbon:after {
-    content: '';
-  }
-
-  .arrow-ribbon:after {
-    position: absolute;
-  }
-
-  .arrow-ribbon:after {
-    top: 50%;
-  }
-
-  .arrow-ribbon:after {
-    height: 100%;
-  }
-
-  .arrow-ribbon:after {
-    width: 0px;
-  }
-
-  .arrow-ribbon:after {
-    --tw-translate-y: -50%;
-    transform: var(--tw-transform);
-  }
-}
-
 .custom-scroll.custom-scroll-y {
   padding-right: 8px;
 }
@@ -3327,69 +2555,69 @@ input[type='text']:focus, select:focus {
 }
 
 .after\:right-\[-30px\]::after {
-  content: "";
+  content: var(--tw-content);
   right: -30px;
 }
 
 .after\:border-\[30px\]::after {
-  content: "";
+  content: var(--tw-content);
   border-width: 30px;
 }
 
 .after\:border-gray-100::after {
-  content: "";
+  content: var(--tw-content);
   --tw-border-opacity: 1;
-  border-color: rgba(243, 244, 246, var(--tw-border-opacity));
+  border-color: rgb(243 244 246 / var(--tw-border-opacity));
 }
 
 .after\:border-t-\[\#f3f4f6\]::after {
-  content: "";
+  content: var(--tw-content);
   --tw-border-opacity: 1;
-  border-top-color: rgba(243, 244, 246, var(--tw-border-opacity));
+  border-top-color: rgb(243 244 246 / var(--tw-border-opacity));
 }
 
 .after\:border-r-\[\#f3f4f6\]::after {
-  content: "";
+  content: var(--tw-content);
   --tw-border-opacity: 1;
-  border-right-color: rgba(243, 244, 246, var(--tw-border-opacity));
+  border-right-color: rgb(243 244 246 / var(--tw-border-opacity));
 }
 
 .after\:border-b-\[\#f3f4f6\]::after {
-  content: "";
+  content: var(--tw-content);
   --tw-border-opacity: 1;
-  border-bottom-color: rgba(243, 244, 246, var(--tw-border-opacity));
+  border-bottom-color: rgb(243 244 246 / var(--tw-border-opacity));
 }
 
 .after\:border-l-\[\#0cea48\]::after {
-  content: "";
+  content: var(--tw-content);
   --tw-border-opacity: 1;
-  border-left-color: rgba(12, 234, 72, var(--tw-border-opacity));
+  border-left-color: rgb(12 234 72 / var(--tw-border-opacity));
 }
 
 .hover\:scale-110:hover {
   --tw-scale-x: 1.1;
   --tw-scale-y: 1.1;
-  transform: var(--tw-transform);
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .hover\:border-gray-200:hover {
   --tw-border-opacity: 1;
-  border-color: rgba(229, 231, 235, var(--tw-border-opacity));
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
 
 .hover\:bg-white:hover {
   --tw-bg-opacity: 1;
-  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-gray-100:hover {
   --tw-bg-opacity: 1;
-  background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-gray-50:hover {
   --tw-bg-opacity: 1;
-  background-color: rgba(249, 250, 251, var(--tw-bg-opacity));
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-opacity-70:hover {
@@ -3414,15 +2642,17 @@ input[type='text']:focus, select:focus {
 
 .hover\:text-body:hover {
   --tw-text-opacity: 1;
-  color: rgba(27, 34, 43, var(--tw-text-opacity));
+  color: rgb(27 34 43 / var(--tw-text-opacity));
 }
 
 .hover\:underline:hover {
-  text-decoration: underline;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
 }
 
 .hover\:no-underline:hover {
-  text-decoration: none;
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
 }
 
 .hover\:opacity-90:hover {
@@ -3430,23 +2660,25 @@ input[type='text']:focus, select:focus {
 }
 
 .hover\:shadow:hover {
-  --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .hover\:shadow-md:hover {
-  --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .focus\:bg-gray-100:focus {
   --tw-bg-opacity: 1;
-  background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
 .focus\:text-body:focus {
   --tw-text-opacity: 1;
-  color: rgba(27, 34, 43, var(--tw-text-opacity));
+  color: rgb(27 34 43 / var(--tw-text-opacity));
 }
 
 .focus\:opacity-50:focus {
@@ -3460,12 +2692,12 @@ input[type='text']:focus, select:focus {
 
 .group:hover .group-hover\:rotate-45 {
   --tw-rotate: 45deg;
-  transform: var(--tw-transform);
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .group:hover .group-hover\:text-red-500 {
   --tw-text-opacity: 1;
-  color: rgba(239, 68, 68, var(--tw-text-opacity));
+  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
 .group:hover .group-hover\:opacity-100 {
@@ -3473,7 +2705,8 @@ input[type='text']:focus, select:focus {
 }
 
 .group:hover .group-hover\:shadow-lg {
-  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 

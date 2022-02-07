@@ -1,3 +1,74 @@
+@font-face {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 100;
+  src: local("SF Pro Display"),
+    url("../fonts/SF-Pro-Display-Ultralight.otf") format("woff");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 200;
+  src: local("SF Pro Display"),
+    url("../fonts/SF-Pro-Display-Thin.otf") format("woff");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 300;
+  src: local("SF Pro Display"),
+    url("../fonts/SF-Pro-Display-Light.otf") format("woff");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 400;
+  src: local("SF Pro Display"),
+    url("../fonts/SF-Pro-Display-Regular.otf") format("woff");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 500;
+  src: local("SF Pro Display"),
+    url("../fonts/SF-Pro-Display-Medium.otf") format("woff");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 600;
+  src: local("SF Pro Display"),
+    url("../fonts/SF-Pro-Display-Semibold.otf") format("woff");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 700;
+  src: local("SF Pro Display"),
+    url("../fonts/SF-Pro-Display-Bold.otf") format("woff");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 800;
+  src: local("SF Pro Display"),
+    url("../fonts/SF-Pro-Display-Heavy.otf") format("woff");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 900;
+  src: local("SF Pro Display"),
+    url("../fonts/SF-Pro-Display-Black.otf") format("woff");
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -12,45 +83,45 @@
 
 @layer components {
   body {
-    @apply text-base text-body;
+    @apply font-san text-base text-body;
   }
 
   .form-control {
     @apply rounded border border-gray-300 text-body-light placeholder-body-light;
   }
 
-  input[type='text'],
+  input[type="text"],
   select {
-    @apply focus:outline-none focus:shadow transition;
+    @apply transition focus:shadow focus:outline-none;
   }
 
   /* Custom checkbox functionality */
   .c-checkbox {
-    @apply flex items-center relative transition;
+    @apply relative flex items-center transition;
   }
 
   .c-checkbox.is_error .c-checkbox__icon {
     @apply border-red-500;
   }
 
-  .c-checkbox input[type='checkbox'] {
-    @apply w-0 h-0 opacity-0 absolute cursor-pointer;
+  .c-checkbox input[type="checkbox"] {
+    @apply absolute h-0 w-0 cursor-pointer opacity-0;
   }
 
-  .c-checkbox input[type='checkbox']:checked + .c-checkbox__icon,
-  .c-checkbox input[type='checkbox']:checked:disabled + .c-checkbox__icon {
-    @apply text-white border-0 bg-blue-400;
+  .c-checkbox input[type="checkbox"]:checked + .c-checkbox__icon,
+  .c-checkbox input[type="checkbox"]:checked:disabled + .c-checkbox__icon {
+    @apply border-0 bg-blue-400 text-white;
   }
 
-  .c-checkbox input[type='checkbox']:checked + .c-checkbox__icon svg {
+  .c-checkbox input[type="checkbox"]:checked + .c-checkbox__icon svg {
     @apply visible;
   }
 
-  .c-checkbox input[type='checkbox']:disabled + .c-checkbox__icon {
-    @apply text-gray-500 border-gray-300 bg-gray-100 cursor-not-allowed;
+  .c-checkbox input[type="checkbox"]:disabled + .c-checkbox__icon {
+    @apply cursor-not-allowed border-gray-300 bg-gray-100 text-gray-500;
   }
 
-  .c-checkbox input[type='checkbox']:disabled:checked + .c-checkbox__icon svg {
+  .c-checkbox input[type="checkbox"]:disabled:checked + .c-checkbox__icon svg {
     @apply cursor-not-allowed;
   }
 
@@ -58,7 +129,7 @@
     width: 18px;
     height: 18px;
 
-    @apply bg-white rounded border border-gray-300 relative transition;
+    @apply relative rounded border border-gray-300 bg-white transition;
   }
 
   .c-checkbox__icon:focus,
@@ -67,7 +138,7 @@
   }
 
   .c-checkbox__icon svg {
-    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer invisible transition;
+    @apply invisible absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform cursor-pointer transition;
   }
 
   .c-checkbox__title {
@@ -76,18 +147,18 @@
 
   /*Custom radio functionality*/
   .c-radio {
-    @apply w-11 h-7 relative appearance-none cursor-pointer bg-white border border-gray-300 rounded-full transition focus:outline-none;
+    @apply relative h-7 w-11 cursor-pointer appearance-none rounded-full border border-gray-300 bg-white transition focus:outline-none;
   }
 
   .c-radio:checked,
   .c-radio:active {
-    @apply bg-body border-body;
+    @apply border-body bg-body;
   }
 
   .c-radio:before {
-    content: '';
+    content: "";
 
-    @apply absolute w-5 h-5 rounded-full bg-gray-300 top-1/2 left-1 -translate-y-1/2 transform transition-all duration-300;
+    @apply absolute top-1/2 left-1 h-5 w-5 -translate-y-1/2 transform rounded-full bg-gray-300 transition-all duration-300;
   }
 
   .c-radio:checked:before,
@@ -205,11 +276,11 @@
   }
 
   .reg-table {
-    @apply table-auto w-full;
+    @apply w-full table-auto;
   }
 
   .reg-table thead {
-    @apply text-white bg-blue-500;
+    @apply bg-blue-500 text-white;
   }
 
   .reg-table thead th {
@@ -231,7 +302,7 @@
 
   .reg-table thead .reg-sort:before,
   .reg-table thead .reg-sort:after {
-    content: '';
+    content: "";
     width: 0;
     height: 0;
     border: 4px solid transparent;
@@ -263,7 +334,7 @@
   }
 
   .reg-table tbody tr:nth-child(even) {
-    @apply bg-gray-100 border-gray-200 border-b;
+    @apply border-b border-gray-200 bg-gray-100;
   }
 
   .reg-table tbody td {
@@ -279,17 +350,17 @@
   }
 
   .arrow-ribbon {
-    @apply flex relative overflow-hidden;
+    @apply relative flex overflow-hidden;
   }
 
   .arrow-ribbon span {
-    @apply text-white p-1 px-1.5 bg-black/20;
+    @apply bg-black/20 p-1 px-1.5 text-white;
   }
 
   .arrow-ribbon:after {
-    content: '';
+    content: "";
 
-    @apply absolute top-1/2 -translate-y-1/2 h-full w-0;
+    @apply absolute top-1/2 h-full w-0 -translate-y-1/2;
   }
 }
 
